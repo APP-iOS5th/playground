@@ -52,10 +52,25 @@ print(numberOfFingerHeldUpByFinn ?? "Unknown")
 //print(lastNumberOfFingerHeldUpByFinn)
 
 
-func fullName(giveName: String, middleName: String, familyName: String) -> String {
+func fullName(giveName: String, middleName: String = " ", familyName: String) -> String {
     return " \(giveName) \(middleName) \(familyName)"
 }
 
-let myFullName = fullName(giveName: "Keith", middleName: "David", familyName: "Moon")
+let myFullName = fullName(giveName: "Keith", familyName: "Moon")
 
 print(myFullName)
+
+
+func combine(_ giveName: String, _ familyName: String) -> String {
+    return "\(giveName) \(familyName)"
+}
+
+func combine(_ integer1: Int, _ integer2: Int) -> Int {
+    return integer1 + integer2
+}
+
+let combinedString = combine("Finnley", "Moon")
+let combinedInt = combine(5, 10)
+
+print(combinedString)
+print(combinedInt)
