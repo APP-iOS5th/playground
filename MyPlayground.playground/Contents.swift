@@ -111,3 +111,25 @@ final class Family: Person {
 }
 
 var family = Family(givenName: "Jeong", middleName: "Woo", familyName: "Kim", relationship: "Man")
+
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+        
+    init(movieTitle: String, startRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = startRating
+    }
+}
+
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", startRating: 3)
+
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
+shawshankReviewOnYourWebsite.starRating = 5
+
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
