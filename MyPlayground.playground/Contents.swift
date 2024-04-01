@@ -321,3 +321,52 @@ func normalizedStarRating(forRating rating: Float,
     
     return (numberOfStars, ratingString)
 }
+
+// 컬렉션 데이터 구조 (1)배열Array-O(n) (2)집합Set-중복허용X, 항상 고유값
+// (3)사전Dictionary-Key 값으로 Value 가져옴(해시함수로 연결), O(1)
+
+// ♥️ 배열 ✨
+// 데이터는 연속된 메모리 영역에 순서대로 저장된다
+var moviesToWatch: Array<String> = Array() // Array 클래스이고 객체임
+// 배열에 대한 클래스 인스턴스가 만들어짐
+
+// append 는 배열에 추가하는 함수
+moviesToWatch.append("The Shawshank Redemption")
+moviesToWatch.append("Ghostbusters")
+moviesToWatch.append("Terminator 2")
+
+print(moviesToWatch[1]) // 배열의 특정 요소에 접근할 수 있다
+print(moviesToWatch.count)
+
+moviesToWatch.insert("The Matrix", at: 2)
+
+print(moviesToWatch.first ?? "Empty")
+print(moviesToWatch.last ?? "Empty")
+
+let secondMovieToWatch = moviesToWatch[1]
+moviesToWatch[1] = "Ghostbusters (1984)"
+print(moviesToWatch.count)
+print(moviesToWatch)
+
+// let spyMovieSuggestions: Array<String> 아래랑 똑같은 의미
+let spyMovieSuggestions: [String] = ["The Bourne Identity", "Casino Royale", "Mission Impossible"]
+moviesToWatch = moviesToWatch + spyMovieSuggestions // 배열의 덧셈
+print(moviesToWatch.count)
+print(moviesToWatch)
+
+var starWarsTrilogy = Array<String>(repeating: "Star Wars: ", count: 3)
+// += 는 원래 있는 문자열(Star Wars: )에 추가로 붙여준다는 의미
+// count property 는 반복 횟수
+starWarsTrilogy[0] += "A New Hope"
+starWarsTrilogy[1] += "Empire Strikes Back"
+starWarsTrilogy[2] += "Return of the Jedi"
+print(starWarsTrilogy)
+
+// 🤍 array: replaceSubrange method ✨
+// moviesToWatch index 2에서 4까지를 starWarsTrilogy 로 스위칭하는 애
+moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
+print(moviesToWatch.count)
+
+// 🤍 array: remove method index ✨ 넘버 주면 걔를 삭제, 리턴함
+moviesToWatch.remove(at: 6)
+print(moviesToWatch.count)
