@@ -1,8 +1,13 @@
-func fullName(givenName: String, middleName:String, familyName:String) -> String {
-    return "\(givenName) \(middleName) \(familyName)"
+func combine(_ givenName: String, _ familyName: String) -> String {
+    return "\(givenName) \(familyName)"
 }
 
-let myFullName = fullName(givenName: "Keith", middleName: "David", familyName: "Moon");
+func combine(_ integer1: Int, _ integer2: Int) -> Int {
+    return integer1 + integer2
+}
 
-print(myFullName)
+let combinedString = combine("Finnley", "Moon")
+let combineInt = combine(5, 10)
 
+print(combineInt)
+print(combinedString)
