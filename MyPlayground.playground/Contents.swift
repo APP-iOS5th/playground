@@ -1,50 +1,16 @@
-struct PersonName {
-    let givenName: String
-    let middleName: String
-    var familyName: String
-     
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-     
-    mutating func change(familyName: String) {
-        self.familyName = familyName
-    }
+import Foundation
+
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let roundedRating = round(ratingOutOf5)
+    let numberOfStars = Int(roundedRating)
+    let ratingString = "\(numberOfStars) Star Movie"
+    return (numberOfStars,ratingString)
 }
 
-protocol Saveable {
-    var saveNeeded: Bool { get set }
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
-}
+let ratingAndDisplayString = normalizedStarRating(forRating: 5, ofPossibleTotal: 10)
+let ratingNumber = ratingAndDisplayString.0
+let ratingString = ratingAndDisplayString.1
 
-class Person: Saveable {
-    let birthName: PersonName
-    var currentName: PersonName
-    var countryOfResidence: String
-     
-    init(name: PersonName, countryOfResidence: String = "UK") {
-        birthName = name
-        currentName = name
-        self.countryOfResidence = countryOfResidence
-    }
-     
-    var displayString: String {
-        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
-    }
-    var saveHandler: ((Bool) -> Void)?
-    var saveNeeded: Bool = true
-     
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
-         saveHandler = handler
-         // Send person information to remove database
-         // Once remote save is complete, it calls
-           // saveComplete(Bool)
-         // We'll fake it for the moment, and assume the save is
-           // complete.
-         saveComplete(success: true)
-    }
-     
-    func saveComplete(success: Bool) {
-        saveHandler?(success)
-    }
-}
+print(ratingNumber, ratingString)
