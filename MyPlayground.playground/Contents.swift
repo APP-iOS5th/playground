@@ -1,3 +1,69 @@
+/*
 import UIKit
 
+/// 문자열 상수 및 변수 선언
 var greeting = "Hello, playground"
+let phrase: String = "The quich brown fox jums over the lazy dog"
+
+greeting = "Hi"
+//phrase = "Hi" //Cannot assign to value: 'phrase' is a 'let' constant
+
+let numberOfFoxes: Int = 1
+let numberOfAnimals: Int = 2
+
+/// Float 계산
+let averageCharactersPerWord: Float = (3+5+5+3+5+4+3+4+3) / 9
+
+/// 가변 변수
+var anotherPhrase = phrase
+anotherPhrase = "The quick brown jumps over the lazy "
+print(phrase) // "The quick brown fox jumps over the lazy dog"
+print(anotherPhrase) // "The quick brown jumps over the lazy "
+
+/// 문자열 연결 및 삽입
+var phraseInfo = "The phrase" + "has: "
+print(phraseInfo)
+
+phraseInfo = phraseInfo + "\(numberOfFoxes) fox and \(numberOfAnimals) animals"
+print(phraseInfo)
+
+/// 문자 수 세기
+print("Number of characters: \(phraseInfo.count)")
+
+/// 다중 줄 문자열 리터럴
+let multilineExplanation = """
+Why is the following phrase often used?
+"The quick brown fox jumps over the lazy dog"
+This phrase contains every letter in the alphabet.
+"""
+
+/// 부울 비교
+let phrasesAreEqual = phrase == anotherPhrase
+print(phrasesAreEqual) // false
+let phraseHas43Characters = phrase.count == 40 + 3
+print(phraseHas43Characters) // true
+
+/// Swift 에ㅅ 옵셔널과 강제 언래핑 사용하기
+var dayOfTheWeek: String = "Monday"
+dayOfTheWeek = "Tuesday"
+dayOfTheWeek = "Wednesday"
+// dayOfTheWeek = nil // 컴파일 오류 발생
+
+var numberOfFingersHeldUpByFinn: Int?
+numberOfFingersHeldUpByFinn = nil
+numberOfFingersHeldUpByFinn = 3
+
+print(numberOfFingersHeldUpByFinn ?? "Unknown")
+
+let lastNumberOfFingersHeldUpByFinn: Int = numberOfFingersHeldUpByFinn! // 위험할 수 있음
+print(lastNumberOfFingersHeldUpByFinn)
+*/
+
+/// 함수
+func fullName(givenName: String, middleName: String, familyName: String) -> String {
+    return "\(givenName) \(middleName) \(familyName)"
+}
+
+let myFullName = fullName(givenName: "kim", middleName: "s", familyName: "ong")
+print(myFullName)
+
