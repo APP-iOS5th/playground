@@ -98,6 +98,7 @@ class Person {
     }
     
     var displayString: String {
+        countryOfResidence = "Seoul"
         return "\(self.personFullName()) - Location: \(self.countryOfResidence)"
     }
     
@@ -109,15 +110,14 @@ print(person.personFullName())
 print(person.displayString)
 
 
-// Family 객체 생성 - final
-
+// Family 객체 생성 - final 으로 수정하겠댜..?
 final class Family: Person {
     let relationship: String
     
     init(giveName: String, middleName: String, familyName: String, relationship: String) {
-//        Self 나 자신
+        // Self 나 자신
         self.relationship = relationship
-//        Super 부모 부르는
+        // Super 부모 부르는 -> Person 객체 부르기
         super.init(giveName: giveName, middleName: middleName, familyName: familyName)
     }
     
@@ -127,5 +127,26 @@ final class Family: Person {
 var family = Family(giveName: "Reo", middleName: "Pass", familyName: "KIM", relationship: "Broter")
 
 print(family.personFullName())
+print(family.givenName)
 
+// 참조타입 특징
+class MovieReview {
+    let movieTitle: String
+    var startRating: Int
+    
+    init(movieTitle:String, startRating:Int) {
+        self.movieTitle = movieTitle
+        self.startRating = startRating
+    }
+}
 
+let shawShankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemtion", startRating: 3)
+
+// 소셜 미디어에 개시
+let referenceToReviewOnTwitter = shawShankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawShankReviewOnYourWebsite
+
+shawShankReviewOnYourWebsite.startRating = 5
+
+print(referenceToReviewOnTwitter.startRating)
+print(referenceToReviewOnFacebook.startRating)
