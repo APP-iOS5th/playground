@@ -173,16 +173,75 @@ let title1 = Title.mr
 print(title1.isProfessional)
 
 
-// -- //
+// -- clouser -- //
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+     
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
+}
+
+class Person2 {
+     
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
+//1
+let printAuthorDetails: () -> () = { // 스트럭트와 클래스의 초기화 및, 출력
+    let name = PersonName(givenName: "A", middleName: "B", familyName: "C")
+    let author = Person2(name: name)
+    print(author.displayString)
+}
+
+printAuthorDetails()
 
 
+//2
+let createAuthor: () -> Person2 = {
+    let name = PersonName(givenName: "A", middleName: "B", familyName: "C")
+    let author = Person2(name: name)
+    return author
+}
+print(createAuthor())
 
+//3
+let printPersonsDetails: (String, String, String) -> Void = {
+    given, middle, family in
+    let name = PersonName(givenName: given , middleName: middle, familyName: family)
+    let author = Person2(name: name)
+    print(author.displayString)
+}
+printPersonsDetails("a_","b_","c_")
 
-
-
-
-
-
+// 4
+let createPerson: (String, String, String) -> Person2 = {
+    given, middle, family in
+    let name = PersonName(
+        givenName: given,middleName: middle,familyName: family)
+    let person2 = Person2(name: name)
+    return person2
+}
+let felix = createPerson("Felix", "Robert", "Moon")
+print(felix.displayString)
 
 
 
