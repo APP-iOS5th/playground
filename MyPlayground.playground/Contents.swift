@@ -281,3 +281,29 @@ let createPerson: (String, String, String) -> Person1 = { given, middle, family 
 
 let felix = createPerson("Felix", "Robert", "Moon")
 print(felix.displayString)
+
+// ♥️ 프로토콜, 인터페이스 (자바의 인터페이스에 해당) ✨
+// 프로토콜 이름은 대체로 able 막 이래
+// 프로토콜은 혼자 존재할 수 없음 (계약서 같은 거야, 메뉴얼인거임)
+// 얠 가져다가 클래스에 붙여넣고, 클래스를 만들고 넣으면 걘 Savable 해져
+protocol Saveable {
+    var saveNeeded: Bool {get set} // Saveable 의 Property
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
+}
+
+// 상속이랑 비슷해보이는, 내가 갖고 있는 능력에 다른 걸 붙이는...
+// 프로토콜은 회사 내 주로 오류를 취합해서 리포트하는 부서에서 사용해
+class Person2: Saveable {
+    var saveHandler: ((Bool) -> Void)?
+    var saveNeeded: Bool = true
+    
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+        saveHandler = handler
+        saveComplete(success: true)
+    }
+    
+    // 언더바 쓰면 내장 함수라는 더 명시적 의미
+    func saveComplete(success: Bool) {
+        saveHandler?(success)
+    }
+}
