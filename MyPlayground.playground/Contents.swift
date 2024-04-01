@@ -1,34 +1,33 @@
 import UIKit
-
-//Chapter6
-//enum(열거형)
-enum ComprisonResult: Int{ //아무것도 주지않았을때 0부터 시작
-    case ordersAscending //0
-    case orderdSame //1
-    case orderDescending //2
-} //...3, 4, 5,
-
-enum Title: String {
-    case mr = "Mr"
-    case mrs = "Mrs"
-    case mister = "Mister"
-    case miss = "Miss"
-    case dr = "Dr"
-    case prof = "Prof"
-    case other
+//Chapter7
+//구조체는 value타입
+struct PersonName{
+    let givenName: String
+    let middleName: String
+    var familyName: String
     
-    func isProfessional() -> Bool{
-        return self == Title.dr || self == Title.prof
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
     }
-    /*
-    var isProfessional: Bool{
-        return self == Title.dr || self == Title.prof
+    
+    mutating func change(familyName: String){
+        self.familyName = familyName
     }
-     */
 }
 
-let title1 = Title.mr
-
-print(title1.isProfessional())
-//print(title1.isProfessional)
-
+class Person {
+     
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
