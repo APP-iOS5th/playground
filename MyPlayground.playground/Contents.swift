@@ -171,6 +171,36 @@ shawshankReviewOnYourWebsite.starRating = 5
 print(referenceToReviewOnTwitter.starRating)
 print(referenceToReviewOnFacebook.starRating)
 
+// ♥️ 구조체 ✨
+// struct 는 value 타입 & 클래스와 같은 목적으로 만들어짐
+// 클래스보다 큼, 모든 값을 직접 들고 있음 => 메모리는 많이 차지하지만 엄청 빠르다 (성능 굿)
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+    
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+}
+
+class Person1 {
+    let birthName: PersonName
+    let currentName: PersonName
+    var countryOfResidence: String
+    
+    init(birthName: PersonName, currentName: PersonName, countryOfResidence: String) {
+        self.birthName = birthName
+        self.currentName = currentName
+        self.countryOfResidence = countryOfResidence
+    }
+    
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
+
 // ♥️ 열거형 ✨
 enum ComparisonResult: Int {
     case orderedAscending // 0
@@ -200,4 +230,5 @@ enum Title: String {
 let title1 = Title.dr
 print(title1.isProfessional())
 print(title1.isProfessional1) // 위와 동일함, 왜 둘다 일케 되는건지?
+
 
