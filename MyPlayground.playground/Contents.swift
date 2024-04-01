@@ -143,3 +143,31 @@ final class Family: Person {
 }
 
 var family = Family(givenName: "Yunwon", middleName: "Sally", familyName: "Chae", relationship: "Daughter")
+
+// 클래스 객체 = reference types ✨
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
+    }
+}
+
+// 클래스 인스턴스
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
+
+// 소셜미디어에 게시
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
+
+shawshankReviewOnYourWebsite.starRating = 5
+
+// 변경 사항이 모든 참조✨ 에 반영됨
+// 참조라는 것이 "값을 한 군데에 변경해도 여러 곳에 반영됨"
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
+
