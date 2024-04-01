@@ -221,77 +221,108 @@ import UIKit
 //print(title1.isProfessional) // false
 
 
+//
+//struct PersonName {
+//    let givenName: String
+//    let middleName: String
+//    var familyName: String
+//     
+//    func fullName() -> String {
+//        return "\(givenName) \(middleName) \(familyName)"
+//    }
+//     
+//    mutating func change(familyName: String) {
+//        self.familyName = familyName
+//    }
+//}
+//
+//class Person {
+//    let birthName: PersonName
+//    var currentName: PersonName
+//    var countryOfResidence: String
+//     
+//    init(name: PersonName, countryOfResidence: String = "UK") {
+//        birthName = name
+//        currentName = name
+//        self.countryOfResidence = countryOfResidence
+//    }
+//     
+//    var displayString: String {
+//        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+//    }
+//}
+//
+//
+//
+//
+//
+//
+//// =========
+//// 클로저
+//// Void 는 반환할 필요 없을 때 쓴다.
+//let printAuthorDetails: () -> Void = {
+//    let name = PersonName(givenName: "yungui", middleName: "YU", familyName: "LEE")
+//    let author = Person(name: name)
+//    print(author.displayString)
+//}
+//
+//printAuthorDetails()
+//
+//
+//let createAuthor: () -> Person = {
+//    let name = PersonName(givenName: "Keith", middleName: "David", familyName: "Moon")
+//    let author = Person(name: name)
+//    return author
+//}
+//let author = createAuthor()
+//print(author.displayString)
+//
+//
+//// String inputs, no output
+//let printPersonsDetails: (String, String, String) -> Void = { given, middle, family in
+//    let name = PersonName(givenName: given, middleName: middle, familyName: family)
+//    let author = Person(name: name)
+//    print(author.displayString)
+//}
+//
+//printPersonsDetails("Kathleen", "Mary", "Moon")
+//
+//
+//let createPerson: (String, String, String) -> Person = { given, middle, family in
+//    let name = PersonName(givenName: given, middleName: middle, familyName: family)
+//    let person = Person(name: name)
+//    return person
+//}
+//let felix = createPerson("Felix", "Robert", "Moon")
+//print(felix.displayString)
 
-struct PersonName {
-    let givenName: String
-    let middleName: String
-    var familyName: String
+
+
+// Protocol
+
+// 프로토콜은 스스로 존재할 수 없다. 이걸 정의한다고 해서 기능을 만드는게 아니라, 기능 명세서와 비슷하다.
+//
+protocol Saveable {
+    var saveNeeded: Bool { get set }
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
+}
+
+class Person: Saveable {
+    //....
+    var saveHandler: ((Bool) -> Void)?
+    var saveNeeded: Bool = true
      
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+         saveHandler = handler
+         // Send person information to remove database
+         // Once remote save is complete, it calls
+           // saveComplete(Bool)
+         // We'll fake it for the moment, and assume the save is
+           // complete.
+         saveComplete(success: true)
     }
      
-    mutating func change(familyName: String) {
-        self.familyName = familyName
+    func saveComplete(success: Bool) {
+        saveHandler?(success)
     }
-}
-
-class Person {
-    let birthName: PersonName
-    var currentName: PersonName
-    var countryOfResidence: String
-     
-    init(name: PersonName, countryOfResidence: String = "UK") {
-        birthName = name
-        currentName = name
-        self.countryOfResidence = countryOfResidence
-    }
-     
-    var displayString: String {
-        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
-    }
-}
-
-
-
-
-
-
-// =========
-// 클로저
-// Void 는 반환할 필요 없을 때 쓴다.
-let printAuthorDetails: () -> Void = {
-    let name = PersonName(givenName: "yungui", middleName: "YU", familyName: "LEE")
-    let author = Person(name: name)
-    print(author.displayString)
-}
-
-printAuthorDetails()
-
-
-let createAuthor: () -> Person = {
-    let name = PersonName(givenName: "Keith", middleName: "David", familyName: "Moon")
-    let author = Person(name: name)
-    return author
-}
-let author = createAuthor()
-print(author.displayString)
-
-
-// String inputs, no output
-let printPersonsDetails: (String, String, String) -> Void = { given, middle, family in
-    let name = PersonName(givenName: given, middleName: middle, familyName: family)
-    let author = Person(name: name)
-    print(author.displayString)
-}
-
-printPersonsDetails("Kathleen", "Mary", "Moon")
-
-
-let createPerson: (String, String, String) -> Person = { given, middle, family in
-    let name = PersonName(givenName: given, middleName: middle, familyName: family)
-    let person = Person(name: name)
-    return person
-}
-let felix = createPerson("Felix", "Robert", "Moon")
-print(felix.displayString)
+} 
