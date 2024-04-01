@@ -1,25 +1,23 @@
 import UIKit
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "UK"
-    
-    var displayString: String {
-        "\(self.fullName()) - Location: \(self.countryOfResidence)"
-    }
-    
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
 }
 
-let person = Person(givenName: "one", middleName: "two", familyName: "three")
-print(person.displayString)
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
+
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
+
+shawshankReviewOnYourWebsite.starRating = 5
+
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
