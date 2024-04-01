@@ -172,7 +172,7 @@ enum Title: String {
 let title = Title.mr
 
 print(title.isProFessional) //false
- */
+ 
 
 struct PersonName { //value 타입
     let givenName: String
@@ -230,3 +230,29 @@ let createPerson: (String, String, String) -> Person = { given, middle, family i
 }
 let felix = createPerson("Felix", "Robert", "Moon")
 print(felix.displayString)
+*/
+
+///프로토콜
+///이름이 대부분 ...able 이랍니다j
+///스스로 존재 할 수 없음
+protocol Saveable {
+    var saveNeeded: Bool {get set}
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
+}
+
+class Person: Saveable {
+    //....
+    var saveHandler: ((Bool) -> Void)?
+    var saveNeeded: Bool = true
+     
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) { //밖에서도 사용하고 싶어서 escaping을 사용..?
+        ///클로저를 인수로 받으면 그 클로저는 함수 안에서 실행이 종료되는데
+        ///이스케이핑 키워드를 쓰면 함수가 다 끝나고 함수밖에서 실행된다고 보면댐..
+         saveHandler = handler
+         saveComplete(success: true)
+    }
+     
+    func saveComplete(success: Bool) {
+        saveHandler?(success)
+    }
+}
