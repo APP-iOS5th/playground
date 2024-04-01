@@ -1,40 +1,22 @@
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
+
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
     
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
-    func fullName() -> String{
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-    
-    var displayString: String {
-        return "\(fullName()) - Location: \(countryOfResidence)"
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
 }
 
-var person = Person(givenName: "Inho", middleName: "Harry", familyName: "Lee")
+let shawshankReview = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
+
+let twitter = shawshankReview
+let facebook = shawshankReview
+
+twitter.starRating = 5
+
+print(shawshankReview.starRating)
 
 
-final class Family: Person {
-    let relationship: String
-    
-    init(givenName: String, 
-         middleName: String,
-         familyName: String,
-         relationship: String) {
-        self.relationship = relationship
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
-    }
-}
-
-var family = Family(givenName: "Inho", middleName: "Harry", familyName: "Lee", relationship: "Me")
-
-print(family.countryOfResidence)
 
