@@ -1,24 +1,26 @@
 
-class MovieReview {
-    let movieTitle: String
-    var starRating: Int
-    init(movieTitle: String, starRating: Int) {
-        self.movieTitle = movieTitle
-        self.starRating = starRating
+enum ComparisonResult : Int {
+    case orderedAscending // 0
+    case orderedSame // 1
+    case orderedDescending // 2
+    // ... 3, 4, 5,
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    var isProfessional: Bool {
+        return self == Title.dr || self == Title.prof
     }
 }
 
-let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
 
-// 소셜 미디어에 게시
-let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
-let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+let title1 = Title.mr
 
-print(referenceToReviewOnTwitter.starRating) // 3
-print(referenceToReviewOnFacebook.starRating) // 3
-
-shawshankReviewOnYourWebsite.starRating = 5
-
-// 변경 사항이 모든 참조에 반영됨
-print(referenceToReviewOnTwitter.starRating) // 5
-print(referenceToReviewOnFacebook.starRating) // 5
+print(title1.isProfessional) // false
