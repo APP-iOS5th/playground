@@ -208,11 +208,23 @@ let printAuthorDetails: () -> () = {
 
 printAuthorDetails()
 
-
 let createAuthor: () -> Person = {
-    let name = PersonName(givenName: "Jeong", middleName: "Woo", familyName: "Kim")
+    let name = PersonName(givenName: "Keith",
+                          middleName: "David",
+                          familyName: "Moon")
     let author = Person(name: name)
     return author
 }
 let author = createAuthor()
 print(author.displayString)
+
+let createPerson: (String, String, String) -> Person = { given,
+  middle, family in
+    let name = PersonName(givenName: given,
+                          middleName: middle,
+                          familyName: family)
+    let person = Person(name: name)
+    return person
+}
+let felix = createPerson("Felix", "Robert", "Moon")
+print(felix.displayString)
