@@ -154,3 +154,32 @@ print(referenceToReviewOnFacebook.starRating) // 5
 referenceToReviewOnTwitter.starRating = 10
 print(shawshankReviewOnYourWebsite.starRating) // 10
 print(referenceToReviewOnFacebook.starRating) // 10
+
+
+// 열거형
+enum ComparisonResult: Int {
+    case orderedAscendig // 0
+    case orderedSame // 1
+    case orderedDescending // 2
+    // ... 3, 4, 5,
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    func isProfessional() -> Bool {
+        return self == Title.dr || self == Title.prof
+//    var isProfessional: Bool {
+//        return self == Title.dr || self == Title.prof
+    }
+}
+
+let title1 = Title.mr
+
+print(title1.isProfessional()) // false
