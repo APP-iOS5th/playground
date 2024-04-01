@@ -125,13 +125,89 @@ class MovieReview {
 
 let shawshankReview = MovieReview(movieTitle: "Shawshank", statRating: 3)
 
-print(shawshankReview.statRating)
+//print(shawshankReview.statRating)
 
 shawshankReview.statRating = 5
 
-print(shawshankReview.statRating)
+//print(shawshankReview.statRating)
     
 
+//--------------------------------------
+//구조체
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+    
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+    
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
+}
+
+class Person2 {
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
+
+//구조체 vs 클래스
+
+
+
+
+
+
+
 //enums (열겨형)
+enum ComparisonResult: Int {
+    case orderedAscending //0
+    case orderedSame // 1
+    case orderedDescending //2
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    var isProfessional: Bool {
+        return self == Title.dr || self == Title.prof
+    }
+}
+
+
+let title1 = Title.mr
+//print(title1)
+//print(title1.isProfessional)
+
+let compari = ComparisonResult.orderedAscending
+//print(compari)
+
+
+
+
+
+
+
+//클로저
 
 
