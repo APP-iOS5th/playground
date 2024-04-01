@@ -1,15 +1,8 @@
-var dayOfTheWeek: String = "Monday"
-dayOfTheWeek = "Tuesday"
-dayOfTheWeek = "Wednesday"
-//dayOfTheWeek = nil // 컴파일 오류 발생
 
-var numberOfFingersHeldUpByFinn: Int?
-numberOfFingersHeldUpByFinn = nil
-numberOfFingersHeldUpByFinn = 3
+func fullName(givenName: String, middleName: String, familyName: String) -> String {
+    return "\(givenName) \(middleName) \(familyName)"
+}
 
-print(numberOfFingersHeldUpByFinn ?? "")
+let myFullName = fullName(givenName: "Keith", middleName: "David", familyName: "Moon");
 
-
-let lastNumberOfFingersHeldUpByFinn: Int = numberOfFingersHeldUpByFinn! // 위험할 수 있음
-print(lastNumberOfFingersHeldUpByFinn)
-
+print(myFullName)
