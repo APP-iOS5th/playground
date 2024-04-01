@@ -1,10 +1,17 @@
-func fullName(givenName: String, middleName: String = "Unknown", familyName: String) -> String {
-    return "\(givenName) \(middleName) \(familyName)"
+func combine(_ givenName: String, _ familyName: String) -> String
+{
+    return "\(givenName) \(familyName)"
 }
 
+func combine(_ integer1: Int, _ integer2: Int) -> Int
+{
+    return integer1 + integer2
+}
 
-let myFullName1 = fullName(givenName: "Jin", middleName: "J", familyName: "Park")
-let myFullName2 = fullName(givenName: "Jin", familyName: "Park")
+let combinedString = combine("Finnley", "Moon")
+let combinedInt = combine(5,10)
 
-print(myFullName1)
-print(myFullName2)
+print(combinedString)
+print(combinedInt)
+
+//let combinedMixed = combine("Finnlye", 5) // No exact matches in call to global function 'combine'
