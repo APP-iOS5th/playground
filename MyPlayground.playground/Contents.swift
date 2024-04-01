@@ -88,7 +88,7 @@ print(combinedInt)
 
 
 // 클래스
-class Person {
+class Pperson {
     let givenName: String
     let middleName: String
     let familyName: String
@@ -113,10 +113,10 @@ class Person {
 }
 
 // 클래스 인스턴스 생성
-var person = Person(givenName: "Jihye", middleName: "", familyName: "Park")
+var person = Pperson(givenName: "Jihye", middleName: "", familyName: "Park")
 
 // 상속
-final class Family: Person {
+final class Family: Pperson {
     let relationship: String
     
     init(givenName: String, middleName: String, familyName: String, relationship: String) {
@@ -183,3 +183,79 @@ enum Title: String {
 let title1 = Title.mr
 
 print(title1.isProfessional()) // false
+
+
+// 구조체
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+     
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
+}
+
+class Person {
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
+
+// 클로저
+// 리턴 타입 없을 때
+let printAuthorDetails: () -> Void = {
+    let name = PersonName(givenName: "Jihye", middleName: "", familyName: "Park")
+    let author = Person(name: name)
+    print(author.displayString)
+}
+
+printAuthorDetails()
+
+// 리턴 타입 있을 때
+let createAuthor: () -> Person = {
+    let name = PersonName(givenName: "Jihye", middleName: "", familyName: "Park")
+    let author = Person(name: name)
+    return author
+}
+
+let author = createAuthor()
+print(author.displayString)
+
+// String inputs, no output
+let printPersonsDetails: (String, String, String) -> Void = {
+    given, middle, family in
+        let name = PersonName(givenName: given, middleName: middle, familyName: family)
+        let author = Person(name: name)
+        print(author.displayString)
+}
+
+printPersonsDetails("Jihye", "", "Park")
+
+// String inputs, output
+let createPerson: (String, String, String) -> Person = { given,
+  middle, family in
+    let name = PersonName(givenName: given,
+                          middleName: middle,
+                          familyName: family)
+    let person = Person(name: name)
+    return person
+}
+
+let felix = createPerson("Felix", "Robert", "Moon")
+print(felix.displayString)
