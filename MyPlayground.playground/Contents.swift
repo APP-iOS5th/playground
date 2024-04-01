@@ -30,5 +30,13 @@ class Person {
 
 let person = Person(givenName: "최", middleName: "미친소", familyName: "광우")
 print(person.displayString)
-person.changeResidence(residence: "US")
-print(person.displayString)
+
+final class Family: Person {
+    var relationShip: String
+    
+    init(givenName: String, middleName: String, familyName: String, relationShip: String) {
+        // 자식 Class를 먼저 초기화 하고, 부모 Class를 초기화 해줘야한다. -> 이게 서순
+        self.relationShip = relationShip
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+}
