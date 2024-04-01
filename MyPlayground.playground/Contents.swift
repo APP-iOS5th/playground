@@ -257,7 +257,6 @@ class Person: Saveable {
         saveHandler?(success)
     }
 }
-*/
 
 //별점 정규화 함수
 func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
@@ -268,4 +267,41 @@ func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float)
     let ratingString = "\(numberOfStars) Star Movie"
     return (numberOfStars, ratingString)
 }
+*/
 
+/// 배열
+var moviesToWatch: Array<String> = Array()
+
+moviesToWatch.append("The Shawshank Redemption")
+moviesToWatch.append("Ghostbusters")
+moviesToWatch.append("Terminator 2")
+
+print(moviesToWatch[1])
+print(moviesToWatch.count)
+
+moviesToWatch.insert("The Matrix", at: 2)
+print(moviesToWatch)
+
+print(moviesToWatch.first ?? "Empty")
+print(moviesToWatch.last ?? "Empty")
+
+let secondMovieToWatch = moviesToWatch[1]
+moviesToWatch[1] = "Ghostbusters"
+print(secondMovieToWatch.count)
+print(moviesToWatch)
+
+let spyMovieSuggestions: [String] = ["The Bourne Identity", "Casino Royale", "Mission Impossible"] //배열합치기
+moviesToWatch = moviesToWatch + spyMovieSuggestions
+print(moviesToWatch)
+
+var starWarsTrilogy = Array<String>(repeating: "Star Wars", count: 3) //미리 갯수 정해주기
+starWarsTrilogy[0] += "A New Hope"
+starWarsTrilogy[1] += "Empire Striles Back"
+starWarsTrilogy[2] += "Return of the Jedi"
+print(starWarsTrilogy)
+
+moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy) // 바꿔치기
+print(moviesToWatch)
+
+moviesToWatch.remove(at: 6) //삭제
+print(moviesToWatch.count)
