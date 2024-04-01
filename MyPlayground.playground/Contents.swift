@@ -76,3 +76,31 @@ let combinedInt = combine(5,10)
 
 print(combinedString)
 print(combinedInt)
+
+
+//객체 클래스에서 기능 캡슐화하기
+class Person {
+    let givenName: String
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "KR"
+    
+
+    
+    init(giveName: String, middleName: String, familyName: String) {
+        self.givenName = giveName
+        self.middleName = middleName
+        self.familyName = familyName
+    }
+    
+    func personFullName ()-> String {
+        return "\(givenName) \(middleName) \(familyName) !"
+    }
+    
+    var displayString: String {
+        return "\(self.personFullName()) - Location: \(self.countryOfResidence)"
+    }
+    
+}
+
+
