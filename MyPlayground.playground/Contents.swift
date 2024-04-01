@@ -126,3 +126,31 @@ final class Family: Person {
 }
 
 var family = Family(givenName: "Jihye", middleName: "", familyName: "Park", relationship: "Daughter")
+
+// 참조 타입
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
+    }
+}
+
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
+
+// 소셜 미디어에 게시
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(referenceToReviewOnTwitter.starRating) // 3
+print(referenceToReviewOnFacebook.starRating) // 3
+
+shawshankReviewOnYourWebsite.starRating = 5
+
+print(referenceToReviewOnTwitter.starRating) // 5
+print(referenceToReviewOnFacebook.starRating) // 5
+
+referenceToReviewOnTwitter.starRating = 10
+print(shawshankReviewOnYourWebsite.starRating) // 10
+print(referenceToReviewOnFacebook.starRating) // 10
