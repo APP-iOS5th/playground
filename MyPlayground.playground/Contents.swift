@@ -1,3 +1,7 @@
-import UIKit
+func fullName(givenName: String, middleName: String, familyName: String) -> String {
+    return "\(givenName) \(middleName) \(familyName)"
+}
 
-var greeting = "Hello, playground"
+let mtFullName = fullName(givenName: "K", middleName: "L", familyName: "A")
+
+print(mtFullName)
