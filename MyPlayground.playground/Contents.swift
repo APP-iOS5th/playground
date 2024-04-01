@@ -57,7 +57,7 @@ print(numberOfFingersHeldUpByFinn ?? "Unknown")
 
 let lastNumberOfFingersHeldUpByFinn: Int = numberOfFingersHeldUpByFinn! // 위험할 수 있음
 print(lastNumberOfFingersHeldUpByFinn)
-*/
+
 
 /// 함수
 func fullName(givenName: String, middleName: String = "Unknown", familyName: String)
@@ -81,5 +81,30 @@ let combinedString = combine("Finnley", "Moon")
 let combinedInt = combine(5, 10)
 print(combinedString) // Finnley Moon
 print(combinedInt) // 15
+ */
 
 /// 객체클래스에서 기능 캡슐화하기
+class Person {
+    let givenName: String
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "KR"
+    init(givenName: String, middleName: String, familyName: String, countryOfResidence: String) {
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName = familyName
+        self.countryOfResidence = countryOfResidence
+    }
+    
+    // 함수
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+    
+    // 프로퍼티 (변수)
+    var dispalyString: String {
+        return "\(self.fullName()) - Location: \(self.countryOfResidence)"
+    }
+    
+}
+
