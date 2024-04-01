@@ -89,11 +89,11 @@ class Person {
     let middleName: String
     let familyName: String
     var countryOfResidence: String = "KR"
-    init(givenName: String, middleName: String, familyName: String, countryOfResidence: String) {
+    
+    init(givenName: String, middleName: String, familyName: String) {
         self.givenName = givenName
         self.middleName = middleName
         self.familyName = familyName
-        self.countryOfResidence = countryOfResidence
     }
     
     // 함수
@@ -108,3 +108,4 @@ class Person {
     
 }
 
+var person = Person(givenName: "Song", middleName: "K", familyName: "m")
