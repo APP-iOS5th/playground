@@ -1,17 +1,39 @@
-func combine(_ givenName: String, _ familyName: String) -> String
-{
-    return "\(givenName) \(familyName)"
+class Person {
+    let givenName: String
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "KR"
+    
+    init (givenName: String, middleName: String, familyName: String) {
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName = familyName
+    }
+    
+    var displayString: String {
+        return "\(fullName()) - Location: \(countryOfResidence)"
+    }
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
 }
 
-func combine(_ integer1: Int, _ integer2: Int) -> Int
-{
-    return integer1 + integer2
+let jin = Person(givenName: "Jin", middleName: "J.", familyName: "Park")
+jin.countryOfResidence = "CA"
+print(jin.displayString)
+
+final class Family: Person {
+    let relationship: String
+    
+    init(givenName: String,
+         middleName: String,
+         familyName: String,
+         relationship: String) {
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
 }
 
-let combinedString = combine("Finnley", "Moon")
-let combinedInt = combine(5,10)
+var family = Family(givenName: "Jin", middleName: "J.", familyName: "Park", relationship: "Dad")
+print(family.givenName)
 
-print(combinedString)
-print(combinedInt)
-
-//let combinedMixed = combine("Finnlye", 5) // No exact matches in call to global function 'combine'
