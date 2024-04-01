@@ -19,4 +19,22 @@ class Person {
     }
 }
 
+var person = Person(givenName: "Inho", middleName: "Harry", familyName: "Lee")
+
+
+final class Family: Person {
+    let relationship: String
+    
+    init(givenName: String, 
+         middleName: String,
+         familyName: String,
+         relationship: String) {
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+}
+
+var family = Family(givenName: "Inho", middleName: "Harry", familyName: "Lee", relationship: "Me")
+
+print(family.countryOfResidence)
 
