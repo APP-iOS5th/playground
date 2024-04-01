@@ -1,5 +1,6 @@
-/*
 import UIKit
+
+/*
 
 /// 문자열 상수 및 변수 선언
 var greeting = "Hello, playground"
@@ -230,7 +231,7 @@ let createPerson: (String, String, String) -> Person = { given, middle, family i
 }
 let felix = createPerson("Felix", "Robert", "Moon")
 print(felix.displayString)
-*/
+
 
 ///프로토콜
 ///이름이 대부분 ...able 이랍니다j
@@ -256,3 +257,15 @@ class Person: Saveable {
         saveHandler?(success)
     }
 }
+*/
+
+//별점 정규화 함수
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let roundedRating = round(ratingOutOf5)
+    let numberOfStars = Int(roundedRating)
+    let ratingString = "\(numberOfStars) Star Movie"
+    return (numberOfStars, ratingString)
+}
+
