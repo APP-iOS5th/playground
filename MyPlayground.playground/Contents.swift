@@ -68,4 +68,16 @@ func fullName(givenName: String, middleName: String = "Unknown", familyName: Str
 let myFullName = fullName(givenName: "kim", familyName: "song")
 print(myFullName)
 
+/// 매개변수 오버로딩
+/// Swift는 매개변수 오버로딩을 지원하여, 같은 이름의 함수가 다른 매개변수를 가질 수 있습니다.
+func combine(_ givenName: String, _ familyName: String) -> String {
+    return "\(givenName) \(familyName)"
+}
+func combine(_ integer1: Int, _ integer2: Int) -> Int {
+    return integer1 + integer2
+}
 
+let combinedString = combine("Finnley", "Moon")
+let combinedInt = combine(5, 10)
+print(combinedString) // Finnley Moon
+print(combinedInt) // 15
