@@ -53,10 +53,26 @@ print(lastNumberOfFingersHeldUpByFinn)
 
 
 //함수 재사용
-func fullName (givenName:String, middleName:String = "Unknown", familyName:String)-> String {
+func fullName (_ givenName:String, _ middleName:String = "Unknown", _ familyName:String)-> String {
     return "\(givenName) \(middleName) \(familyName) !"
 }
 
-let myFullName = fullName(givenName: "Sam",  familyName: "Kim")
+let myFullName = fullName("Sam","","Kim")
 
 print(myFullName)
+
+
+//매개변수 오버로딩
+func combine (_ giveName: String, _ familyName: String) -> String {
+    return "\(giveName) \(familyName)"
+}
+
+func combine(_ integer1: Int, _ integer2: Int) -> Int {
+    return integer1 + integer2
+}
+
+let combinedString = combine("Finnley", "Moon")
+let combinedInt = combine(5,10)
+
+print(combinedString)
+print(combinedInt)
