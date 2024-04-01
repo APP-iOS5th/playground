@@ -1,46 +1,23 @@
-import UIKit
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
+class MovieReview {
+    let moviewTitle: String
+    var starRating: Float
     
-    var displayString: String {
-        return "\(self.fullName()) - Location: \(countryOfResidence)"
+    init(moviewTitle: String, starRating: Float) {
+        self.moviewTitle = moviewTitle
+        self.starRating = starRating
     }
-    
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-    
 }
 
+let shawshankReviewOnYourWebsite = MovieReview(moviewTitle: "shawshank", starRating: 3)
 
-var person: Person = Person(givenName: "Seongbin", middleName: "Edward", familyName: "Jo")
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnInstagram = shawshankReviewOnYourWebsite
 
-print(person.givenName)
-print(person.middleName)
-print(person.familyName)
-print(person.countryOfResidence)
-print(person.displayString)
-print(person.fullName())
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnInstagram.starRating)
 
+shawshankReviewOnYourWebsite.starRating = 4.7
 
-final class Family: Person {
-    let relationshop: String
-    
-    init(givenName: String, middleName: String, familyName: String, relationshop: String) {
-        self.relationshop = relationshop
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
-    }
-    
-}
-
-var family: Family = Family(givenName: "Seongbin", middleName: "Edward", familyName: "Jo", relationshop: "본인")
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnInstagram.starRating)
