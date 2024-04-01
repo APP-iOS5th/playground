@@ -101,3 +101,47 @@ class Person {
     }
     
 }
+
+var person = Person(givenName: "Joohyun", middleName: "Jude", familyName: "Song")
+
+//family라는 클래스는 Person보다 좀 더 상세한 기록이 가능해지는 것
+final class Family: Person {
+    let relationship: String
+    
+    init(givenName: String,
+         middleName: String,
+         familyName: String,
+         relationship: String) {
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+}
+
+var family = Family(givenName: "Joohyun", middleName: "Jude", familyName: "Song", relationship: "Second Sis")
+
+
+//참조 타입~~!!
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
+    }
+}
+
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
+
+//소셜미디어에 게시
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(referenceToReviewOnTwitter.starRating) //3
+print(referenceToReviewOnFacebook.starRating) //3
+
+shawshankReviewOnYourWebsite.starRating = 5
+
+//값을 한군데만 변경해도, 변경 사항이 모든 참조에 반영됨
+print(referenceToReviewOnTwitter.starRating) //5
+print(referenceToReviewOnFacebook.starRating) //5
+
