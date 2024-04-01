@@ -70,15 +70,14 @@ print(lastNumberOfFingerHeldUpByFinn)
 
 //void??
 
-func fullName(givenName: String, middleName: String, familyName: String) -> String {
+func fullName(givenName: String, middleName: String = "Unknown", familyName: String) -> String {
     return "\(givenName) \(middleName) \(familyName)"
 }
 
-let myFullName = fullName(givenName: "beom", middleName: "jun", familyName: "hong")
+let myFullName = fullName(givenName: "beom", /*middleName: "jun",*/ familyName: "hong")
 
 print(myFullName)
 //print(fullName(givenName: "1", middleName: "2", familyName: "3"))
-
 
 
 
