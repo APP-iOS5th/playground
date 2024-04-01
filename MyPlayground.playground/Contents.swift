@@ -74,40 +74,63 @@
 //print(combinedString) // Finnley Moon
 //print(combinedInt) // 15
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
+//class Person {
+//    let givenName: String
+//    let middleName: String
+//    let familyName: String
+//    var countryOfResidence: String = "KR"
+//
+//    init(givenName: String, middleName: String, familyName: String) {
+//        self.givenName = givenName
+//        self.middleName = middleName
+//        self.familyName = familyName
+//    }
+//        
+//    func fullName() -> String {
+//        return "\(givenName) \(middleName) \(familyName)"
+//    }
+//    
+//    var displayString: String {
+//        return "\(self.fullName()) - Location: \(self.countryOfResidence)"
+//    }
+//}
+//
+//var person = Person(givenName: "Jaeuk", middleName: "Jay", familyName: "Shin")
+//
+//final class Family: Person {
+//    let relationship: String
+//    
+//    init(givenName: String,
+//         middleName: String,
+//         familyName: String,
+//         relationship: String) {
+//        self.relationship = relationship
+//        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+//    }
+//}
+//
+//var family = Family(givenName: "Jaeuk", middleName: "Jay", familyName: "Shin", relationship: "Dad")
 
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-        
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-    
-    var displayString: String {
-        return "\(self.fullName()) - Location: \(self.countryOfResidence)"
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
 }
 
-var person = Person(givenName: "Jaeuk", middleName: "Jay", familyName: "Shin")
+let shawchankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
 
-final class Family: Person {
-    let relationship: String
-    
-    init(givenName: String,
-         middleName: String,
-         familyName: String,
-         relationship: String) {
-        self.relationship = relationship
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
-    }
-}
+//소셜 미디어에 게시
+let refenceToReviewOnTwitter = shawchankReviewOnYourWebsite
+let refenceToReviewOnFacebook = shawchankReviewOnYourWebsite
 
-var family = Family(givenName: "Jaeuk", middleName: "Jay", familyName: "Shin", relationship: "Dad")
+print(refenceToReviewOnTwitter.starRating)
+print(refenceToReviewOnFacebook.starRating)
 
+shawchankReviewOnYourWebsite.starRating = 5
+
+// 변경 사항이 모든 참조에 반영됨
+print(refenceToReviewOnTwitter.starRating)
+print(refenceToReviewOnFacebook.starRating)
