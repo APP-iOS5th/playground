@@ -70,3 +70,18 @@ func fullName(givenName: String, middleName: String = " ", familyName: String) -
 
 let myFullName = fullName(givenName: "Keith", middleName: "David0", familyName: "Moon")
 print(myFullName)
+
+// 파라미터 오버로딩
+func combine(_ givenName: String, _ familyName: String) -> String {
+    return "\(givenName) \(familyName)"
+}
+
+func combine(_ integer1: Int, _ integer2: Int) -> Int {
+    return integer1 + integer2
+}
+
+let combinedString = combine("Jihye", "Park")
+let combinedInt = combine(5, 10)
+
+print(combinedString)
+print(combinedInt)
