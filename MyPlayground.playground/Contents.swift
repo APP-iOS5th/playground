@@ -1,38 +1,29 @@
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
     
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
-    var displayString: String {
-        return "\(self.fullName()) - Location: \(countryOfResidence)"
-    }
-    
-    
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-    
-}
-
-
-var person = Person(givenName: "Chunghyun", middleName: "Ruel", familyName: "Lee")
-    
-
-
-final class Family: Person {
-    let relationship: String
-    
-    init( givenName: String, middleName: String, familyName: String, relationship: String) {
-        self.relationship = relationship
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
 }
 
-var family = Family(givenName: "Chunghyun", middleName: "Ruel", familyName: "Lee", relationship: "나")
+
+//리뷰작성
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
+
+//소셜미디어에 게시
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
+
+shawshankReviewOnYourWebsite.starRating = 5
+
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
+
+
+
+
