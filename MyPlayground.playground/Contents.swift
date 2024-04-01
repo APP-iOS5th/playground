@@ -146,34 +146,35 @@ import UIKit
 
 
 // ============================
+// 레퍼런스
 
-class MovieReview { // 붕어빵 틀 (클래스)
-    let movieTitle: String
-    var starRating: Int
-    
-    // 변수var 도 초기화 해준다.
-    init(movieTitle: String, starRating: Int) {
-        self.movieTitle = movieTitle
-        self.starRating = starRating
-    }
-}
-
-let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)   // 붕어빵 객체 (클래스 인스턴스)
-
-// 소셜 미디어에 게시
-// 레퍼런스_ 참조 타입의 작동방식
-let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
-let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
-
-print(referenceToReviewOnTwitter.starRating) // 3
-print(referenceToReviewOnFacebook.starRating) // 3
-
-// 리뷰 재고
-shawshankReviewOnYourWebsite.starRating = 5
-
-// 변경 사항이 모든 참조에 반영됨
-print(referenceToReviewOnTwitter.starRating) // 5
-print(referenceToReviewOnFacebook.starRating) // 5
+//class MovieReview { // 붕어빵 틀 (클래스)
+//    let movieTitle: String
+//    var starRating: Int
+//    
+//    // 변수var 도 초기화 해준다.
+//    init(movieTitle: String, starRating: Int) {
+//        self.movieTitle = movieTitle
+//        self.starRating = starRating
+//    }
+//}
+//
+//let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)   // 붕어빵 객체 (클래스 인스턴스)
+//
+//// 소셜 미디어에 게시
+//// 레퍼런스_ 참조 타입의 작동방식
+//let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+//let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+//
+//print(referenceToReviewOnTwitter.starRating) // 3
+//print(referenceToReviewOnFacebook.starRating) // 3
+//
+//// 리뷰 재고
+//shawshankReviewOnYourWebsite.starRating = 5
+//
+//// 변경 사항이 모든 참조에 반영됨
+//print(referenceToReviewOnTwitter.starRating) // 5
+//print(referenceToReviewOnFacebook.starRating) // 5
 
 // 참조데이터의 장점: 값을 한 군데서 변경해도, 다른 곳에 다 적용된다. 클래스 객체는 참조 타입이므로, 객체에 대한 변경 사항은 해당 객체를 참조하는 모든 곳에서 볼 수 있습니다.
 // 한 객체에 대한 여러 참조가 있을 때, 한 참조를 통해 객체를 변경하면, 다른 모든 참조에서도 그 변경을 볼 수 있습니다.
@@ -187,37 +188,9 @@ print(referenceToReviewOnFacebook.starRating) // 5
 // class 는 레퍼런스
 // struct 는 클래스보다 공간이 더 크다. 값 타입이기 떄문에. 그래서 값이 그 자체에 있기 때문에 class 보다 성능이 더 좋고 빠름. 메모리는 많이 듬.
 // 구조체의 성능을 클래스가 따라갈 수가 없다. 그리고 구현방식은. 아래와 같다.
+//
 
-struct PersonName {
-    let givenName: String
-    let middleName: String
-    var familyName: String
-     
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-     
-    mutating func change(familyName: String) {
-        self.familyName = familyName
-    }
-}
 
-class Person {
-     
-    let birthName: PersonName
-    var currentName: PersonName
-    var countryOfResidence: String
-     
-    init(name: PersonName, countryOfResidence: String = "UK") {
-        birthName = name
-        currentName = name
-        self.countryOfResidence = countryOfResidence
-    }
-     
-    var displayString: String {
-        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
-    }
-}
 
 
 // ================
@@ -237,7 +210,7 @@ class Person {
 //    case dr = "Dr"
 //    case prof = "Prof"
 //    case other
-//    
+//
 //    var isProfessional: Bool {
 //        return self == Title.dr || self == Title.prof
 //    }
@@ -249,7 +222,76 @@ class Person {
 
 
 
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+     
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
+}
+
+class Person {
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
+
+
+
 
 
 // =========
 // 클로저
+// Void 는 반환할 필요 없을 때 쓴다.
+let printAuthorDetails: () -> Void = {
+    let name = PersonName(givenName: "yungui", middleName: "YU", familyName: "LEE")
+    let author = Person(name: name)
+    print(author.displayString)
+}
+
+printAuthorDetails()
+
+
+let createAuthor: () -> Person = {
+    let name = PersonName(givenName: "Keith", middleName: "David", familyName: "Moon")
+    let author = Person(name: name)
+    return author
+}
+let author = createAuthor()
+print(author.displayString)
+
+
+// String inputs, no output
+let printPersonsDetails: (String, String, String) -> Void = { given, middle, family in
+    let name = PersonName(givenName: given, middleName: middle, familyName: family)
+    let author = Person(name: name)
+    print(author.displayString)
+}
+
+printPersonsDetails("Kathleen", "Mary", "Moon")
+
+
+let createPerson: (String, String, String) -> Person = { given, middle, family in
+    let name = PersonName(givenName: given, middleName: middle, familyName: family)
+    let person = Person(name: name)
+    return person
+}
+let felix = createPerson("Felix", "Robert", "Moon")
+print(felix.displayString)
