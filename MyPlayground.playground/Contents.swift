@@ -287,3 +287,9 @@ starWarsTrilogy[0] += "A New Hope"
 starWarsTrilogy[1] += "Empire Strikes Back"
 starWarsTrilogy[2] += "Return of the Jedi"
 print(starWarsTrilogy)
+
+moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
+print(moviesToWatch.count)
+
+moviesToWatch.remove(at: 6)
+print(moviesToWatch.count)
