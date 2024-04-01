@@ -147,7 +147,6 @@ shawshankReviewOnYourWebsite.starRating = 5
 
 print(referenceToReviewOnTwitter.starRating) //5
 print(referenceToReviewOnTwitter.starRating) //5
-*/
 
 /// 열거형
 enum ComparisonResult: Int {
@@ -173,3 +172,53 @@ enum Title: String {
 let title = Title.mr
 
 print(title.isProFessional) //false
+ */
+
+struct PersonName { //value 타입
+    let givenName: String
+    let middleName: String
+    var familyName: String
+     
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
+}
+
+class Person { //reference 타입
+     
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
+
+//클로저 Closures
+let printAuthorDetails: () -> Void = { //반환할 피룡 없을 때 Void
+    let name = PersonName(givenName: "Song", middleName: "k", familyName: "im")
+    let author = Person(name: name)
+    print(author.displayString)
+}
+
+printAuthorDetails()
+
+let createAuthor: () -> Person = {
+    let name = PersonName(givenName: "Keith", middleName: "David", familyName: "Moon")
+    let author = Person(name: name)
+    return author
+}
+let author = createAuthor()
+print(author.displayString)
