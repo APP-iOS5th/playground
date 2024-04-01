@@ -62,13 +62,13 @@ print(lastNumberOfFingerHeldUpByFinn)
 
 
 // 함수는 기능을 '분리'하여, 재사용되거나 구조화할 수 있다. 그러나 너무 남발하면, 읽기 어려운 코드가 될 수도 있다.
-// camelcase(대소문자로 구분)로 함수 이름을 짠다
-
-func fullName(givenName: String, middleName: String, familyName: String) -> String {
+// camelcase(대소문자로 구분)로 함수 이름을 짠다.
+// 기본 매개변수 값이 있는 경우에는, 함수를 호출할 때 해당 매개변수를 생략할 수 있다.
+func fullName(givenName: String, middleName: String = "Unknown", familyName: String) -> String {
     return "\(givenName) \(middleName) \(familyName) !"
 }
 
 // 표현식은 등호에 들어가는데, 함수를 실행하는 것도 마찬가지로 표현식에 들어간다.
-let myFullName = fullName(givenName: "Keith", middleName: "David", familyName: "Moon")
+let myFullName = fullName(givenName: "Keith", familyName: "Moon")
 
 print(myFullName)
