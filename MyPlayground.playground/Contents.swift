@@ -1,22 +1,23 @@
-class MovieReview {
-    let movieTitle: String
-    var starRating: Int
-    init(movieTitle: String, starRating: Int){
-        self.movieTitle = movieTitle
-        self.starRating = starRating
+enum ComparisionResult : Int {
+    case orderedAscending
+    case orderedSame
+    case orderedDescending
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    var isProfessional: Bool {
+        return self == Title.dr || self == Title.prof
     }
 }
 
-let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption",
-                                               starRating: 3)
+let title1 = Title.mr
 
-let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
-let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
-
-print(referenceToReviewOnTwitter.starRating)
-print(referenceToReviewOnFacebook.starRating)
-
-shawshankReviewOnYourWebsite.starRating = 5
-
-print(referenceToReviewOnTwitter.starRating)
-print(referenceToReviewOnFacebook.starRating)
+print(title1.isProfessional)
