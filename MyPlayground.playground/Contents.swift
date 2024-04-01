@@ -1,13 +1,54 @@
-func combine(_ givenName: String, _ familyName: String) -> String {
-    return "\(givenName) \(familyName)"
-}
- 
-func combine(_ integer1: Int, _ integer2: Int) -> Int {
-    return integer1 + integer2
-}
- 
-let combinedString = combine("Finnley", "Moon")
-let combinedInt = combine(5, 10)
 
-print(combinedString) // Finnley Moon
-print(combinedInt) // 15
+class Person {
+    let givenName: String
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "KR"
+        
+    init(givenName: String, middleName: String, familyName: String) {
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName = familyName
+    }
+    
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+
+    var displayString: String {
+        return "\(fullName()) - Location: \(countryOfResidence)"
+    }
+}
+var person = Person(givenName: "Jungman", middleName: "Dan", familyName: "Bae")
+
+final class Family: Person {
+    let relationship: String
+    
+    init(givenName: String,
+         middleName: String,
+         familyName: String,
+         relationship: String) {
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+}
+
+var family = Family(givenName: "Jungman", middleName: "Dan", familyName: "Bae", relationship: "Dad")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
