@@ -171,3 +171,33 @@ shawshankReviewOnYourWebsite.starRating = 5
 print(referenceToReviewOnTwitter.starRating)
 print(referenceToReviewOnFacebook.starRating)
 
+// ♥️ 열거형 ✨
+enum ComparisonResult: Int {
+    case orderedAscending // 0
+    case orderedSame // 1
+    case orderedDescending // 2
+    // ...3, 4, 5, ...
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    func isProfessional() -> Bool {
+        return self == Title.dr || self == Title.prof
+    }
+    
+    var isProfessional1: Bool {
+        return self == Title.dr || self == Title.prof
+    }
+}
+
+let title1 = Title.dr
+print(title1.isProfessional())
+print(title1.isProfessional1) // 위와 동일함, 왜 둘다 일케 되는건지?
+
