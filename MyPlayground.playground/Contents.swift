@@ -31,3 +31,16 @@ print(person.familyName)
 print(person.countryOfResidence)
 print(person.displayString)
 print(person.fullName())
+
+
+final class Family: Person {
+    let relationshop: String
+    
+    init(givenName: String, middleName: String, familyName: String, relationshop: String) {
+        self.relationshop = relationshop
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+    
+}
+
+var family: Family = Family(givenName: "Seongbin", middleName: "Edward", familyName: "Jo", relationshop: "본인")
