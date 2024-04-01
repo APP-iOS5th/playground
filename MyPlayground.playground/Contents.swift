@@ -1,43 +1,28 @@
-
-
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
+class MovieReview {
     
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
+    let movieTitle: String
+    var starRating: Int
     
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
-  
-    var displayString : String {
-        return "\(fullName()) - Location: \(countryOfResidence)"
-    }
-    
     
 }
 
-var person = Person(givenName: "Jungman", middleName: "Dan", familyName: "Bae")
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redmption", starRating: 3)
 
 
+//소셜 미디어에 게시
 
-final class Family: Person {
-    let relationship: String
-    
-    init(givenName: String,
-         middleName: String,
-         familyName: String,
-         relationship: String) {
-        self.relationship = relationship
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
-    }
-}
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
 
+print(referenceToReviewOnTwitter.starRating) // 3
+print(referenceToReviewOnFacebook.starRating) // 3
 
-var family = Family(givenName: "Jungman", middleName: "Dan", familyName: "Bae", relationship: "Dad")
+shawshankReviewOnYourWebsite.starRating = 5
+
+//변경 사항이 모든 참조에 반영됨
+print(referenceToReviewOnTwitter.starRating) // 5
+print(referenceToReviewOnFacebook.starRating) //5
