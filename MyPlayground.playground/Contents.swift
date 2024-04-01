@@ -85,3 +85,44 @@ let combinedInt = combine(5, 10)
 
 print(combinedString)
 print(combinedInt)
+
+
+// 클래스
+class Person {
+    let givenName: String
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "KR" // 변수에 기본값이 존재하기 때문에 초기화하지 않아도 됨
+    
+    init(givenName: String, middleName: String, familyName: String) {
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName = familyName
+    }
+    
+    //method
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+    
+    // property
+    var displayString: String {
+//        var countryOfResidence = "?"
+        return "\(self.fullName()) - Location: \(self.countryOfResidence)"
+    }
+}
+
+// 클래스 인스턴스 생성
+var person = Person(givenName: "Jihye", middleName: "", familyName: "Park")
+
+// 상속
+final class Family: Person {
+    let relationship: String
+    
+    init(givenName: String, middleName: String, familyName: String, relationship: String) {
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+}
+
+var family = Family(givenName: "Jihye", middleName: "", familyName: "Park", relationship: "Daughter")
