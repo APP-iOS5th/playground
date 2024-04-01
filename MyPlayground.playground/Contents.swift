@@ -231,25 +231,25 @@ protocol Saveable {
       func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
 }
 
-class Person: Saveable {
-    //....
-    var saveHandler: ((Bool) -> Void)?
-    var saveNeeded: Bool = true
-     
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
-         saveHandler = handler
-         // Send person information to remove database
-         // Once remote save is complete, it calls
-           // saveComplete(Bool)
-         // We'll fake it for the moment, and assume the save is
-           // complete.
-         saveComplete(success: true)
-    }
-     
-    func saveComplete(success: Bool) {
-        saveHandler?(success)
-    }
-}
+//class Person: Saveable {
+//    //....
+//    var saveHandler: ((Bool) -> Void)?
+//    var saveNeeded: Bool = true
+//     
+//    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+//         saveHandler = handler
+//         // Send person information to remove database
+//         // Once remote save is complete, it calls
+//           // saveComplete(Bool)
+//         // We'll fake it for the moment, and assume the save is
+//           // complete.
+//         saveComplete(success: true)
+//    }
+//     
+//    func saveComplete(success: Bool) {
+//        saveHandler?(success)
+//    }
+//}
 
 //저는 그만 정신을 잃고 말았습니다
 
@@ -265,3 +265,45 @@ func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float)
     return (numberOfStars,ratingString)
 }
 
+//배열
+var moviesToWatch: Array<String> = Array()
+
+moviesToWatch.append("The Shawshank Redemption")
+moviesToWatch.append("Ghostbusters")
+moviesToWatch.append("Terminator 2")
+
+print(moviesToWatch[1])
+print(moviesToWatch.count)
+
+moviesToWatch.insert("The Matrix", at: 2)
+
+print(moviesToWatch.first ?? "Empty")
+print(moviesToWatch.last ?? "Empty")
+
+let secondMovieToWatch = moviesToWatch[1]
+moviesToWatch[1] = "Ghostbusters (1984)"
+print(moviesToWatch.count)
+print(moviesToWatch)
+
+//Array<String> == [String] 똑같은 거힘!
+let spyMovieSuggstions: [String] = ["The Bourne Identity", "Casino Royale", "Mission Impossible"]
+moviesToWatch = moviesToWatch + spyMovieSuggstions
+print(moviesToWatch.count)
+print(moviesToWatch)
+
+//초기화를 이렇게 할 수 있음! 서브제목만 추가해서 사용한 것.
+var starWarsTrilogy = Array<String>(repeating: "Star wars: ", count: 3)
+starWarsTrilogy[0] += "A New Hope"
+starWarsTrilogy[1] += "Empire Strikes Back"
+starWarsTrilogy[2] += "Return of the Jedi"
+print(starWarsTrilogy)
+
+//배열 2~4까지를 스타워즈 트릴로지로 스위치하는 구문. replaceSubrange라는 메서드!
+moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
+print(moviesToWatch.count)
+print(moviesToWatch)
+
+//배열 일부 삭제
+moviesToWatch.remove(at: 6)
+print(moviesToWatch.count)
+print(moviesToWatch)
