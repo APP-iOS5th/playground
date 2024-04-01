@@ -31,7 +31,7 @@ print(phraseInfo)
 // 객체는 프로퍼티와 메소드()를 갖고 있음
 print("Number of characters in phrase: \(phrase.count)")
 
-// Swift 는 정정 타입 언어 ✨
+// Swift 는 정적 타입 언어 ✨
 // 타입 선언을 해야 하며, 안 하는 경우는 추론 가능할 경우만!
 let multilineExplanation: String = """
 Why is the following phrase often used?
@@ -93,3 +93,53 @@ let comebinedInt = combine(5, 10)
 
 print(comebinedString)
 print(comebinedInt)
+
+// ♥️ 클래스 ✨
+class Person {
+    let givenName: String // 상수 property
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "KR"
+    
+    // 변수는 나중에 넣어도 되는데, 상수는 그럴 수 없어서 초기화 함수에 넣음
+    init(givenName: String, middleName: String, familyName: String) {
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName = familyName
+    }
+    
+    // 함수 바운더리 안에 있기 때문에 클래스에 파라미터로 전달받지 않아도
+    // 정의된 변수를 가져와서 쓸 수 있음
+    // ✔️ 함수
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+    
+    // ✔️ 프로퍼티
+    // self 를 써도 안 써도 괜찮음
+    var displayString: String {
+        return "\(self.fullName()) - Location: \(self.countryOfResidence)"
+    }
+}
+
+// 붕어빵 틀인 클래스 Person 을 만들어서 🥨
+// 붕어빵인 클래스 인스턴스 변수 person 으로 메모리에 올라가서 행위할 수 있게 됨
+var person = Person(givenName: "Yunwon", middleName: "Sally", familyName: "Chae")
+
+// ♥️ 상속 ✨
+// Family 클래스는 Person 보다 상세한 기록이 가능함 (확장)
+final class Family: Person {
+    let relationship: String
+    
+    init(givenName: String,
+         middleName: String,
+         familyName: String,
+         relationship: String) {
+        // • self 는 나라는 범위
+        self.relationship = relationship
+        // • super 는 내가 상속한 나의 부모 클래스의 범위 함수 호출
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+}
+
+var family = Family(givenName: "Yunwon", middleName: "Sally", familyName: "Chae", relationship: "Daughter")
