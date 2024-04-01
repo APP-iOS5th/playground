@@ -67,7 +67,8 @@ print(numberOfFingersHeldUpByFinn ?? "Unknown")
 let lastNumberOfFingersHeldUpByFinn: Int = numberOfFingersHeldUpByFinn!
 
 // 함수 (도 표현식임, 등호로 표시)
-func fullName(givenName: String, middleName: String, familyName: String) -> String {
+// middleName= "" <- 기본값을 넣어준거임
+func fullName(givenName: String, middleName: String = " ", familyName: String) -> String {
     return "\(givenName) \(middleName) \(familyName)"
 }
 
