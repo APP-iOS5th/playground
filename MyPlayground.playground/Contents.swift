@@ -60,12 +60,12 @@ print(lastNumberOfFingersHeldUpByFinn)
 */
 
 /// 함수
-func fullName(givenName: String, middleName: String, familyName: String)
+func fullName(givenName: String, middleName: String = "Unknown", familyName: String)
 -> String {
     return "\(givenName) \(middleName) \(familyName)" /// 함수 변경
 }
 
-let myFullName = fullName(givenName: "kim", middleName: "s", familyName: "ong")
+let myFullName = fullName(givenName: "kim", familyName: "song")
 print(myFullName)
 
 
