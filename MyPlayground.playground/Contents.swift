@@ -58,11 +58,37 @@ print(lastNumOfFinUpFinn)
 
 // ---------- //
 
-func fullName(givenName: String, middleName : String, familyName: String) -> String {
+func fullName(givenName: String, middleName : String = " ", familyName: String) -> String {
     return "\(givenName) \(middleName) \(familyName) !"
 }
-let myFullName = fullName(givenName: "A", middleName: "B", familyName: "C")
+var myFullName = fullName(givenName: "A", middleName: "B", familyName: "C")
 print(myFullName)
+
+myFullName = fullName(givenName: "A", familyName: "C")
+print(myFullName)
+
+
+// ---------------//
+
+
+func combine(_ givenName: String, _ familyName: String) -> String {
+    return "\(givenName) \(familyName)"
+}
+func combine(_ integer1: Int, _ Integer2: Int) -> Int {
+    return integer1 + Integer2
+}
+
+let combinedString = combine("combineA", "combineB")
+let combinedInteger = combine(1,2)
+
+print(combinedString)
+print(combinedInteger)
+
+
+
+
+
+
 
 
 
