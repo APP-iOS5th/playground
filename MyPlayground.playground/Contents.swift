@@ -297,32 +297,91 @@ import UIKit
 //print(felix.displayString)
 
 
-
-// Protocol
-
-// 프로토콜은 스스로 존재할 수 없다. 이걸 정의한다고 해서 기능을 만드는게 아니라, 기능 명세서와 비슷하다.
 //
-protocol Saveable {
-    var saveNeeded: Bool { get set }
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
+//// Protocol
+//
+//// 프로토콜은 스스로 존재할 수 없다. 이걸 정의한다고 해서 기능을 만드는게 아니라, 기능 명세서와 비슷하다.
+////
+//protocol Saveable {
+//    var saveNeeded: Bool { get set }
+//    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
+//}
+//
+//class Person: Saveable {
+//    //....
+//    var saveHandler: ((Bool) -> Void)?
+//    var saveNeeded: Bool = true
+//     
+//    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+//         saveHandler = handler
+//         // Send person information to remove database
+//         // Once remote save is complete, it calls
+//           // saveComplete(Bool)
+//         // We'll fake it for the moment, and assume the save is
+//           // complete.
+//         saveComplete(success: true)
+//    }
+//     
+//    func saveComplete(success: Bool) {
+//        saveHandler?(success)
+//    }
+//}
+
+
+
+//==========
+import Foundation
+
+// tuple 튜플
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let roundedRating = round(ratingOutOf5)
+    let numberOfStars = Int(roundedRating)
+    let ratingString = "\(numberOfStars) Star Movie"
+    return (numberOfStars, ratingString)
 }
 
-class Person: Saveable {
-    //....
-    var saveHandler: ((Bool) -> Void)?
-    var saveNeeded: Bool = true
-     
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
-         saveHandler = handler
-         // Send person information to remove database
-         // Once remote save is complete, it calls
-           // saveComplete(Bool)
-         // We'll fake it for the moment, and assume the save is
-           // complete.
-         saveComplete(success: true)
-    }
-     
-    func saveComplete(success: Bool) {
-        saveHandler?(success)
-    }
-} 
+
+// array 배열. array도 객체다!
+// [String] 와 Array<String> 은 같은 표현
+var moviesToWatch: Array<String> = Array() // 배열에 대한 클래스 인스턴스가 생성된 것이다. 그러므로, append 와 같은 메소드가 있는 것이다~
+
+moviesToWatch.append("The Shawshank Redemption")
+moviesToWatch.append("Ghostbusters")
+moviesToWatch.append("Terminator 2")
+
+print(moviesToWatch[1])
+print(moviesToWatch.count)
+
+moviesToWatch.insert("The Matrix", at: 2)
+
+print(moviesToWatch.first ?? "Empty")
+print(moviesToWatch.last ?? "Empty")
+
+let secondMovieToWatch = moviesToWatch[1]
+moviesToWatch[1] = "Ghostbusters (1984)"
+print(moviesToWatch.count)
+print(moviesToWatch)
+print(secondMovieToWatch)
+print(moviesToWatch[1])
+
+let spyMovieSuggestions: [String] = ["The Bourne Identity", "Casino Royale", "Mission Impossible"]
+moviesToWatch += spyMovieSuggestions
+
+print(moviesToWatch.count)
+print(moviesToWatch)
+
+
+var starWarsTrilogy = Array<String>(repeating: "Star Wars", count: 3)
+starWarsTrilogy[0] += "A New Hope"
+starWarsTrilogy[1] += "Empire Strikes Back"
+starWarsTrilogy[2] += "Return of the Jedi"
+print(starWarsTrilogy)
+
+
+moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
+print(moviesToWatch.count)
+
+moviesToWatch.remove(at: 6)
+print(moviesToWatch.count)
