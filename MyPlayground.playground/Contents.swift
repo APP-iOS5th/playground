@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 var greeting = "Hello, playground"
 
@@ -306,4 +307,17 @@ class Person2: Saveable {
     func saveComplete(success: Bool) {
         saveHandler?(success)
     }
+}
+
+// 변수를 ♥️ 튜플 tuples ✨로 번들링
+// 함수 반환 타입 (이것도 가능하다!), 튜플로 여러 값을 하나로 결합하는 방식 (순서쌍)
+func normalizedStarRating(forRating rating: Float,
+                          ofPossibleTotal total: Float) -> (Int, String) {
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let roundedRating = round(ratingOutOf5) // 반올림 함수 round
+    let numberOfStars = Int(roundedRating)
+    let ratingString = "\(numberOfStars) Star Movie"
+    
+    return (numberOfStars, ratingString)
 }
