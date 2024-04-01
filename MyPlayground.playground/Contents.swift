@@ -56,7 +56,7 @@ let lastNumOfFinUpFinn: Int = numverOfFinn! // 위험! -> 강제 unrwap
 print(lastNumOfFinUpFinn)
 
 
-// ---------- //
+// ----- func ----- //
 
 func fullName(givenName: String, middleName : String = " ", familyName: String) -> String {
     return "\(givenName) \(middleName) \(familyName) !"
@@ -68,7 +68,7 @@ myFullName = fullName(givenName: "A", familyName: "C")
 print(myFullName)
 
 
-// ---------------//
+// ------- combine --------//
 
 
 func combine(_ givenName: String, _ familyName: String) -> String {
@@ -83,6 +83,71 @@ let combinedInteger = combine(1,2)
 
 print(combinedString)
 print(combinedInteger)
+
+// --- Class --- //
+
+class Person {
+    let givenName: String
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "KR"
+    
+    init(givenName: String, middleName: String, familyName: String) {
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName = familyName
+        // self: 클래스에 선언된 멤버변수 사용
+    }
+    
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+    
+    var displayString: String {
+        return "\(self.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
+var person = Person(givenName: "A", middleName: "B", familyName: "C")
+print(person.displayString)
+
+// --------- //
+
+// final class : 부모가 되지 못하게 막음
+final class Family:Person {
+    let relationship:String
+    
+    init(givenName: String, middleName: String, familyName: String,
+                  relationship: String) {
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+}
+
+var family = Family(givenName: "A", middleName: "B", familyName: "C", relationship: "family")
+
+// ----refernce---- //
+
+class MovieReview {
+    let movieTitle: String
+    var startRating: Int
+    init(movieTitle: String, startRating: Int) {
+        self.movieTitle = movieTitle
+        self.startRating = startRating
+    }
+}
+
+let shashankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank", startRating: 3)
+
+let referceToReviewOnTwiter = shashankReviewOnYourWebsite
+let referceToReviewOnFacebook = shashankReviewOnYourWebsite
+
+shashankReviewOnYourWebsite.startRating = 4
+print(referceToReviewOnTwiter.startRating)
+print(referceToReviewOnFacebook.startRating)
+
+
+
 
 
 
