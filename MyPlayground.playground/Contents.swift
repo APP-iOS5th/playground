@@ -77,6 +77,37 @@ let combinedInt = combine(5,10)
 print(combinedString)
 print(combinedInt)
 
+//구조체
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+     
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
+}
+class PPerson {
+     
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
 
 //객체 클래스에서 기능 캡슐화하기
 class Person {
@@ -151,6 +182,9 @@ shawShankReviewOnYourWebsite.startRating = 5
 print(referenceToReviewOnTwitter.startRating)
 print(referenceToReviewOnFacebook.startRating)
 
+
+
+
 //열거형 (enum)
 
 enum ComparisonResult: Int {
@@ -178,3 +212,7 @@ enum Title: String {
 let title1 = Title.mr
 
 print(title1.isProfessioal())
+
+
+
+// 클로저
