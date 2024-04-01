@@ -3,71 +3,37 @@
 
 import UIKit
 
-struct PersonName {
-    let givenName: String
-    let middleName: String
-    var familyName: String
-     
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-     
-    mutating func change(familyName: String) {
-        self.familyName = familyName
-    }
+protocol Saveable {
+    var saveNeeded: Bool { get set }
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
 }
 
-class Person {
-     
-    let birthName: PersonName
-    var currentName: PersonName
-    var countryOfResidence: String
-     
-    init(name: PersonName, countryOfResidence: String = "UK") {
-        birthName = name
-        currentName = name
-        self.countryOfResidence = countryOfResidence
-    }
-     
-    var displayString: String {
-        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
-    }
-}
-
-// () -> ()로 해도됨!
-let printAuthorDetails: () -> Void = {
-    let name = PersonName(givenName: "광우", middleName: "미친소", familyName: "최")
-    let author = Person(name: name)
-    print(author.displayString)
-}
-
-printAuthorDetails()
-
-let createAuthor: () -> Person = {
-    let name = PersonName(givenName: "광우", middleName: "빛나는소", familyName: "최")
-    let author = Person(name: name)
+class Person: Saveable {
+    var saveHandler: ((Bool) -> Void)?
+    var saveNeeded: Bool = true
     
-    return author
-}
-
-let author = createAuthor()
-print(author.displayString)
-
-let printPersonsDetails: (String, String, String) -> Void = { given, middle, family in
-    let name = PersonName(givenName: given, middleName: middle, familyName: family)
-    let author = Person(name: name)
-    print(author.displayString)
-}
-
-printPersonsDetails("광우", "넓은소", "최")
-
-let createPerson: (String, String, String) -> Person = { (given, middle, family) in
-    let name = PersonName(givenName: given, middleName: middle, familyName: family)
-    let person = Person(name: name)
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+        saveHandler = handler
+        
+        saveComplete(success: true)
+    }
     
-    return person
+    func saveComplete(success: Bool) {
+        saveHandler?(success)
+    }
 }
-
-let createdPerson = createPerson("광우", "음", "최")
-print(createdPerson.displayString)
-// 함수가 이름이 있는 Closer이다! 로 이해하면 편하겠다!
+/*
+ MARK: 서순
+ 1. Person Class 생성 MARK: let person = Person()
+ 2. Person Class의 saveToRemoteDatabase를 실행 ->
+ MARK: person.saveToRemoteDatabase { boolValue in
+ MARK:     if boolValue {
+ MARK:          print("TRUE")
+ MARK:      } else {
+ MARK:          print("FALSE")
+ MARK:      }
+ MARK: }
+ MARK: 이거는 func person.saveToRemoteDatabase(Bool: boolValue) {} 이거랑 같아 보인다.
+ 3. 아무튼 저 함수를 (handler: @escaping (Bool) -> Void) 저기다가 집어 넣어준다
+ 4. 함수를 인자로 보낸다 라고 이해하면 될듯
+ */
