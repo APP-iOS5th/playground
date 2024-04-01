@@ -1,54 +1,24 @@
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
-        
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-
-    var displayString: String {
-        return "\(fullName()) - Location: \(countryOfResidence)"
-    }
-}
-var person = Person(givenName: "Jungman", middleName: "Dan", familyName: "Bae")
-
-final class Family: Person {
-    let relationship: String
-    
-    init(givenName: String,
-         middleName: String,
-         familyName: String,
-         relationship: String) {
-        self.relationship = relationship
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
 }
 
-var family = Family(givenName: "Jungman", middleName: "Dan", familyName: "Bae", relationship: "Dad")
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
 
+// 소셜 미디어에 게시
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
 
+print(referenceToReviewOnTwitter.starRating) // 3
+print(referenceToReviewOnFacebook.starRating) // 3
 
+shawshankReviewOnYourWebsite.starRating = 5
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 변경 사항이 모든 참조에 반영됨
+print(referenceToReviewOnTwitter.starRating) // 5
+print(referenceToReviewOnFacebook.starRating) // 5
