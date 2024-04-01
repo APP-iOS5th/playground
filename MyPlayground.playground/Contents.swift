@@ -180,29 +180,76 @@ print(referenceToReviewOnFacebook.starRating) // 5
 
 
 
-// ================
-// 열거형 Enum
+// ===================
+// struct 구조체
+// struct 와 class 는 같은 목적으로 만들어졌는데, 차이점은. class는 레퍼런스, struct 는 value 타입이다.
 
-enum ComparisonResult: Int {
-    case orderedAscending
-    case orderedSame
-    case orderedDescending
-}
+// class 는 레퍼런스
+// struct 는 클래스보다 공간이 더 크다. 값 타입이기 떄문에. 그래서 값이 그 자체에 있기 때문에 class 보다 성능이 더 좋고 빠름. 메모리는 많이 듬.
+// 구조체의 성능을 클래스가 따라갈 수가 없다. 그리고 구현방식은. 아래와 같다.
 
-enum Title: String {
-    case mr = "Mr"
-    case mrs = "Mrs"
-    case mister = "Mister"
-    case miss = "Miss"
-    case dr = "Dr"
-    case prof = "Prof"
-    case other
-    
-    var isProfessional: Bool {
-        return self == Title.dr || self == Title.prof
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+     
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
     }
 }
 
-let title1 = Title.mr
+class Person {
+     
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
 
-print(title1.isProfessional) // false
+
+// ================
+// 열거형 Enum
+//
+//enum ComparisonResult: Int {
+//    case orderedAscending
+//    case orderedSame
+//    case orderedDescending
+//}
+//
+//enum Title: String {
+//    case mr = "Mr"
+//    case mrs = "Mrs"
+//    case mister = "Mister"
+//    case miss = "Miss"
+//    case dr = "Dr"
+//    case prof = "Prof"
+//    case other
+//    
+//    var isProfessional: Bool {
+//        return self == Title.dr || self == Title.prof
+//    }
+//}
+//
+//let title1 = Title.mr
+//
+//print(title1.isProfessional) // false
+
+
+
+
+
+// =========
+// 클로저
