@@ -1,25 +1,28 @@
 import UIKit
 
-class MovieReview {
-    let movieTitle: String
-    var starRating: Int
-    init(movieTitle: String, starRating: Int) {
-        self.movieTitle = movieTitle
-        self.starRating = starRating
+
+enum ComparisonResult: Int {
+    case orderedAscending // 0
+    case orderedSame // 1
+    case orderedDescending // 2
+}
+
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    var isProfesstional: Bool {
+        return self == Title.dr || self == Title.prof
     }
 }
 
-let shawshankReviewInYourWebsite = MovieReview(movieTitle: "shawshank Redemption", starRating: 3)
+let title1 = Title.mr
 
-// 소셜 미디어에 게시
-let referenceToReviewOnTwitter = shawshankReviewInYourWebsite
-let referenceToReviewOnFacebook = shawshankReviewInYourWebsite
+print(title1.isProfesstional) // false
 
-print(referenceToReviewOnTwitter.starRating)
-print(referenceToReviewOnFacebook.starRating)
-
-shawshankReviewInYourWebsite.starRating = 5 // 별점 3점을 5점으로 변경
-
-// 변경해도 모든 참조에 반영됨
-print(referenceToReviewOnTwitter.starRating)
-print(referenceToReviewOnFacebook.starRating)
