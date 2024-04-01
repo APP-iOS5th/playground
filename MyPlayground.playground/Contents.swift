@@ -76,41 +76,41 @@ print(combinedString)
 print(combinedInt)
 
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
-    
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
-    func fullName() -> String {
-    return "\(givenName) \(middleName) \(familyName)"
-    }
-    
-    var displayString: String {
-        return "\(self.fullName()) -Location: \(self.countryOfResidence)"
-    }
-}
-var person = Person(givenName: "Jeong", middleName: "Woo", familyName: "Kim")
+//class Person {
+//    let givenName: String
+//    let middleName: String
+//    let familyName: String
+//    var countryOfResidence: String = "KR"
+//    
+//    init(givenName: String, middleName: String, familyName: String) {
+//        self.givenName = givenName
+//        self.middleName = middleName
+//        self.familyName = familyName
+//    }
+//    
+//    func fullName() -> String {
+//    return "\(givenName) \(middleName) \(familyName)"
+//    }
+//    
+//    var displayString: String {
+//        return "\(self.fullName()) -Location: \(self.countryOfResidence)"
+//    }
+//}
+//var person = Person(givenName: "Jeong", middleName: "Woo", familyName: "Kim")
+//
+//final class Family: Person {
+//    let  relationship: String
+//    
+//    init(givenName: String,
+//         middleName: String,
+//         familyName: String,
+//         relationship: String) {
+//        self.relationship = relationship
+//        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+//    }
+//}
 
-final class Family: Person {
-    let  relationship: String
-    
-    init(givenName: String,
-         middleName: String,
-         familyName: String,
-         relationship: String) {
-        self.relationship = relationship
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
-    }
-}
-
-var family = Family(givenName: "Jeong", middleName: "Woo", familyName: "Kim", relationship: "Man")
+//var family = Family(givenName: "Jeong", middleName: "Woo", familyName: "Kim", relationship: "Man")
 
 class MovieReview {
     let movieTitle: String
@@ -133,6 +133,44 @@ shawshankReviewOnYourWebsite.starRating = 5
 
 print(referenceToReviewOnTwitter.starRating)
 print(referenceToReviewOnFacebook.starRating)
+
+
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+     
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
+}
+
+class Person {
+     
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
+}
+
+
+
+
+
+
 
 
 enum ComparisonResult: Int {
@@ -159,3 +197,22 @@ enum Title: String {
 
 let title1 = Title.mr
 print(title1.isProfessional)
+
+
+
+let printAuthorDetails: () -> () = {
+    let name = PersonName(givenName: "Jeong", middleName: "Woo", familyName: "Kim")
+    let author = Person(name: name)
+    print(author.displayString)
+}
+
+printAuthorDetails()
+
+
+let createAuthor: () -> Person = {
+    let name = PersonName(givenName: "Jeong", middleName: "Woo", familyName: "Kim")
+    let author = Person(name: name)
+    return author
+}
+let author = createAuthor()
+print(author.displayString)
