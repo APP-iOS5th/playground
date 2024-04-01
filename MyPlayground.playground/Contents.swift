@@ -1,4 +1,4 @@
-func fullName(givenName: String, middleName: String, familyName: String) -> String {
+func fullName(givenName: String, middleName: String = "Unknown", familyName: String) -> String {
     return "\(givenName) \(middleName) \(familyName)"
 }
 
