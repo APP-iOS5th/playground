@@ -92,50 +92,94 @@ import UIKit
 //==============================
 // 개체가 가지고 있는 함수를 메소드라 한다.
 // 클래스 객체를 init 으로 초기화
+//
+//class Person {
+//    let givenName: String
+//    let middleName: String
+//    let familyName: String
+//    var countryOfResidents: String = "KR"
+//    
+//    // 처음에 값이 초기화 되어있지 않던 상수는 값이 처음부터 있어야 하므로, init 으로 초기화
+//    init(givenName: String, middleName: String, familyName: String) {
+//        self.givenName = givenName      // 여기서는 self 를 써야 함. 왜냐하면, init파라미터랑 초기화 이름이 같기 때문에
+//        self.middleName = middleName
+//        self.familyName = familyName
+//    }
+//    
+//    // 클래스 메서드와 일반 함수의 차이 (클래스에서 선언된 값을 사용할 수 있음)
+//    func fullName() -> String {
+//        return "\(givenName) \(middleName) \(familyName)"
+//    }
+//    
+//    // 프로퍼티(변수) - 괄호 없이 쓸 수 있는 것.
+//    // self 는 안써도 되지만, self 를 쓰면, 클래스에서 선언된 값을 쓰겠다고 명시적으로 나타내는 것임. - scoping(변수가 가지고 있는 작용범위) 참고
+//    // 기본적인 scoping 범위는 함수 코드 블럭 안에서 선언한 변수 부터 적용. 그 다음 Person 클래스 코드 블럭 안에서 선언된
+//    var displayString: String {
+////        var countryOfResidents = "?"
+//        return "\(self.fullName()) - Location: \(self.countryOfResidents)"
+//    }
+//}
+//
+//var person = Person(givenName: "yungui", middleName: " ", familyName: "LEE")    // 클래스 인스턴스를 만드는 코드 (이 때 클래스를 사용할 수 있는 객체가) 메모리에 올라감.
+//// Person 이 하나의 조합된 별도의 타입으로 만들어진 것임
+//
+//
+//// 개념 확장의 의미에서 상속이라는 것이 있다.
+//// Family 라는 객체는 Person 이라는 객체보다 좀 더 기능적으로 뭔가를 "확장"한 것.
+//final class Family: Person {
+//    let relationship: String
+//    
+//    init(givenName: String, 
+//         middleName: String,
+//         familyName: String,
+//         relationship: String) {
+//        self.relationship = relationship// self 는 '나'라는
+//        super.init(givenName: givenName, middleName: middleName, familyName: familyName) // super 부모 클래스 상속 받을 때 쓴다. 이미 정의되있는 것을 굳이 다시 만들지 않음
+//    }
+//}
+//
+//var family = Family(givenName: "", middleName: "", familyName: "", relationship: "")
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidents: String = "KR"
+
+
+
+
+
+// ============================
+
+class MovieReview { // 붕어빵 틀 (클래스)
+    let movieTitle: String
+    var starRating: Int
     
-    // 처음에 값이 초기화 되어있지 않던 상수는 값이 처음부터 있어야 하므로, init 으로 초기화
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName      // 여기서는 self 를 써야 함. 왜냐하면, init파라미터랑 초기화 이름이 같기 때문에
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
-    // 클래스 메서드와 일반 함수의 차이 (클래스에서 선언된 값을 사용할 수 있음)
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-    
-    // 프로퍼티(변수) - 괄호 없이 쓸 수 있는 것.
-    // self 는 안써도 되지만, self 를 쓰면, 클래스에서 선언된 값을 쓰겠다고 명시적으로 나타내는 것임. - scoping(변수가 가지고 있는 작용범위) 참고
-    // 기본적인 scoping 범위는 함수 코드 블럭 안에서 선언한 변수 부터 적용. 그 다음 Person 클래스 코드 블럭 안에서 선언된
-    var displayString: String {
-//        var countryOfResidents = "?"
-        return "\(self.fullName()) - Location: \(self.countryOfResidents)"
+    // 변수var 도 초기화 해준다.
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
 }
 
-var person = Person(givenName: "yungui", middleName: " ", familyName: "LEE")    // 클래스 인스턴스를 만드는 코드 (이 때 클래스를 사용할 수 있는 객체가) 메모리에 올라감.
-// Person 이 하나의 조합된 별도의 타입으로 만들어진 것임
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)   // 붕어빵 객체 (클래스 인스턴스)
+
+// 소셜 미디어에 게시
+// 레퍼런스_ 참조 타입의 작동방식
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(referenceToReviewOnTwitter.starRating) // 3
+print(referenceToReviewOnFacebook.starRating) // 3
+
+// 리뷰 재고
+shawshankReviewOnYourWebsite.starRating = 5
+
+// 변경 사항이 모든 참조에 반영됨
+print(referenceToReviewOnTwitter.starRating) // 5
+print(referenceToReviewOnFacebook.starRating) // 5
+
+// 참조데이터의 장점: 값을 한 군데서 변경해도, 다른 곳에 다 적용된다. 클래스 객체는 참조 타입이므로, 객체에 대한 변경 사항은 해당 객체를 참조하는 모든 곳에서 볼 수 있습니다.
+// 한 객체에 대한 여러 참조가 있을 때, 한 참조를 통해 객체를 변경하면, 다른 모든 참조에서도 그 변경을 볼 수 있습니다.
 
 
-// 개념 확장의 의미에서 상속이라는 것이 있다.
-// Family 라는 객체는 Person 이라는 객체보다 좀 더 기능적으로 뭔가를 "확장"한 것.
-final class Family: Person {
-    let relationship: String
-    
-    init(givenName: String, 
-         middleName: String,
-         familyName: String,
-         relationship: String) {
-        self.relationship = relationship// self 는 '나'라는
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName) // super 부모 클래스 상속 받을 때 쓴다. 이미 정의되있는 것을 굳이 다시 만들지 않음
-    }
-}
 
-var family = Family(givenName: "", middleName: "", familyName: "", relationship: "")
+// ================
+// 열거형 Enum
+
