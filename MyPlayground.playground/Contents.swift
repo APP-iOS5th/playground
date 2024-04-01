@@ -222,3 +222,11 @@ let createAuthor: () -> Person = {
 }
 let author = createAuthor()
 print(author.displayString)
+
+let createPerson: (String, String, String) -> Person = { given, middle, family in
+    let name = PersonName(givenName: given, middleName: middle, familyName: family)
+    let person = Person(name: name)
+    return person
+}
+let felix = createPerson("Felix", "Robert", "Moon")
+print(felix.displayString)
