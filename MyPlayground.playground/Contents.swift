@@ -1,37 +1,25 @@
 import UIKit
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var contryOfResidence: String = "KR"
-    
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    func funllName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-    
-    var displayString: String {
-        return "\(self.funllName()) - Location: \(self.contryOfResidence)"
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
 }
 
-var person = (givenName: "Sanghyeon", middleName: "Yan", familyName: "Han") // 클래스 인스턴스
+let shawshankReviewInYourWebsite = MovieReview(movieTitle: "shawshank Redemption", starRating: 3)
 
-final class Family: Person { // 상속이 여끼까지라는 의미
-    let relationship: String
-    
-    init(givenName: String,
-         middleName: String,
-         familyName: String,
-         relationship: String) { // 새롭게 추가된 상수값을 초기화하는 생성자가 추가되었다.
-        self.relationship = relationship
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName) // 부모의 생성자를 상속
-    }
-}
+// 소셜 미디어에 게시
+let referenceToReviewOnTwitter = shawshankReviewInYourWebsite
+let referenceToReviewOnFacebook = shawshankReviewInYourWebsite
 
-var family = Family(givenName: "Sanghyeon", middleName: "Yan", familyName: "Han", relationship: "Brother")
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
+
+shawshankReviewInYourWebsite.starRating = 5 // 별점 3점을 5점으로 변경
+
+// 변경해도 모든 참조에 반영됨
+print(referenceToReviewOnTwitter.starRating)
+print(referenceToReviewOnFacebook.starRating)
