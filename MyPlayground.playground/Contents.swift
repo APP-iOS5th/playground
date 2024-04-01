@@ -72,3 +72,18 @@ func fullName(givenName: String, middleName: String = "Unknown", familyName: Str
 let myFullName = fullName(givenName: "Keith", familyName: "Moon")
 
 print(myFullName)
+
+
+// 함수명이 같아도 파라미터가 다르다면, 함수 구분 가능. (정적타입 언어이므로)
+func combine(_ givenName: String, _ familyName: String) -> String {     // _ 는 파라미터 레이블 자리인데, 타입만으로 파라미터를 구분짓는 행위를 매개변수 오버로딩이라 한다.
+    return "\(givenName) \(familyName)"
+}
+
+func combine(_ integer1: Int, _ integer2: Int) -> Int {
+    return integer1 + integer2
+}
+
+let combinedString = combine("Finnley", "Moon")
+let combinedInt = combine(5, 10)
+
+// 오버로딩:
