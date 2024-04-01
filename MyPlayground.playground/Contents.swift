@@ -81,3 +81,5 @@ let combinedString = combine("Finnley", "Moon")
 let combinedInt = combine(5, 10)
 print(combinedString) // Finnley Moon
 print(combinedInt) // 15
+
+/// 객체클래스에서 기능 캡슐화하기
