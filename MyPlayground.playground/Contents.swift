@@ -1,16 +1,9 @@
 import UIKit
 
-var dayOfTheWeek: String = "Monday"
-dayOfTheWeek = "Tuesday"
-dayOfTheWeek = "Wednesday"
+func fullName(givenName: String, middleName: String = "Unknown", familyName: String)  -> String {
+    return "\(givenName) \(middleName) \(familyName)"
+}
 
-//dayOfTheWeek = nil //'nil' cannot be assigned to type 'String' (컴파일 오류 발생)
+let myFullName = fullName(givenName: "Keith",familyName: "Moon");
 
-var numberOfFingersHeldUpByFinn: Int?
-numberOfFingersHeldUpByFinn = nil
-numberOfFingersHeldUpByFinn = 3
-
-print(numberOfFingersHeldUpByFinn)
-
-let lastNumberOfFingersHeldUpByFinn: Int = numberOfFingersHeldUpByFinn!
-print(lastNumberOfFingersHeldUpByFinn)
+print(myFullName)
