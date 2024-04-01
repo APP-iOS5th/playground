@@ -123,7 +123,6 @@ final class Family: Person {
 
 var family = Family(givenName: "k", middleName: "k", familyName: "k", relationship: "k")
 print(family)
-*/
 
 class MovieReview {
     let movieTitle: String
@@ -148,3 +147,29 @@ shawshankReviewOnYourWebsite.starRating = 5
 
 print(referenceToReviewOnTwitter.starRating) //5
 print(referenceToReviewOnTwitter.starRating) //5
+*/
+
+/// 열거형
+enum ComparisonResult: Int {
+    case orderedAscending //0
+    case orderedSame //1
+    case orderedDescending //2
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    var isProFessional: Bool {
+        return self == Title.dr || self == Title.prof
+    }
+}
+
+let title = Title.mr
+
+print(title.isProFessional) //false
