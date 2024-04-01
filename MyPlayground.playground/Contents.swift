@@ -40,3 +40,27 @@ final class Family: Person {
         super.init(givenName: givenName, middleName: middleName, familyName: familyName)
     }
 }
+
+class MovieReview {
+    let movieTitle: String
+    var startRating: Int
+    
+    init(movieTitle: String, startRating: Int) {
+        self.movieTitle = movieTitle
+        self.startRating = startRating
+    }
+}
+
+let newWorldReviewOnYourWebSite: MovieReview = MovieReview(movieTitle: "New World", startRating: 4)
+
+let referenceToReviewOnX = newWorldReviewOnYourWebSite
+let referenceToReviewOnFacebook = newWorldReviewOnYourWebSite
+
+print(referenceToReviewOnX.startRating)
+print(referenceToReviewOnFacebook.startRating)
+
+newWorldReviewOnYourWebSite.startRating = 5
+
+print(referenceToReviewOnX.startRating)
+print(referenceToReviewOnFacebook.startRating)
+
