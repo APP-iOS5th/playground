@@ -79,45 +79,53 @@ let yourFullName = niceFullName(givenName: "Keith", familyName: "Moon");
 
 print(yourFullName)
 
-//class 설명
-class Person {
+struct PersonName {
     let givenName: String
     let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
-    
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
+    var familyName: String
+     
     func fullName() -> String {
         return "\(givenName) \(middleName) \(familyName)"
     }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
+}
+
+//class 설명
+class Person {
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String = "KR"
+    
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
     
     var displayString: String {
-        return "\(self.fullName()) - Location: \(self.countryOfResidence))"
+        return "\(currentName.fullName()) - Location: \(countryOfResidence))"
     }
-    
 }
 
-var person = Person(givenName: "Joohyun", middleName: "Jude", familyName: "Song")
+//var person = Person(givenName: "Joohyun", middleName: "Jude", familyName: "Song")
 
 //family라는 클래스는 Person보다 좀 더 상세한 기록이 가능해지는 것
-final class Family: Person {
-    let relationship: String
-    
-    init(givenName: String,
-         middleName: String,
-         familyName: String,
-         relationship: String) {
-        self.relationship = relationship
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
-    }
-}
+//final class Family: Person {
+//    let relationship: String
+//    
+//    init(givenName: String,
+//         middleName: String,
+//         familyName: String,
+//         relationship: String) {
+//        self.relationship = relationship
+////        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+//    }
+//}
 
-var family = Family(givenName: "Joohyun", middleName: "Jude", familyName: "Song", relationship: "Second Sis")
+//var family = Family(givenName: "Joohyun", middleName: "Jude", familyName: "Song", relationship: "Second Sis")
 
 
 //참조 타입~~!!
@@ -172,3 +180,24 @@ enum Title: String {
 let title1 = Title.mr
 
 print(title1.isProfessional) //false
+
+
+//closure?
+let printAuthorDetails: () -> Void = {
+    let name = PersonName(givenName: "Joohyun", middleName: "Jude", familyName: "Song")
+    let author = Person(name: name)
+    print(author.displayString)
+}
+
+printAuthorDetails()
+
+let createAuthor: () -> Person = {
+    let name = PersonName(givenName: "Daniel",
+                          middleName: "Philip",
+                          familyName: "Henney")
+    let author = Person(name: name)
+    return author
+}
+
+let author = createAuthor()
+print(author.displayString)
