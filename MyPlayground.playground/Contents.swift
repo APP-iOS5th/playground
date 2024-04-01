@@ -1,9 +1,25 @@
 import UIKit
 
-func fullName(givenName: String, middleName: String, familyName: String) -> String {
-    return "\(givenName) \(middleName) \(familyName)"
+class Person {
+    let givenName: String
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "UK"
+    
+    var displayString: String {
+        "\(self.fullName()) - Location: \(self.countryOfResidence)"
+    }
+    
+    init(givenName: String, middleName: String, familyName: String) {
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName = familyName
+    }
+    
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
 }
 
-let myFullName = fullName(givenName: "Keith", middleName: "David", familyName: "Moon");
-
-print(myFullName)
+let person = Person(givenName: "one", middleName: "two", familyName: "three")
+print(person.displayString)
