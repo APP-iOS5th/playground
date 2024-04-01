@@ -1,7 +1,7 @@
 // Tuples
 import Foundation
 
-func normalizedStarRating(forRating rating: Float, ofPossibleTotal: Float) ->(Int, String) {
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) ->(Int, String) {
     let fraction = rating / total
     let ratingOutOf5 = fraction * 5
     let roundedRating = round(ratingOutOf5) // 반올림
