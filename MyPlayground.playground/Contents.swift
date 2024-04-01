@@ -259,3 +259,41 @@ let createPerson: (String, String, String) -> Person = { given,
 
 let felix = createPerson("Felix", "Robert", "Moon")
 print(felix.displayString)
+
+
+// 프로토콜
+protocol Saveable {
+      var saveNeeded: Bool { get set }
+      func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
+}
+
+//class Person: Saveable {
+//    //....
+//    var saveHandler: ((Bool) -> Void)?
+//    var saveNeeded: Bool = true
+//     
+//    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+//         saveHandler = handler
+//         // Send person information to remove database
+//         // Once remote save is complete, it calls
+//           // saveComplete(Bool)
+//         // We'll fake it for the moment, and assume the save is
+//           // complete.
+//         saveComplete(success: true)
+//    }
+//     
+//    func saveComplete(success: Bool) {
+//        saveHandler?(success)
+//    }
+//}
+
+
+// Tuple
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let roundedRating = round(ratingOutOf5)
+    let numberOfStars = Int(roundedRating)
+    let ratingString = "\(numberOfStars) Star Movie"
+    return (numberOfStars, ratingString)
+}
