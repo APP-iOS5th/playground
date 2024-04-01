@@ -3,64 +3,28 @@
 
 import UIKit
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
+enum ComparisionResult: Int {
+    case orderedAscending   // 0
+    case orderedSame        // 1
+    case orderedDescending  // 2
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
     
-    init(givenName: String, middleName: String, familyName: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-    }
-    
-    func fullName() -> String {
-        return "\(self.givenName) \(self.middleName) \(self.familyName)"
-    }
-    
-    func changeResidence(residence: String) {
-        self.countryOfResidence = residence
-    }
-    
-    var displayString: String {
-        return "\(self.fullName()) - Location: \(self.countryOfResidence)"
+    var isProfessor: Bool {
+        return self == Title.dr || self == Title.prof
     }
 }
 
-let person = Person(givenName: "최", middleName: "미친소", familyName: "광우")
-print(person.displayString)
+// Title을 생성하면서 title은 Title의 prof를 가지게된다
+let title1 = Title.prof
 
-final class Family: Person {
-    var relationShip: String
-    
-    init(givenName: String, middleName: String, familyName: String, relationShip: String) {
-        // 자식 Class를 먼저 초기화 하고, 부모 Class를 초기화 해줘야한다. -> 이게 서순
-        self.relationShip = relationShip
-        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
-    }
-}
-
-class MovieReview {
-    let movieTitle: String
-    var startRating: Int
-    
-    init(movieTitle: String, startRating: Int) {
-        self.movieTitle = movieTitle
-        self.startRating = startRating
-    }
-}
-
-let newWorldReviewOnYourWebSite: MovieReview = MovieReview(movieTitle: "New World", startRating: 4)
-
-let referenceToReviewOnX = newWorldReviewOnYourWebSite
-let referenceToReviewOnFacebook = newWorldReviewOnYourWebSite
-
-print(referenceToReviewOnX.startRating)
-print(referenceToReviewOnFacebook.startRating)
-
-newWorldReviewOnYourWebSite.startRating = 5
-
-print(referenceToReviewOnX.startRating)
-print(referenceToReviewOnFacebook.startRating)
-
+// 그래서 isProfessor의 self는 prof가 된다.
+print(title1.isProfessor)
