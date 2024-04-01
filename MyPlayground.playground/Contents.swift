@@ -201,3 +201,67 @@ let createAuthor: () -> Person = {
 
 let author = createAuthor()
 print(author.displayString)
+
+// String input and no output
+let printPersonsDeatils: (String, String, String) -> Void = {
+    given, middle, family in
+    let name = PersonName(givenName: given,
+                          middleName: middle,
+                          familyName: family)
+    let author = Person(name: name)
+    print(author.displayString)
+}
+
+printPersonsDeatils("Katheleen", "Mary", "Moon")
+
+let createPerson: (String, String, String) -> Person = { given, middle, family in
+    let name = PersonName(givenName: given,
+                         middleName: middle,
+                         familyName: family)
+    let person = Person(name: name)
+    return person
+}
+
+let felix = createPerson("Felix", "Robert", "Moon")
+print(felix.displayString)
+
+
+protocol Saveable {
+      var saveNeeded: Bool { get set }
+      func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
+}
+
+class Person: Saveable {
+    //....
+    var saveHandler: ((Bool) -> Void)?
+    var saveNeeded: Bool = true
+     
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+         saveHandler = handler
+         // Send person information to remove database
+         // Once remote save is complete, it calls
+           // saveComplete(Bool)
+         // We'll fake it for the moment, and assume the save is
+           // complete.
+         saveComplete(success: true)
+    }
+     
+    func saveComplete(success: Bool) {
+        saveHandler?(success)
+    }
+}
+
+//저는 그만 정신을 잃고 말았습니다
+
+import Foundation
+
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String)
+{
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let roundedRating = round(ratingOutOf5)
+    let numberOfStars = Int(roundedRating)
+    let ratingString = "\(numberOfStars) Star Moive"
+    return (numberOfStars,ratingString)
+}
+
