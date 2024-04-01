@@ -133,7 +133,7 @@ import UIKit
 //         middleName: String,
 //         familyName: String,
 //         relationship: String) {
-//        self.relationship = relationship// self 는 '나'라는
+//        self.relationship = relationship// self 는 나 자기 자신
 //        super.init(givenName: givenName, middleName: middleName, familyName: familyName) // super 부모 클래스 상속 받을 때 쓴다. 이미 정의되있는 것을 굳이 다시 만들지 않음
 //    }
 //}
@@ -183,3 +183,26 @@ print(referenceToReviewOnFacebook.starRating) // 5
 // ================
 // 열거형 Enum
 
+enum ComparisonResult: Int {
+    case orderedAscending
+    case orderedSame
+    case orderedDescending
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    var isProfessional: Bool {
+        return self == Title.dr || self == Title.prof
+    }
+}
+
+let title1 = Title.mr
+
+print(title1.isProfessional) // false
