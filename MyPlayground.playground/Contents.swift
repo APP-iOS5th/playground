@@ -118,3 +118,19 @@ class Person {
     }
 }
 
+var person = Person(givenName: "Jungman", middleName: "Dan", familyName: "Bae")
+
+final class Family: Person {
+    let relationship: String
+    
+    init(givenName: String,
+         middleName: String,
+         familyName: String,
+         relationship: String) {
+        //self는 나, super는 부모 상속자
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+}
+
+var family = Family(givenName: "Jungman", middleName: "Dan", familyName: "Bae", relationship: "Dad")
