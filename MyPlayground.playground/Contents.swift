@@ -103,4 +103,29 @@ class Person {
     
 }
 
+var person = Person(giveName: "SeongKook", middleName: "Sam", familyName: "KIM") //Class 인스턴스
+
+print(person.personFullName())
+print(person.displayString)
+
+
+// Family 객체 생성 - final
+
+final class Family: Person {
+    let relationship: String
+    
+    init(giveName: String, middleName: String, familyName: String, relationship: String) {
+//        Self 나 자신
+        self.relationship = relationship
+//        Super 부모 부르는
+        super.init(giveName: giveName, middleName: middleName, familyName: familyName)
+    }
+    
+    
+}
+
+var family = Family(giveName: "Reo", middleName: "Pass", familyName: "KIM", relationship: "Broter")
+
+print(family.personFullName())
+
 
