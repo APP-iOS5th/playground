@@ -145,3 +145,5 @@ shawshankReviewOnYourWebsite.starRating = 5
 print(referenceToReviewOnTwitter.starRating) //5
 print(referenceToReviewOnFacebook.starRating) //5
 
+//부동산 등기와 비슷함. 집을 거래한다고 집을 들고가지 않음. 등기 들고 가서 등기 수정하면 되는 것.
+
