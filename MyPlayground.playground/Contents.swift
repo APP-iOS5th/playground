@@ -81,7 +81,7 @@ let combinedString = combine("Finnley", "Moon")
 let combinedInt = combine(5, 10)
 print(combinedString) // Finnley Moon
 print(combinedInt) // 15
- */
+*/
 
 /// 객체클래스에서 기능 캡슐화하기
 class Person {
@@ -109,3 +109,17 @@ class Person {
 }
 
 var person = Person(givenName: "Song", middleName: "K", familyName: "m")
+
+
+
+final class Family: Person {
+    let relationship: String
+    
+    init(givenName: String, middleName: String, familyName: String,relationship: String) {
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName) // 나의 부모클래스 범위.. 어., 호출
+    }
+}
+
+var family = Family(givenName: "k", middleName: "k", familyName: "k", relationship: "k")
+print(family)
