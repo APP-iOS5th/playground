@@ -37,3 +37,16 @@ class Person: Saveable {
  3. 아무튼 저 함수를 (handler: @escaping (Bool) -> Void) 저기다가 집어 넣어준다
  4. 함수를 인자로 보낸다 라고 이해하면 될듯
  */
+
+// MARK: - Tuple
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let roundedRating = Int(round(ratingOutOf5))
+    let ratingStar = String(repeating: "*", count: roundedRating)
+    
+    return (roundedRating, ratingStar)
+}
+
+let rate = normalizedStarRating(forRating: 3, ofPossibleTotal: 5)
+print(rate.1)
