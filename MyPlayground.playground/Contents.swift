@@ -1,66 +1,26 @@
-// closure
+// Protocol
 
-struct PersonName {
-    let givenName: String
-    let middleName: String
-    var familyName: String
-     
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-     
-    mutating func change(familyName: String) {
-        self.familyName = familyName
-    }
+protocol Saveable {
+      var saveNeeded: Bool { get set }
+      func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
 }
 
-class Person {
-    let birthName: PersonName
-    var currentName: PersonName
-    var countryOfResidence: String
-    
-    init(name: PersonName, countryOfResidence: String = "KR") {
-        birthName = name
-        currentName = name
-        self.countryOfResidence = countryOfResidence
+class Person: Saveable {
+    //....
+    var saveHandler: ((Bool) -> Void)?
+    var saveNeeded: Bool = true
+     
+    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+         saveHandler = handler
+         // Send person information to remove database
+         // Once remote save is complete, it calls
+           // saveComplete(Bool)
+         // We'll fake it for the moment, and assume the save is
+           // complete.
+         saveComplete(success: true)
     }
      
-    var displayString: String {
-        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    func saveComplete(success: Bool) {
+        saveHandler?(success)
     }
 }
-
-let printAuthorDetails: () -> Void = {
-    let name = PersonName(givenName: "Jaeuk", middleName: "Jay", familyName: "Shin")
-    let author = Person(name: name)
-    print(author.displayString)
-}
-
-printAuthorDetails()
-
-let createAuthor: () -> Person = {
-    let name = PersonName(givenName: "Keith", middleName: "David", familyName: "Moon")
-    let author = Person(name: name)
-    return author
-}
-let author = createAuthor()
-print(author.displayString)
-
-
-// String inputs, no output
-let printPersonsDetails: (String, String, String) -> Void = { given, middle, family in
-    let name = PersonName(givenName: given, middleName: middle, familyName: family)
-    let author = Person(name: name)
-    print(author.displayString)
-}
-printPersonsDetails("Kathleen", "Mary", "Moon")
-
-let createPerson: (String, String, String) -> Person = { given, middle, family in
-    let name = PersonName(givenName: given,
-                          middleName: middle,
-                          familyName: family)
-    let person = Person(name: name)
-    return person
-}
-let felix = createPerson("Felix", "Robert", "Moon")
-print(felix.displayString)
