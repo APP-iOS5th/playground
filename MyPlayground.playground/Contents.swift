@@ -1,22 +1,23 @@
 
-class Person {
-    let givenName: String
-    let middleName: String
-    let familyName: String
-    var countryOfResidence: String = "KR"
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
     
-    init(givenName: String, middleName: String, familyName: String, countryOfResidence: String) {
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
     }
-    
-    func fullName() -> String {
-        return "\(givenName) \(middleName) \(familyName)"
-    }
-    
-    var displayString: String {
-        return "\(self.fullName()) - Location: \(self.countryOfResidence)"
-    }
-    
 }
+
+let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
+
+let refernceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let refernceToReviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(refernceToReviewOnTwitter.starRating)
+print(refernceToReviewOnFacebook.starRating)
+
+shawshankReviewOnYourWebsite.starRating = 5
+
+print(refernceToReviewOnTwitter.starRating)
+print(refernceToReviewOnFacebook.starRating)
