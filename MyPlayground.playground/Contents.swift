@@ -216,3 +216,35 @@ print(title1.isProfessioal())
 
 
 // 클로저
+let printAuthorDetails:  () -> Void =  {
+    let name = PersonName(givenName: "SeongKook", middleName: "Sam", familyName: "Kim")
+    let autor = PPerson(name: name)
+    print(autor.displayString)
+}
+
+printAuthorDetails()
+
+let createAutor : () -> PPerson = {
+    let name = PersonName(givenName: "reo", middleName: "sam", familyName: "Kim")
+    let author = PPerson(name:name)
+    return author
+}
+let author = createAutor()
+print(author.displayString)
+
+// String inputs, no output
+let printPersonsDetails: (String,String,String) -> Void = {given,middle,family in
+    let name = PersonName(givenName: given, middleName: middle, familyName: family)
+    let author = PPerson(name: name)
+    print(author.displayString)
+}
+printPersonsDetails("kathleen","Mary","Moon")
+
+let createPerson: (String,String,String) -> PPerson = {
+    given,middle,family in
+    let name = PersonName(givenName: given, middleName: middle, familyName: family)
+    let person = PPerson(name: name)
+    return person
+}
+let felix = createPerson("Fleix", "Robert", "Moon")
+print(felix.displayString)
