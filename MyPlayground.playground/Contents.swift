@@ -15,13 +15,13 @@ enum Title : String {
     case other
     
     var isProfessional: Bool {
-        return self == Title.dr || self ==Title.prof
+        return self == Title.dr || self == Title.prof
     }
 }
 
 
 let title1 = Title.mr
 
-print(title1.isProfessional())
+print(title1.isProfessional)
 
 
