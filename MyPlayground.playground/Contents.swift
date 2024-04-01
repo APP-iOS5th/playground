@@ -65,5 +65,16 @@ func fullName(givenName: String, middleName: String, familyName:String) -> Strin
 
 //함수를 실행하는 것: 표현식. 표현식에는 등호가 들어간다!
 let myFullName = fullName(givenName: "Keith", middleName: "David", familyName: "Moon");
-
+//너무 길다
 print(myFullName)
+
+//함수 변경! 성을 모르는 사람도 이름을 출력해주는 함수로 변경해보자.
+
+//함수 선언부에 등호가 들어가면, 만약 값이 없으면 ㅇㅇ로 채워줘라는 의미
+func niceFullName(givenName: String, middleName: String = "Unknown", familyName:String) -> String {
+    return "\(givenName) \(middleName) \(familyName)"
+    }
+    
+let yourFullName = niceFullName(givenName: "Keith", familyName: "Moon");
+
+print(yourFullName)
