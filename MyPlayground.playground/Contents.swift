@@ -1,26 +1,54 @@
 
-enum Title: String {
-    case mr = "Mr"
-    case mrs = "Mrs"
-    case mister = "Mister"
-    case miss = "Miss"
-    case dr = "Dr"
-    case prof = "Prof"
-    case other
-    
-    var isProfessional: Bool {
-        return self == Title.dr || self == Title.prof
+struct PersonName {
+    let givenName: String
+    let middleName: String
+    var familyName: String
+     
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+     
+    mutating func change(familyName: String) {
+        self.familyName = familyName
     }
 }
 
-enum ComparisonResult: Int {
-    case orderedAscending
-    case orderedSame
-    case orderedDescending
+class Person {
+     
+    let birthName: PersonName
+    var currentName: PersonName
+    var countryOfResidence: String
+     
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        birthName = name
+        currentName = name
+        self.countryOfResidence = countryOfResidence
+    }
+     
+    var displayString: String {
+        return "\(currentName.fullName()) - Location: \(countryOfResidence)"
+    }
 }
 
-let a = Title.dr
+let printAuthorDetails: (String, String, String) -> Void = {
+    given, middle, family in
+    let name = PersonName(givenName: given, middleName: middle, familyName: family)
+    let author = Person(name: name, countryOfResidence: "KR")
+    
+    print(author.displayString)
+}
 
-print(a.isProfessional)
+printAuthorDetails("Inho", "Harry", "Lee")
 
-print(ComparisonResult.orderedAscending.rawValue)
+let createPerson: (String, String, String) -> Person = {
+    given, middle, family in
+    let name = PersonName(givenName: given, 
+                          middleName: middle,
+                          familyName: family)
+    let person = Person(name: name, countryOfResidence: "KR")
+    
+    return person
+}
+
+let me = createPerson("Inho", "Harry", "Lee")
+print(me.displayString)
