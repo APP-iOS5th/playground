@@ -23,7 +23,7 @@ class Person: Saveable {
     }
 }
 /*
- MARK: 서순
+ MARK: - Closer 서순
  1. Person Class 생성 MARK: let person = Person()
  2. Person Class의 saveToRemoteDatabase를 실행 ->
  MARK: person.saveToRemoteDatabase { boolValue in
@@ -49,4 +49,29 @@ func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float)
 }
 
 let rate = normalizedStarRating(forRating: 3, ofPossibleTotal: 5)
-print(rate.1)
+
+// MARK: - Collection
+// Array
+var moviesToWatch: Array<String> = Array()
+moviesToWatch.append("Dark Knight")
+moviesToWatch.append("New World")
+moviesToWatch.append("Harry Porter")
+
+moviesToWatch.insert("The Matrix", at: 0) // 안좋음 - 과정이 복잡할 수 있음
+
+let spyMovieSuggestions: [String] = [
+    "The Bourne Identity", "Casino Royale", "Mission Impossible"
+]
+moviesToWatch += spyMovieSuggestions
+
+var starWarsTrilogy = Array<String>(repeating: "Star Wars: ", count: 3)
+starWarsTrilogy[0] += "A New Hope"
+starWarsTrilogy[1] += "Empire Strikes Back"
+starWarsTrilogy[2] += "Return Of the Jedi"
+
+moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
+
+print(moviesToWatch.count)
+moviesToWatch.remove(at: 2)
+print(moviesToWatch.count)
+
