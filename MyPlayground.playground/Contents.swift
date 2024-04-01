@@ -1,23 +1,11 @@
 import UIKit
 
-class MovieReview {
-    let movieTitle: String
-    var starRating: Int
-    init(movieTitle: String, starRating: Int) {
-        self.movieTitle = movieTitle
-        self.starRating = starRating
-    }
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
 }
-
-let shawshankReviewOnYourWebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 3)
-
-let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
-let referenceToReviewOnFacebook = shawshankReviewOnYourWebsite
-
-print(referenceToReviewOnTwitter.starRating)
-print(referenceToReviewOnFacebook.starRating)
-
-shawshankReviewOnYourWebsite.starRating = 5
-
-print(referenceToReviewOnTwitter.starRating)
-print(referenceToReviewOnFacebook.starRating)
