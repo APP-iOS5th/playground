@@ -182,6 +182,10 @@ struct PersonName {
     func fullName() -> String {
         return "\(givenName) \(middleName) \(familyName)"
     }
+    
+    mutating func change(familyName: String) {
+        self.familyName = familyName
+    }
 }
 
 class Person1 {
@@ -189,9 +193,9 @@ class Person1 {
     let currentName: PersonName
     var countryOfResidence: String
     
-    init(birthName: PersonName, currentName: PersonName, countryOfResidence: String) {
-        self.birthName = birthName
-        self.currentName = currentName
+    init(name: PersonName, countryOfResidence: String = "UK") {
+        self.birthName = name
+        self.currentName = name
         self.countryOfResidence = countryOfResidence
     }
     
@@ -231,4 +235,49 @@ let title1 = Title.dr
 print(title1.isProfessional())
 print(title1.isProfessional1) // 위와 동일함, 왜 둘다 일케 되는건지?
 
+// ♥️ 클로저 ✨
+// == 익명 함수, 이름은 없지만 함수의 모양을 가짐 & 리턴 없는 버전
+// 클로저를 통해서 유연한 컨베이어식 RX 패턴 프로그래밍이 가능해진다
+// 순수 함수를 구현하기 위해 ... 사용한다 ...!!! (이름 있는 클로저가 *함수*)
 
+// 케이스 1️⃣ 아무것도 주지 않고 아무것도 받지 않았어
+let printAuthorDetails: () -> Void = {
+    let name = PersonName(givenName: "Yunwon", middleName: "Sally", familyName: "Chae")
+    let author = Person1(name: name)
+    print(author.displayString)
+}
+
+printAuthorDetails()
+
+// 케이스 2️⃣ 아무것도 안 줬는데 결과를 받았어 (리턴 있는 버전)
+let createAutor: () -> Person1 = {
+    let name = PersonName(givenName: "Yunwon", middleName: "Sally", familyName: "Chae")
+    let author = Person1(name: name)
+    return author
+}
+
+let author = createAutor()
+print(author.displayString)
+
+// 케이스 3️⃣ 뭘 줬는데 결과를 받지 않았어
+// 전달하고 있는 파라미터가 있어서 그걸 구분 짓기 위해서 "in" 을 사용
+let printPersonsDetails: (String, String, String) -> Void = { given, middle, family in
+        let name = PersonName(givenName: given,
+                              middleName: middle,
+                              familyName: family)
+    let author = Person1(name: name)
+    print(author.displayString)
+}
+printPersonsDetails("Keith", "Mary", "Moon")
+
+// 케이스 4️⃣ 인풋도 주고 아웃풋도 받을거야
+let createPerson: (String, String, String) -> Person1 = { given, middle, family in
+    let name = PersonName(givenName: given,
+                          middleName: middle,
+                          familyName: family)
+    let person = Person1(name: name)
+    return person
+}
+
+let felix = createPerson("Felix", "Robert", "Moon")
+print(felix.displayString)
