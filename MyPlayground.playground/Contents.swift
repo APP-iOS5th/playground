@@ -1,36 +1,15 @@
-import UIKit
+var dayOfTheWeek: String = "Monday"
+dayOfTheWeek = "Tuesday"
+dayOfTheWeek = "Wednesday"
+//dayOfTheWeek = nil // 컴파일 오류 발생
 
-var greeting = "Hello, playground"
+var numberOfFingersHeldUpByFinn: Int?
+numberOfFingersHeldUpByFinn = nil
+numberOfFingersHeldUpByFinn = 3
 
-let phrase: String = "The quick brown fox jumps over the lazy dog"
+print(numberOfFingersHeldUpByFinn ?? "")
 
-greeting = "Modification"
 
-let numberOfFoxes: Int = 1
-let numberOfAnimals: Int = 2
+let lastNumberOfFingersHeldUpByFinn: Int = numberOfFingersHeldUpByFinn! // 위험할 수 있음
+print(lastNumberOfFingersHeldUpByFinn)
 
-let averageCharactersPerWord: Float = (3+5+5+3+5+4+3+4+3) / 9
-
-var anotherPhrase = phrase
-
-anotherPhrase = "Modification"
-
-var phraseInfo = "The phrase" + " has: "
-print(phraseInfo) // "The phrase has: "
-
-phraseInfo = phraseInfo + "\(numberOfFoxes) fox and \(numberOfAnimals) animals"
-print(phraseInfo) // "The phrase has: 1 fox and 2 animals"
-
-print("Number of characters in phrase: \(phrase.count)")
-
-let multilineExplanation: String = """
-Why is the following phrase often used?
-"The quick brown fox jumps over the lazy dog"
-This phrase contains every letter in the alphabet.
-"""
-
-let phrasesAreEqual = phrase == anotherPhrase
-print(phrasesAreEqual)
-
-let phraseHas43Characters = phrase.count == 40 + 3
-print(phraseHas43Characters)
