@@ -1,19 +1,12 @@
+import Foundation
 
-protocol Saveable {
-    var saveNeeded: Bool { get set }
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void)
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let roundedRating = round(ratingOutOf5)
+    let numberOfStars = Int(roundedRating)
+    let ratingString = "\(numberOfStars) Star Movie"
+    return (numberOfStars, ratingString)
 }
 
 
-class Person: Saveable {
-    var saveHandler: ((Bool) -> Void)?
-    var saveNeeded: Bool = true
-    
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
-        saveHandler = handler
-        saveComplete(success: true)
-    }
-    func saveComplete(success: Bool) {
-        saveHandler?(success)
-    }
-}
