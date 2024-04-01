@@ -81,7 +81,7 @@ let combinedString = combine("Finnley", "Moon")
 let combinedInt = combine(5, 10)
 print(combinedString) // Finnley Moon
 print(combinedInt) // 15
-*/
+
 
 /// 객체클래스에서 기능 캡슐화하기
 class Person {
@@ -123,3 +123,28 @@ final class Family: Person {
 
 var family = Family(givenName: "k", middleName: "k", familyName: "k", relationship: "k")
 print(family)
+*/
+
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(moveTitle: String, starRating: Int) {
+        self.movieTitle = moveTitle
+        self.starRating = starRating
+    }
+}
+
+let shawshankReviewOnYourWebsite = MovieReview(moveTitle: "HarryPotter", starRating: 4)
+
+//소설 미디어에 게시
+let referenceToReviewOnTwitter = shawshankReviewOnYourWebsite
+let referenceRoreviewOnFacebook = shawshankReviewOnYourWebsite
+
+print(referenceToReviewOnTwitter.starRating) //4
+print(referenceToReviewOnTwitter.starRating) //4
+
+// 수정하면 전체가 수정 됨
+shawshankReviewOnYourWebsite.starRating = 5
+
+print(referenceToReviewOnTwitter.starRating) //5
+print(referenceToReviewOnTwitter.starRating) //5
