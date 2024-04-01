@@ -147,3 +147,28 @@ print(referenceToReviewOnFacebook.starRating) //5
 
 //부동산 등기와 비슷함. 집을 거래한다고 집을 들고가지 않음. 등기 들고 가서 등기 수정하면 되는 것.
 
+//enum 열거 설명!
+enum ComparisonResult : Int {
+    case orderedAscending //0
+    case orderedSame //1
+    case orderedDescending //2
+    // ... 3, 4, 5
+}
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "Mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "Prof"
+    case other
+    
+    var isProfessional: Bool {
+        return self == Title.dr || self == Title.prof
+    }
+}
+
+let title1 = Title.mr
+
+print(title1.isProfessional) //false
