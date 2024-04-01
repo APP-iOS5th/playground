@@ -170,9 +170,6 @@ class Person2 {
 
 
 
-
-
-
 //enums (열겨형)
 enum ComparisonResult: Int {
     case orderedAscending //0
@@ -205,9 +202,36 @@ let compari = ComparisonResult.orderedAscending
 
 
 
+//클로저 4가지
+
+var printAuthorDetails: () -> Void = {
+    // void: 값을 반환하지 않는다
+    let name = PersonName(givenName: "HEO", middleName: "won", familyName: "yeol")
+    let author = Person2(name: name)
+    print(author.displayString)
+}
+
+printAuthorDetails()
+
+let createAuthor: () -> Person2 = {
+    let name = PersonName(givenName: "HEO", middleName: "won", familyName: "yeol")
+    let author = Person2(name: name)
+    return author
+}
+let author = createAuthor()
+print(author.displayString)
 
 
+let createPerson: (String, String, String) -> Person2 = { given,
+  middle, family in
+    let name = PersonName(givenName: given,
+                          middleName: middle,
+                          familyName: family)
+    let person2 = Person2(name: name)
+    return person2
+}
+let felix = createPerson("Felix", "Robert", "Moon")
+print(felix.displayString)
 
-//클로저
 
 
