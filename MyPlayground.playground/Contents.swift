@@ -579,3 +579,16 @@ class UserManager {
 let manager = UserManager()
 print(manager.currentUserName)
 manager.currentUserName = "Dade Murphy"
+
+
+extension String {
+    func firstWord() -> String {
+        let sapceIndex = firstIndex(of: " ") ?? endIndex
+        let word = prefix(upTo: sapceIndex)
+        return String(word)
+    }
+}
+
+let llap = "Live long, and prosper"
+let firstWord = llap.firstWord()
+print(firstWord)
