@@ -515,3 +515,31 @@ let buddy = Pug(name: "Buddy")
 grumble.append(marty)
 grumble.append(wolfie)
 grumble.append(buddy)
+
+
+enum Channel {
+    case BBC1
+    case BBC2
+    case BBCNews
+}
+
+class ProgrammerFetcher {
+    
+    typealias FetchResultHandler = (String?, Error?) -> Void
+    
+    func fetchCurrentProgrammeName(forChannel channel: Channel, resultHandler: FetchResultHandler) {
+        let exampleProgrammName = "Sherlock"
+        resultHandler(exampleProgrammName,nil)
+    }
+    
+    func fetchNextProgrammeName(forChannel channel: Channel, resultHandler: FetchResultHandler) {
+        let exampleProgrammName = "Luther"
+        resultHandler(exampleProgrammName,nil)
+    }
+    
+}
+
+let fetcher = ProgrammerFetcher()
+fetcher.fetchCurrentProgrammeName(forChannel: .BBC1, resultHandler: { programmeName, error in
+    print(programmeName ?? "N/A")
+})
