@@ -27,9 +27,7 @@
 		582740FC2BBBEE650047221B /* AppleInc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleInc.h; sourceTree = "<group>"; };
 		582741012BBBEE650047221B /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		582741062BBBEE650047221B /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
-		582741112BBBEEB60047221B /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		582741122BBBEF630047221B /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SecretProductDepartment.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		582741132BBBF2CF0047221B /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		582741142BBBF6A30047221B /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Apple.playground; path = ../Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +52,7 @@
 		582740EF2BBBEE650047221B = {
 			isa = PBXGroup;
 			children = (
-				582741132BBBF2CF0047221B /* AppleStore.playground */,
-				582741122BBBEF630047221B /* SecretProductDepartment.playground */,
-				582741112BBBEEB60047221B /* AccessControl.playground */,
+				582741142BBBF6A30047221B /* Apple.playground */,
 				582740FB2BBBEE650047221B /* AppleInc */,
 				582741052BBBEE650047221B /* AppleIncTests */,
 				582740FA2BBBEE650047221B /* Products */,
