@@ -2,7 +2,7 @@
 //  AppleInc.h
 //  AppleInc
 //
-//  Created by MadCow on 2024/4/2.
+//  Created by Jungman Bae on 4/2/24.
 //
 
 #import <Foundation/Foundation.h>
