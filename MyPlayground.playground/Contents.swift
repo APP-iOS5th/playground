@@ -563,32 +563,51 @@ import UIKit
 //manager.currentUserName = "Dade Murphy"
 
 
-class UserManager {
-    var currentUserName: String = "Emmanuel Goldstein" {
-        willSet {
-            print("Goodbye to \(currentUserName)")
-            print("I hear \(newValue) is on their way!")
-        }
-        didSet {
-            print("Welcome to \(currentUserName)")
-            print("I miss \(oldValue) already!")
-        }
+//class UserManager {
+//    var currentUserName: String = "Emmanuel Goldstein" {
+//        willSet {
+//            print("Goodbye to \(currentUserName)")
+//            print("I hear \(newValue) is on their way!")
+//        }
+//        didSet {
+//            print("Welcome to \(currentUserName)")
+//            print("I miss \(oldValue) already!")
+//        }
+//    }
+//}
+//
+//let manager = UserManager()
+//print(manager.currentUserName)
+//manager.currentUserName = "Dade Murphy"
+//
+//
+//extension String {
+//    func firstWord() -> String {
+//        let sapceIndex = firstIndex(of: " ") ?? endIndex
+//        let word = prefix(upTo: sapceIndex)
+//        return String(word)
+//    }
+//}
+//
+//let llap = "Live long, and prosper"
+//let firstWord = llap.firstWord()
+//print(firstWord)
+
+
+protocol IntRepresentable {
+    var intValue: Int {get}
+}
+
+extension Int: IntRepresentable {
+    var intValue: Int {
+        return self
     }
 }
 
-let manager = UserManager()
-print(manager.currentUserName)
-manager.currentUserName = "Dade Murphy"
-
-
-extension String {
-    func firstWord() -> String {
-        let sapceIndex = firstIndex(of: " ") ?? endIndex
-        let word = prefix(upTo: sapceIndex)
-        return String(word)
+extension String: IntRepresentable {
+    var intValue: Int {
+        return Int(self) ?? 0
     }
 }
-
-let llap = "Live long, and prosper"
-let firstWord = llap.firstWord()
-print(firstWord)
+var ten = "10"
+print(ten.intValue)
