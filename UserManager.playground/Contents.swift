@@ -1,13 +1,13 @@
 class UserManager {
     //관찰자(옵저버) Property Observer
     var currentUserName: String = "Emmmanuel Goldstein" {
-        willSet(newUserName) {
+        willSet {
             print("Goodbye to \(currentUserName)")
-            print("I hear \(newUserName) is on their way!")
+            print("I hear \(newValue) is on their way!")
         }
-        didSet(oldUserName){
+        didSet{
             print("Welcome to \(currentUserName)")
-            print("I miss \(oldUserName) already!")
+            print("I miss \(oldValue) already!")
         }
     }
 }
