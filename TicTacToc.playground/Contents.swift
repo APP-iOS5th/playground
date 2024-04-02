@@ -1,7 +1,7 @@
 enum GridPosition: String {
     case player1 = "o"
     case player2 = "x"
-    case empty = ""
+    case empty = " "
 }
 
 // 배열을 가진 배열이 이중배열
@@ -29,11 +29,17 @@ struct TicTacToc {
     func printableString(forRow row: [GridPosition]) -> String {
         var rowString = "| \(row[0].rawValue) "
         rowString += "| \(row[1].rawValue) "
-        rowString += "| \(row[2].rawValue) | \n"
+        rowString += "| \(row[2].rawValue) |\n"
         
         return rowString
     }
  }
 
 var game = TicTacToc() // 초기화를 통해 게임 스타트
+print(game.gameStateString())
+
+game.gridStorage[1][1] = .player1
+print(game.gameStateString())
+
+game.gridStorage[0][2] = .player2
 print(game.gameStateString())
