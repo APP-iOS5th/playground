@@ -15,6 +15,8 @@ enum CommunicationMethod {
     case tachyons
 }
 
+
+
 class Person {
     let name: PersonName
     let preferredCommunicationMethod: CommunicationMethod
@@ -36,14 +38,23 @@ class Person {
     }
 }
 
+enum Role: String {
+    case captain = "Captain"
+    case firstOfficer = "First Officer"
+    case secondOfficer = "Second Officer"
+    case chiefEngineer = "Chief Engineer"
+    case councillor = "Councillor"
+    case securifyOfficer = "Security Officer"
+    case chiefMedicalOfficer = "Chief MedicalOfficer"
+}
 
-var crew = Dictionary<String, Person>()
+var crew = Dictionary<Role, Person>()
+
 
 // Captain과 First Officer라는 키를 사용하여 Person 인스턴스를 딕셔너리에 추가
-crew["Captain"] = Person(givenName: "Jean-Luc",
+crew[.captain] = Person(givenName: "Jean-Luc",
                          familyName: "Picard",
                          commsMethod: .phone)
-
 
 /*
  // convenience init을 사용하지 않는 경우
@@ -52,27 +63,27 @@ crew["Captain"] = Person(givenName: "Jean-Luc",
  crew["Captain"] = captain
  */
 
-crew["First Officer"] = Person(givenName: "William",
+crew[.firstOfficer] = Person(givenName: "William",
                                familyName: "Riker",
                                commsMethod: .email)
 
-crew["Chief Engineer"] = Person(givenName: "Geordi",
+crew[.chiefEngineer] = Person(givenName: "Geordi",
                                 familyName: "LaForge",
                                 commsMethod: .textMessage)
 
-crew["Second Officer"] = Person(givenName: "Data",
+crew[.secondOfficer] = Person(givenName: "Data",
                                 familyName: "Soong",
                                 commsMethod: .fax)
 
-crew["Councillor"] = Person(givenName: "Deanna",
+crew[.councillor] = Person(givenName: "Deanna",
                             familyName: "Troi",
                             commsMethod: .telepathy)
 
-crew["Security Officer"] = Person(givenName: "Tasha",
+crew[.securifyOfficer] = Person(givenName: "Tasha",
                                   familyName: "Yar",
                                   commsMethod: .subSpaceRelay)
 
-crew["Chief Medical Officer"] = Person(givenName: "Beverly",
+crew[.chiefMedicalOfficer] = Person(givenName: "Beverly",
                                        familyName: "Crusher",
                                        commsMethod: .tachyons)
 
@@ -84,3 +95,5 @@ let firstRole = roles.first!    // first 는 옵셔널Value 이기 때문에, �
 let cmo = crew[firstRole]   // cmo가 옵셔널(Optional)인 이유는 Dictionary의 인덱싱 작업 결과가 항상 유효한 값(즉, 해당 키에 해당하는 값이 실제로 존재하는 경우)을 보장하지 않기 때문
 print("\(firstRole): \(cmo?.displayName ?? "N/A")")
 
+
+// =====
