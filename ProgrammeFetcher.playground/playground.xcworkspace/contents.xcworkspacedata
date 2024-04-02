@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:">
+      location = "self:/Users/smith/Documents/iOSProjects/AppSchool5th/2week/playground/ProgrammeFetcher.playground">
    </FileRef>
 </Workspace>
