@@ -620,15 +620,27 @@ fetcher.fetchCurrentProgrammeName(forChannel: .BBC1, resultHandler: { programmeN
 */
 
 // < 속성 관리자 - UserManager >
+//class UserManager { // 변수 바뀔 때 호출되는거
+//    var currentUserName: String = "Emmanuel Goldstein" {
+//        willSet (newUserName) { // 값을 쓰기전
+//            print("Goodbye to \(currentUserName)")
+//            print("I hear \(newUserName) is on their way")
+//        }
+//        didSet (oldUserName) { // 쓴 후
+//            print("Welcome to \(currentUserName)")
+//            print("I miss \(oldUserName) already!")
+//        }
+//    }
+//}
 class UserManager { // 변수 바뀔 때 호출되는거
     var currentUserName: String = "Emmanuel Goldstein" {
-        willSet (newUserName) { // 값을 쓰기전
+        willSet { // 값을 쓰기전
             print("Goodbye to \(currentUserName)")
-            print("I hear \(newUserName) is on their way")
+            print("I hear \(newValue) is on their way")
         }
-        didSet (oldUserName) { // 쓴 후
+        didSet { // 쓴 후
             print("Welcome to \(currentUserName)")
-            print("I miss \(oldUserName) already!")
+            print("I miss \(oldValue) already!")
         }
     }
 }
