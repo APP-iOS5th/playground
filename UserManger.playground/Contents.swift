@@ -2,14 +2,13 @@
 //프로퍼티 옵저버: willSet,didSet
 class UserManger{
     var currentUserName: String = "Emmanuel Goldstein"{
-        
-        willSet{ //willSet:값을 쓰기전
+        willSet(newUserName){ //willSet:값을 쓰기전
             print("Goobye to \(currentUserName)")
-            print("I hear \(newValue) is on their way!")
+            print("I hear \(newUserName) is on their way!")
         }
-        didSet{ //didSet: 값을 쓴 후
+        didSet(oldUserName){ //didSet: 값을 쓴 후
             print("Welcome to \(currentUserName)")
-            print("I miss \(oldValue) already!")
+            print("I miss \(oldUserName) already!")
         }
     }
 }
