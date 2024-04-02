@@ -1,41 +1,30 @@
 
-var moviestoWatch: Array<String> = Array()
+let fibonacciArray: Array<Int> = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+let fibonacciSet: Set<Int> = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 
-moviestoWatch.append("The Shawshank Redemption")  // 0
-moviestoWatch.append("Ghostbusters") // 1
-moviestoWatch.append("Terminator 2") // 2
+print(fibonacciArray.count)
+print(fibonacciSet.count)
 
-print(moviestoWatch[1])
-print(moviestoWatch.count)
-
-moviestoWatch.insert("The Matrix", at: 2)
-
-print(moviestoWatch.first ?? "Empty")
-print((moviestoWatch.last ?? "Empty"))
+var animal: Set<String> = [ "cat", "dog", "mouse", "elephant"]
+animal.insert("rebbit")
+print(animal.contains("dog"))
+animal.remove("dog")
+print(animal.contains("dog"))
 
 
-let secondMovietoWatch = moviestoWatch[1]
-moviestoWatch[1] = "Ghostbusters (1984)"
-print(moviestoWatch.count)
-print(moviestoWatch)
+let evenNumbers = Set<Int>(arrayLiteral: 2, 4, 6, 8, 10)
+let oddNumbers: Set<Int> = [1, 3, 5, 7, 9]
+let squareNumbers: Set<Int> = [1, 4, 9]
+let triangularNumbers: Set<Int> = [1, 3, 6, 10]
 
+let evenOrTriangularNumbers = evenNumbers.union(triangularNumbers) // 2, 4, 6, 8, 10, 1, 3, unordered
+print(evenOrTriangularNumbers.count) // 7
 
-let spyMovieSuggestions: [String] = ["The bourne Identity", "Casino Royale", "Mission Impossible"]
+let oddAndSquareNumbers = oddNumbers.intersection(squareNumbers) // 1, 9, unordered
+print(oddAndSquareNumbers.count) // 2
 
-moviestoWatch = moviestoWatch + spyMovieSuggestions
-print(moviestoWatch.count)
-print(moviestoWatch)
+let squareOrTriangularNotBoth = squareNumbers.symmetricDifference(triangularNumbers) // 4, 9, 3, 6, 10, unordered
+print(squareOrTriangularNotBoth.count) // 5
 
-var starWarsTrilogy = Array<String>(repeating: "Star Wars: ", count: 3)
-
-starWarsTrilogy[0] += "A New Hope"
-starWarsTrilogy[1] += "Empire Strikes Back"
-starWarsTrilogy[2] += "Return of the Jedi"
-print(starWarsTrilogy)
-
-
-moviestoWatch.replaceSubrange(2...4, with: starWarsTrilogy)
-print(moviestoWatch.count)
-
-moviestoWatch.remove(at: 6)
-print(moviestoWatch.count)
+let squareNotOdd = squareNumbers.subtracting(oddNumbers) // 4
+print(squareNotOdd.count) // 1
