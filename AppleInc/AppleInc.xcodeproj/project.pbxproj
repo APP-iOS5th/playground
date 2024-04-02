@@ -27,9 +27,8 @@
 		4173F4482BBBED5A008CDD43 /* AppleInc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleInc.h; sourceTree = "<group>"; };
 		4173F44D2BBBED5A008CDD43 /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4173F4522BBBED5A008CDD43 /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
-		4173F45E2BBBEDB5008CDD43 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AccessControl.playground; path = ../AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4173F45F2BBBEDD8008CDD43 /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SecretProductDepartment.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4173F4602BBBF2C3008CDD43 /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4173F4622BBBF63B008CDD43 /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4173F4692BBBFB05008CDD43 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +53,8 @@
 		4173F43B2BBBED5A008CDD43 = {
 			isa = PBXGroup;
 			children = (
-				4173F4602BBBF2C3008CDD43 /* AppleStore.playground */,
-				4173F45F2BBBEDD8008CDD43 /* SecretProductDepartment.playground */,
-				4173F45E2BBBEDB5008CDD43 /* AccessControl.playground */,
+				4173F4692BBBFB05008CDD43 /* AccessControl.playground */,
+				4173F4622BBBF63B008CDD43 /* Apple.playground */,
 				4173F4472BBBED5A008CDD43 /* AppleInc */,
 				4173F4512BBBED5A008CDD43 /* AppleIncTests */,
 				4173F4462BBBED5A008CDD43 /* Products */,
