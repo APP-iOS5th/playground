@@ -469,11 +469,14 @@ struct TicTacToe {
         return stateString
     }
     func printableString(forRow row: [GridPosition]) -> String {
-        var rowString = "| \(row[0].rawValue)"
-        rowString += "| \(row[1].rawValue)"
-        rowString += "| \(row[2].rawValue)"
+        var rowString = "| \(row[0].rawValue) "
+        rowString += "| \(row[1].rawValue) "
+        rowString += "| \(row[2].rawValue) |\n"
         
         return rowString
         
     }
 }
+
+var game = TicTacToe()
+print(game.gameStateString())
