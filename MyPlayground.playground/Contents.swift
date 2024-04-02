@@ -1,18 +1,13 @@
-// Property Observer(프로퍼티 감시자)
+// String Extension(확장)
 
-class UserManager {
-    var currentUserName: String = "Emmanuel Goldstein" {
-        willSet (newUserName) {                     // 값이 변경되기 직전
-            print("Goodbye to \(currentUserName)")
-            print("I hear \(newUserName) is on their way!")
-        } didSet (oldUserName) {                    // 값이 변경되기 직후
-            print("Welcome to \(currentUserName)")
-            print("I miss \(oldUserName) already!")
-        }
+extension String {
+    func firstWord() -> String {
+        let spaceIndex = firstIndex(of: " ") ?? endIndex
+        let word = prefix(upTo: spaceIndex)
+        return String(word + "(It's me!)")
     }
 }
 
-let manager = UserManager()
-
-print(manager.currentUserName)
-manager.currentUserName = "Dade Murphy"
+let llap = "Live long, and prosper"
+let firstWord = llap.firstWord()
+print(firstWord)
