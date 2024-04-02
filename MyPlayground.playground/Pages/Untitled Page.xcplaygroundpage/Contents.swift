@@ -489,7 +489,6 @@ var crew = Dictionary<Role, Person>()
 crew[.captain] = Person(givenName: "Jean-Luc", familyName: "Picard", commsMethod: .phone)
 crew[.firstOfficer] = Person(givenName: "William", familyName: "Riker", commsMethod: .email)
 crew[.chiefEngineer] = Person(givenName: "Geordi", familyName: "LaForge", commsMethod: .textMessage)
-*/
 
 // << TicTacToe >>
 enum GridPosition: String {
@@ -516,9 +515,9 @@ struct TicTacToe {
         girdStorage.append(Array(repeating: .empty, count: 3))
     }
     // 직접 입력할 때 사용하기 위해 추가
-    mutating func placePlayer(player: GridPosition, row: Int, column: Int) {
-         girdStorage[row][column] = player
-     }
+//    mutating func placePlayer(player: GridPosition, row: Int, column: Int) {
+//         girdStorage[row][column] = player
+//     }
     
     func gameStateString() -> String {
         var stateString = "-------------\n"
@@ -547,29 +546,29 @@ var game = TicTacToe()
 //game.girdStorage[0][2] = .player2
 //print(game.gameStateString())
 
-//game[1, 1] = .player1
-//print(game.gameStateString())
-//
-//game[0, 2] = .player2
-//print(game.gameStateString())
+game[1, 1] = .player1
+print(game.gameStateString())
+
+game[0, 2] = .player2
+print(game.gameStateString())
 
 
 // 직접 입력받는 걸 추가해봄 근데 이게 playground에서 실행이 안되는거같은...
-if let player = Int(readLine() ?? "1") {
-    if let input = readLine()?.split(separator: " ").map({ Int($0) ?? 0 }) {
-        let row = input[0]
-        let col = input[1]
-        
-        if row >= 0 && row < 3 && col >= 0 && col < 3 {
-            game.placePlayer(player: player == 1 ? .player1 : .player2, row: row, column: col)
-            print(game.gameStateString())
-        } else {
-            print("올바른 행과 열을 입력하세요 (0부터 2까지의 값)")
-        }
-    } else {
-        print("잘못된 입력입니다.")
-    }
-} else {
-    print("잘못된 입력입니다.")
-}
-
+//if let player = Int(readLine() ?? "1") {
+//    if let input = readLine()?.split(separator: " ").map({ Int($0) ?? 0 }) {
+//        let row = input[0]
+//        let col = input[1]
+//        
+//        if row >= 0 && row < 3 && col >= 0 && col < 3 {
+//            game.placePlayer(player: player == 1 ? .player1 : .player2, row: row, column: col)
+//            print(game.gameStateString())
+//        } else {
+//            print("올바른 행과 열을 입력하세요 (0부터 2까지의 값)")
+//        }
+//    } else {
+//        print("잘못된 입력입니다.")
+//    }
+//} else {
+//    print("잘못된 입력입니다.")
+//}
+*/
