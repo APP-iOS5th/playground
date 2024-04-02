@@ -9,6 +9,16 @@ enum GridPosition: String {
 struct TicTacToe {
     var gridStorage: [[GridPosition]] = []
     
+    subscript(row: Int, column: Int) -> GridPosition {
+        get {
+            return self.gridStorage[row][column]
+        }
+        
+        set(newValue) {
+            self.gridStorage[row][column] = newValue
+        }
+    }
+    
     init() {
         self.gridStorage.append(Array(repeating: .empty, count: 3))
         self.gridStorage.append(Array(repeating: .empty, count: 3))
@@ -36,5 +46,22 @@ struct TicTacToe {
     }
 }
 
+// normally
 var game = TicTacToe()
+print(game.gameStateString())
+
+game.gridStorage[1][1] = .player1
+print(game.gameStateString())
+
+game.gridStorage[0][2] = .player2
+print(game.gameStateString())
+
+// used subscript
+var game2 = TicTacToe()
+print(game.gameStateString())
+
+game[1, 1] = .player1
+print(game.gameStateString())
+
+game[0, 2] = .player2
 print(game.gameStateString())
