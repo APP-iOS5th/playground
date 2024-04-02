@@ -77,6 +77,5 @@ let roles = Array(crew.keys)
 print(roles)
 
 let firstRole = roles.first!
-let cmo = crew[firstRole]! // ! 옵셔널 지우고
-print("\(firstRole): \(cmo.displayName)")
-//print("\(firstRole): \(cmo?.displayName?? "N/A")")
+let cmo = crew[firstRole]
+print("\(firstRole): \(cmo?.displayName ?? "N/A")")
