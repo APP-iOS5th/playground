@@ -1,4 +1,10 @@
-
+/*
+ typealias 는 사람 읽기 좋으라고 많이 씀
+ 가령 우리 수강생 명단을 관리한다 쳤을때
+ String 으로 배열타입을 선언하는거보단
+ 저걸 alias 로 StudentName 이라고 하면
+ 좀더 코드 가독성 좋음
+ */
 struct Pug{
     let name: String
 }
