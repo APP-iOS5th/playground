@@ -1,31 +1,18 @@
-// ProgrammeFetcher
+// Property Observer(프로퍼티 감시자)
 
-enum Channel {
-    case BBC1
-    case BBC2
-    case BBCNews
-}
-
-class ProgrammeFetcher {
-    
-    typealias FetchResultHandler = (String?, Error?) -> Void
-    
-    func getchCurrentProgrammeName(forChannel channel: Channel,
-                                   resultHandler: FetchResultHandler) {
-        // ... work
-        let exampleProgramNmae = "Sherlock"
-        resultHandler(exampleProgramNmae, nil)
-    }
-    
-    func fetchNextProgrammeName(forChannel channel: Channel,
-                                resultHandler: (String?, Error?) -> Void) {
-        
-        let exampleProgramName = "Luther"
-        resultHandler(exampleProgramName, nil)
+class UserManager {
+    var currentUserName: String = "Emmanuel Goldstein" {
+        willSet (newUserName) {                     // 값이 변경되기 직전
+            print("Goodbye to \(currentUserName)")
+            print("I hear \(newUserName) is on their way!")
+        } didSet (oldUserName) {                    // 값이 변경되기 직후
+            print("Welcome to \(currentUserName)")
+            print("I miss \(oldUserName) already!")
+        }
     }
 }
 
-let fetcher = ProgrammeFetcher()
-fetcher.getchCurrentProgrammeName(forChannel: .BBC1, resultHandler: { programmeName, error in
-    print(programmeName ?? "N/A")
-})
+let manager = UserManager()
+
+print(manager.currentUserName)
+manager.currentUserName = "Dade Murphy"
