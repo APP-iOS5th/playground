@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 //MARK: - 변수를 튜플(tuples)로 번들링
 
@@ -117,3 +117,25 @@ print(mammals.isStrictSubset(of: animalKingdom)) // true
 print(animalKingdom.isStrictSuperset(of: vertebrates)) // false
 print(animalKingdom.isStrictSuperset(of: domesticAnimals)) // true
 print(catFamily.isDisjoint(with: reptile)) // true
+
+
+//MARK: - 해시블 비교
+
+//해시블 비교
+struct Person: Hashable {
+    var name: String
+    var age: Int
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(age)
+    }
+}
+// 사용 예제
+let person1 = Person(name: "Alice", age: 30)
+let person2 = Person(name: "Bob", age: 25)
+var peopleSet: Set<Person> = [person1, person2]
+// 'person1'과 동일한 속성을 가진 새로운 객체 추가
+let person3 = Person(name: "Alice", age: 30)
+peopleSet.insert(person3)
+print(peopleSet.count) // 출력: 2, 'person1'과 'person3'는 동일하게 취급됨
+
