@@ -11,4 +11,4 @@ extension String {
 
 let llap = "Live long, and prosper"
 let firstWord = llap.firstWord
-print(firstWord) 
+print(firstWord)
