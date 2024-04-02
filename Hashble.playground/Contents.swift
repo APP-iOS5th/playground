@@ -11,10 +11,19 @@ struct Person: Hashable {
     static func == (lhs: Person, rhs: Person) -> Bool {
         return lhs.name == rhs.name
     }
+    
+    var hashValue: Int {
+        var hasher = Hasher()
+        self.hash(into: &hasher)
+        return hasher.finalize()
+    }
 }
 
 let person1 = Person(name: "Alice", age: 30)
 let person2 = Person(name: "Bob", age: 25)
+
+let hashResult = person1.hashValue
+print("Hash result: ", hashResult)
 
 var peopleSet: Set<Person> = [person1, person2]
 
