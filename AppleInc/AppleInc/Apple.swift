@@ -1,4 +1,6 @@
+
 public class Person {
+    
     public let name: String
     
     public init(name: String) {
@@ -7,6 +9,7 @@ public class Person {
 }
 
 public class Apple {
+    
     public private(set) var ceo: Person
     private var employees = [Person]()
     public let store = AppleStore()
@@ -22,11 +25,11 @@ public class Apple {
     }
     
     func weeklyProductMeeting() {
-        var superSecretProduct = secretDepartment.nextProduct(codeWord: "Not sure!")
         
-        var superSecretProduct = secretDepartment.nextProduct(codeWord: "Titan")
+        var superSecretProduct = secretDepartment.nextProduct(givenCodeWord: "Not sure... Abracadabra?") // nil
         
-        print(superSecretProduct as Any)
-
+        // Try again
+        superSecretProduct = secretDepartment.nextProduct(givenCodeWord: "Titan")
+        print(superSecretProduct as Any) // "Apple Glasses"
     }
 }

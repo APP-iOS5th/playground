@@ -1,12 +1,12 @@
-
 public enum DeviceModel {
-    case iPhone12
-    case iPhone12Mini
-    case iPhone12Pro
-    case iPhone12ProMax
+    case iPhone13
+    case iPhone13Mini
+    case iPhone13Pro
+    case iPhone13ProMax
 }
 
 public class AppleiPhone {
+    
     public let model: DeviceModel
     
     fileprivate init(model: DeviceModel) {
@@ -21,6 +21,7 @@ fileprivate class Factory {
 }
 
 public class AppleStore {
+    
     private var factory = Factory()
     
     public func selliPhone(ofModel model: DeviceModel) -> AppleiPhone {

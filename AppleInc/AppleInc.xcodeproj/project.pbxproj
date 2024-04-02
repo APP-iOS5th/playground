@@ -10,6 +10,10 @@
 		37F8CE4E2BBBE60F00FF0D8E /* AppleInc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F8CE452BBBE60F00FF0D8E /* AppleInc.framework */; };
 		37F8CE532BBBE60F00FF0D8E /* AppleIncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F8CE522BBBE60F00FF0D8E /* AppleIncTests.swift */; };
 		37F8CE542BBBE60F00FF0D8E /* AppleInc.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F8CE482BBBE60F00FF0D8E /* AppleInc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37F8CE6E2BBCC91400FF0D8E /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F8CE6D2BBCC91400FF0D8E /* Apple.swift */; };
+		37F8CE722BBCC92B00FF0D8E /* AppleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F8CE712BBCC92B00FF0D8E /* AppleStore.swift */; };
+		37F8CE742BBCC94000FF0D8E /* SecretProductDepartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F8CE732BBCC94000FF0D8E /* SecretProductDepartment.swift */; };
+		37F8CE762BBCC94A00FF0D8E /* SwiftLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F8CE752BBCC94A00FF0D8E /* SwiftLanguage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +31,11 @@
 		37F8CE482BBBE60F00FF0D8E /* AppleInc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleInc.h; sourceTree = "<group>"; };
 		37F8CE4D2BBBE60F00FF0D8E /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F8CE522BBBE60F00FF0D8E /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
-		37F8CE612BBBF61B00FF0D8E /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		37F8CE662BBBFAF700FF0D8E /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; };
+		37F8CE6D2BBCC91400FF0D8E /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Apple.swift; path = AppleInc/Apple.swift; sourceTree = "<group>"; };
+		37F8CE712BBCC92B00FF0D8E /* AppleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStore.swift; sourceTree = "<group>"; };
+		37F8CE732BBCC94000FF0D8E /* SecretProductDepartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretProductDepartment.swift; sourceTree = "<group>"; };
+		37F8CE752BBCC94A00FF0D8E /* SwiftLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLanguage.swift; sourceTree = "<group>"; };
+		37F8CE772BBCCD7100FF0D8E /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +60,11 @@
 		37F8CE3B2BBBE60F00FF0D8E = {
 			isa = PBXGroup;
 			children = (
-				37F8CE662BBBFAF700FF0D8E /* AccessControl.playground */,
-				37F8CE612BBBF61B00FF0D8E /* Apple.playground */,
+				37F8CE772BBCCD7100FF0D8E /* AccessControl.playground */,
+				37F8CE6D2BBCC91400FF0D8E /* Apple.swift */,
+				37F8CE712BBCC92B00FF0D8E /* AppleStore.swift */,
+				37F8CE732BBCC94000FF0D8E /* SecretProductDepartment.swift */,
+				37F8CE752BBCC94A00FF0D8E /* SwiftLanguage.swift */,
 				37F8CE472BBBE60F00FF0D8E /* AppleInc */,
 				37F8CE512BBBE60F00FF0D8E /* AppleIncTests */,
 				37F8CE462BBBE60F00FF0D8E /* Products */,
@@ -148,6 +158,7 @@
 				TargetAttributes = {
 					37F8CE442BBBE60F00FF0D8E = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 					};
 					37F8CE4C2BBBE60F00FF0D8E = {
 						CreatedOnToolsVersion = 15.3;
@@ -195,6 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F8CE6E2BBCC91400FF0D8E /* Apple.swift in Sources */,
+				37F8CE722BBCC92B00FF0D8E /* AppleStore.swift in Sources */,
+				37F8CE762BBCC94A00FF0D8E /* SwiftLanguage.swift in Sources */,
+				37F8CE742BBCC94000FF0D8E /* SecretProductDepartment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +357,7 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -372,6 +388,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,6 +399,7 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -421,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -441,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
