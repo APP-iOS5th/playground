@@ -345,6 +345,16 @@ struct Person: Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
-        hasher.combine(age)
+        hasher.combine(age) //이름만 넣고 age를 주석처리하면 중복제거를 이름만 검사함(?)
     }
 }
+
+let person1 = Person(name: "Alice", age: 30)
+let person2 = Person(name: "Bob", age: 25)
+
+var peopleSet: Set<Person> = [person1, person2]
+let person3 = Person(name: "Alice", age: 30)
+
+peopleSet.insert(person3)
+
+print(peopleSet.count)
