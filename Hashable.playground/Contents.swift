@@ -32,3 +32,4 @@ let person3 = Person(name: "Alice", age: 20)
 peopleSet.insert(person3)
 print(peopleSet.count)
 print(peopleSet)
+
