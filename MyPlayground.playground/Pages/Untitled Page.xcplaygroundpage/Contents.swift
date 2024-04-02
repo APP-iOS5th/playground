@@ -617,7 +617,6 @@ let fetcher = ProgrammeFetcher()
 fetcher.fetchCurrentProgrammeName(forChannel: .BBC1, resultHandler: { programmeName, error in
     print(programmeName ?? "N/A")
 })
-*/
 
 // < 속성 관리자 - UserManager >
 //class UserManager { // 변수 바뀔 때 호출되는거
@@ -648,3 +647,15 @@ class UserManager { // 변수 바뀔 때 호출되는거
 let manager = UserManager()
 print(manager.currentUserName)
 manager.currentUserName = "Dade Murphy"
+*/
+// < 확장 - Extensions >
+extension String {
+    func firstWord() -> String {
+        let spaceIndex = firstIndex(of: " ") ?? endIndex // 공백문자가 있으면 공백까지 없으면 끝까지
+        let word = prefix(upTo: spaceIndex)
+        return String(word)
+    }
+}
+
+let llap = "Live long, and prosper"
+let firstWord = llap.firstWord()
