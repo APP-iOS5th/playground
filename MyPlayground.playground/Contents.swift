@@ -1,21 +1,31 @@
-// Type alias
+// ProgrammeFetcher
 
-struct Pug {
-    let name: String
+enum Channel {
+    case BBC1
+    case BBC2
+    case BBCNews
 }
 
+class ProgrammeFetcher {
+    
+    typealias FetchResultHandler = (String?, Error?) -> Void
+    
+    func getchCurrentProgrammeName(forChannel channel: Channel,
+                                   resultHandler: FetchResultHandler) {
+        // ... work
+        let exampleProgramNmae = "Sherlock"
+        resultHandler(exampleProgramNmae, nil)
+    }
+    
+    func fetchNextProgrammeName(forChannel channel: Channel,
+                                resultHandler: (String?, Error?) -> Void) {
+        
+        let exampleProgramName = "Luther"
+        resultHandler(exampleProgramName, nil)
+    }
+}
 
-let pugs = [Pug]()
-
-typealias Grumble = [Pug]
-
-var grumble = Grumble()
-
-let marty = Pug(name: "Marty McPug")
-let wolfie = Pug(name: "Wolfgang Pug")
-let buddy = Pug(name: "Buddy")
-
-grumble.append(marty)
-grumble.append(wolfie)
-grumble.append(buddy)
-
+let fetcher = ProgrammeFetcher()
+fetcher.getchCurrentProgrammeName(forChannel: .BBC1, resultHandler: { programmeName, error in
+    print(programmeName ?? "N/A")
+})
