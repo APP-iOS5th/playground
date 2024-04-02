@@ -230,98 +230,204 @@ print(combinedInt)
 //print(felix.displayString)
 
 
-protocol Saveable {
-    var saveNeeded: Bool {get set}
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void
-    )
+//protocol Saveable {
+//    var saveNeeded: Bool {get set}
+//    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void
+//    )
+//}
+//
+//class Person: Saveable {
+//    var saveHandler: ((Bool) -> Void)?
+//    var saveNeeded: Bool = true
+//    
+//    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
+//        saveHandler = handler
+//        saveComplete(success: true)
+//    }
+//    func saveComplete(success: Bool) {
+//        saveHandler?(success)
+//    }
+//}
+//
+//func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
+//    let fraction = rating / total
+//    let ratingOutOf5 = fraction * 5
+//    let roundedRating = round(ratingOutOf5)
+//    let numberOfStars = Int(roundedRating)
+//    let ratingString = "\(numberOfStars) Star Movie"
+//    return (numberOfStars,ratingString)
+//}
+//
+//var moviesToWatch: Array<String> = Array()
+//
+//moviesToWatch.append("The Shawshank Redemption")
+//moviesToWatch.append("Ghostbusters")
+//moviesToWatch.append("Terminator 2")
+//
+//print(moviesToWatch[1])
+//print(moviesToWatch.count)
+//
+//moviesToWatch.insert("The Matrix", at: 2)
+//
+//print(moviesToWatch.first ?? "Empty")
+//print(moviesToWatch.last ?? "Empty")
+//
+//let secondMovieToWatch = moviesToWatch[1]
+//moviesToWatch[1] = "Ghostbusters (1984)"
+//print(moviesToWatch.count)
+//print(moviesToWatch)
+//
+//let spyMovieSuggestions: [String] = ["The Bourne Identity","Casino Royale", "Misson Imposible"]
+//moviesToWatch = moviesToWatch + spyMovieSuggestions
+//print(moviesToWatch.count)
+//print(moviesToWatch)
+//
+//var starWarsTrilogy = Array<String>(repeating: "Star Wars: ", count: 3)
+//starWarsTrilogy[0] += "A New Hope"
+//starWarsTrilogy[1] += "Empire Strikes Back"
+//starWarsTrilogy[2] += "Return of the Jedi"
+//print(starWarsTrilogy)
+//
+//moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
+//print(moviesToWatch.count)
+//
+//moviesToWatch.remove(at: 6)
+//print(moviesToWatch.count)
+//
+//
+//let fibonacciArray: Array<Int> = [1,1,2,3,4,8,13,21,34]
+//let fibonaccisSet: Set<Int> = [1,1,2,3,4,8,13,21,34]
+//
+//print(fibonacciArray.count)
+//print(fibonaccisSet.count)
+//
+//var animals : Set<String> = ["cat","dog","mouse","elephant"]
+//
+//animals.insert("rabbit")
+//print(animals.contains("dog"))
+//animals.remove("dog")
+//print(animals.contains("dog"))
+//
+//
+//let evenNumbers = Set<Int>(arrayLiteral: 2, 4, 6, 8, 10)
+//let oddNumbers: Set<Int> = [1, 3, 5, 7, 9]
+//let squareNumbers: Set<Int> = [1, 4, 9]
+//let triangularNumbers: Set<Int> = [1, 3, 6, 10]
+
+//let evenOrTriangularNumbers = evenNumbers.union(triangularNumbers) // 2, 4, 6, 8, 10, 1, 3, unordered
+//print(evenOrTriangularNumbers.count) // 7
+//
+//let oddAndSquareNumbers = oddNumbers.intersection(squareNumbers) // 1, 9, unordered
+//print(oddAndSquareNumbers.count) // 2
+//
+//let squareOrTriangularNotBoth = squareNumbers.symmetricDifference(triangularNumbers) // 4, 9, 3, 6, 10, unordered
+//print(squareOrTriangularNotBoth.count) // 5
+//
+//let squareNotOdd = squareNumbers.subtracting(oddNumbers) // 4
+//print(squareNotOdd.count) // 1
+
+//struct Person1: Hashable {
+//    var name: String
+//    var age: Int
+//    
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(name)
+//        hasher.combine(age)
+//    }
+//}
+//
+//
+//let person1 = Person1(name: "Alice", age: 30)
+//let person2 = Person1(name: "Bob", age: 25)
+//
+//var peopleSet: Set<Person1> = [person1, person2]
+//
+//let person3 = Person1(name: "Alice", age: 30)
+//
+//peopleSet.insert(person3)
+//print(peopleSet.count)
+//print(peopleSet)
+//
+//struct Person2: Hashable {
+//    let name: String
+//    let age: Int
+//    
+//    static func == (lhs: Person2, rhs: Person2) -> Bool {
+//        return lhs.name == rhs.name && lhs.age == rhs.age
+//    }
+//    
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(name)
+//        hasher.combine(age)
+//    }
+//}
+
+
+struct PersonName {
+    let givenName: String
+    let familyName: String
 }
 
-class Person: Saveable {
-    var saveHandler: ((Bool) -> Void)?
-    var saveNeeded: Bool = true
+enum CommunicationMethod {
+    case phone
+    case email
+    case textMessage
+    case fax
+    case telepathy
+    case subSpaceRelay
+    case tachyons
+}
+
+class Person {
+    let name: PersonName
+    let preferredCommunicationMethod: CommunicationMethod
     
-    func saveToRemoteDatabase(handler: @escaping (Bool) -> Void) {
-        saveHandler = handler
-        saveComplete(success: true)
+    convenience init(givenName: String, familyName: String, commsMethod: CommunicationMethod) {
+        let name = PersonName(givenName: givenName, familyName: familyName)
+        self.init(name: name, commsMethod: commsMethod)
     }
-    func saveComplete(success: Bool) {
-        saveHandler?(success)
+    
+    init(name: PersonName, commsMethod: CommunicationMethod) {
+        self.name = name
+        preferredCommunicationMethod = commsMethod
+    }
+    var displayName: String {
+        return "\(name.givenName) \(name.familyName)"
     }
 }
 
-func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
-    let fraction = rating / total
-    let ratingOutOf5 = fraction * 5
-    let roundedRating = round(ratingOutOf5)
-    let numberOfStars = Int(roundedRating)
-    let ratingString = "\(numberOfStars) Star Movie"
-    return (numberOfStars,ratingString)
-}
+var crew = Dictionary<String, Person>()
+crew["Captain"] = Person(givenName: "Jean-Luc",
+                         familyName: "Picard",
+                         commsMethod: .phone)
 
-var moviesToWatch: Array<String> = Array()
+crew["First Officer"] = Person(givenName: "William",
+                               familyName: "Riker",
+                               commsMethod: .email)
 
-moviesToWatch.append("The Shawshank Redemption")
-moviesToWatch.append("Ghostbusters")
-moviesToWatch.append("Terminator 2")
+crew["Chief Engineer"] = Person(givenName: "Geordi",
+                                familyName: "LaForge",
+                                commsMethod: .textMessage)
 
-print(moviesToWatch[1])
-print(moviesToWatch.count)
+crew["Second Officer"] = Person(givenName: "Data",
+                                familyName: "Soong",
+                                commsMethod: .fax)
 
-moviesToWatch.insert("The Matrix", at: 2)
+crew["Councillor"] = Person(givenName: "Deanna",
+                            familyName: "Troi",
+                            commsMethod: .telepathy)
 
-print(moviesToWatch.first ?? "Empty")
-print(moviesToWatch.last ?? "Empty")
+crew["Security Officer"] = Person(givenName: "Tasha",
+                                  familyName: "Yar",
+                                  commsMethod: .subSpaceRelay)
 
-let secondMovieToWatch = moviesToWatch[1]
-moviesToWatch[1] = "Ghostbusters (1984)"
-print(moviesToWatch.count)
-print(moviesToWatch)
+crew["Chief Medical Officer"] = Person(givenName: "Beverly",
+                                       familyName: "Crusher",
+                                       commsMethod: .tachyons)
 
-let spyMovieSuggestions: [String] = ["The Bourne Identity","Casino Royale", "Misson Imposible"]
-moviesToWatch = moviesToWatch + spyMovieSuggestions
-print(moviesToWatch.count)
-print(moviesToWatch)
+let roles = Array(crew.keys)
+print(roles)
 
-var starWarsTrilogy = Array<String>(repeating: "Star Wars: ", count: 3)
-starWarsTrilogy[0] += "A New Hope"
-starWarsTrilogy[1] += "Empire Strikes Back"
-starWarsTrilogy[2] += "Return of the Jedi"
-print(starWarsTrilogy)
-
-moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
-print(moviesToWatch.count)
-
-moviesToWatch.remove(at: 6)
-print(moviesToWatch.count)
-
-
-let fibonacciArray: Array<Int> = [1,1,2,3,4,8,13,21,34]
-let fibonaccisSet: Set<Int> = [1,1,2,3,4,8,13,21,34]
-
-print(fibonacciArray.count)
-print(fibonaccisSet.count)
-
-var animals : Set<String> = ["cat","dog","mouse","elephant"]
-
-animals.insert("rabbit")
-print(animals.contains("dog"))
-animals.remove("dog")
-print(animals.contains("dog"))
-
-
-let evenNumbers = Set<Int>(arrayLiteral: 2, 4, 6, 8, 10)
-let oddNumbers: Set<Int> = [1, 3, 5, 7, 9]
-let squareNumbers: Set<Int> = [1, 4, 9]
-let triangularNumbers: Set<Int> = [1, 3, 6, 10]
-
-let evenOrTriangularNumbers = evenNumbers.union(triangularNumbers) // 2, 4, 6, 8, 10, 1, 3, unordered
-print(evenOrTriangularNumbers.count) // 7
-
-let oddAndSquareNumbers = oddNumbers.intersection(squareNumbers) // 1, 9, unordered
-print(oddAndSquareNumbers.count) // 2
-
-let squareOrTriangularNotBoth = squareNumbers.symmetricDifference(triangularNumbers) // 4, 9, 3, 6, 10, unordered
-print(squareOrTriangularNotBoth.count) // 5
-
-let squareNotOdd = squareNumbers.subtracting(oddNumbers) // 4
-print(squareNotOdd.count) // 1
+let firstRole = roles.first!
+let cmo = crew[firstRole]
+print("\(firstRole): \(cmo?.displayName ?? "N/A")")
