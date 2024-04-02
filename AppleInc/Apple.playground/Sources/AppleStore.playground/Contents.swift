@@ -16,14 +16,14 @@ public class AppleiPhone {
 
 fileprivate class Factory {
     func makeiPhone(ofModel model: DeviceModel) -> AppleiPhone {
-        return Appleiphone(model: model)
+        return AppleiPhone(model: model)
     }
 }
 
 public class AppleStore {
     private var factory = Factory()
     
-    public func selliphone(ofModel model: DeviceModel) -> AppliPhone {
+    public func selliphone(ofModel model: DeviceModel) -> AppleiPhone {
         return factory.makeiPhone(ofModel: model)
     }
 }
