@@ -337,7 +337,7 @@ print(squareOrTriangularNotBoth.count) // 5
 
 let squareNotOdd = squareNumbers.subtracting(oddNumbers) // 4
 print(squareNotOdd.count) // 1
-*/
+
 /// Hashable
 struct Person: Hashable {
     var name: String
@@ -346,6 +346,10 @@ struct Person: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(age) //이름만 넣고 age를 주석처리하면 중복제거를 이름만 검사함(?)
+    }
+    
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.name == rhs.name && lhs.age == rhs.age
     }
 }
 
@@ -358,3 +362,130 @@ let person3 = Person(name: "Alice", age: 30)
 peopleSet.insert(person3)
 
 print(peopleSet.count)
+
+//func 구조체 에서만 static func 여기저기에서 (전역함수)
+ 
+
+///Dictionary
+///사전 key-value 쌍 저장하기
+struct PersonName {
+    let givenName: String
+    let familyName: String
+}
+
+enum CommunicationMethod {
+    case phone
+    case email
+    case textMessage
+    case fax
+    case telepathy
+    case subSpaceRelay
+    case tachyons
+}
+
+class Person {
+    let name: PersonName
+    let preferredCommunicationMethod: CommunicationMethod
+    
+    convenience init(givenName: String, familyName: String, commsMethod: CommunicationMethod) {
+        let name = PersonName(givenName: givenName, familyName: familyName)
+        self.init(name: name, commsMethod: commsMethod)
+    }
+    
+    init(name: PersonName, commsMethod: CommunicationMethod) {
+        self.name = name
+        preferredCommunicationMethod = commsMethod
+    }
+    
+    var displayName: String {
+        return "\(name.givenName) \(name.familyName)"
+    }
+}
+
+var crew = Dictionary<String, Person>()
+
+crew["Captain"] = Person(givenName: "Jean-Luc",
+                         familyName: "Picard",
+                         commsMethod: .phone)
+
+crew["First Officer"] = Person(givenName: "William",
+                               familyName: "Riker",
+                               commsMethod: .email)
+
+crew["Chief Engineer"] = Person(givenName: "Geordi",
+                                familyName: "LaForge",
+                                commsMethod: .textMessage)
+
+crew["Second Officer"] = Person(givenName: "Data",
+                                familyName: "Soong",
+                                commsMethod: .fax)
+
+crew["Councillor"] = Person(givenName: "Deanna",
+                            familyName: "Troi",
+                            commsMethod: .telepathy)
+
+crew["Security Officer"] = Person(givenName: "Tasha",
+                                  familyName: "Yar",
+                                  commsMethod: .subSpaceRelay)
+
+crew["Chief Medical Officer"] = Person(givenName: "Beverly",
+                                       familyName: "Crusher",
+                                       commsMethod: .tachyons)
+
+let roles = Array(crew.keys)
+print(roles)
+
+let firstRole = roles.first!
+let cmo = crew[firstRole]
+print("\(firstRole): \(cmo?.displayName ?? "N/A")")
+
+
+struct PersonName {
+    let givenName: String
+    let familyName: String
+}
+
+enum CommunicationMethod {
+    case phone
+    case email
+    case textMessage
+    case fax
+    case telepathy
+    case subSpaceRelay
+    case tachyons
+}
+
+class Person {
+    let name: PersonName
+    let preferredCommunicationMethod: CommunicationMethod
+    
+    convenience init(givenName: String, familyName: String, commsMethod: CommunicationMethod) {
+        let name = PersonName(givenName: givenName, familyName: familyName)
+        self.init(name: name, commsMethod: commsMethod)
+    }
+    
+    init(name: PersonName, commsMethod: CommunicationMethod) {
+        self.name = name
+        preferredCommunicationMethod = commsMethod
+    }
+    
+    var displayName: String {
+        return "\(name.givenName) \(name.familyName)"
+    }
+}
+
+enum Role: String {
+    case captain = "Captain"
+    case firstOfficer = "First Officer"
+    case secondOfficer = "Second Officer"
+    case chiefEngineer = "Chief Engineer"
+    case councillor = "Councillor"
+    case securityOfficer = "Security Officer"
+    case chiefMedicalOfficer = "Chief Medical Officer"
+}
+
+var crew = Dictionary<Role, Person>()
+crew[.captain] = Person(givenName: "Jean-Luc", familyName: "Picard", commsMethod: .phone)
+crew[.firstOfficer] = Person(givenName: "William", familyName: "Riker", commsMethod: .email)
+crew[.chiefEngineer] = Person(givenName: "Geordi", familyName: "LaForge", commsMethod: .textMessage)
+*/
