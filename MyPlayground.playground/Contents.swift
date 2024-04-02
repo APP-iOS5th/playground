@@ -54,3 +54,80 @@ func fullName(giveName: String, middleName: String, familyName: String) -> Strin
 
 let myfullName = fullName(giveName: "keith", middleName: "David", familyName: "Moon")
 print(myfullName)
+
+func combine(givenName: String, familyName: String) -> String {
+    return "\(givenName) \(familyName)"
+}
+
+func combine(_ integer1: Int, _ integer2: Int) -> Int {
+    return integer1 + integer2
+}
+
+
+
+let combinedString = combine(givenName: "Finnley",familyName: "Moon")
+let combineInt = combine(5, 10)
+
+print(combinedString)
+print(combineInt)
+
+
+class Person{
+    let givenName: String
+    let middleName: String
+    let familyName: String
+    var countryOfResidence: String = "KR"
+    
+    init(givenName: String, middleName: String, familyName: String) {
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName  = familyName
+    }
+    func fullName() -> String {
+        return "\(givenName) \(middleName) \(familyName)"
+    }
+    var displayString: String {
+        return "\(self.fullName()) - Location: \(countryOfResidence)"
+    }
+    
+}
+
+var person1 = Person(givenName: "Hyungjun", middleName: "Sven", familyName: "Kim")
+
+final class Family: Person {
+    
+    let relationship: String
+    
+    init(givenName: String, middleName: String, familyName: String = "Moon", relationship: String) {
+        self.relationship = relationship
+        super.init(givenName: givenName, middleName: middleName, familyName: familyName)
+    }
+    
+}
+
+class MovieReview {
+    let movieTitle: String
+    var starRating: Int
+    init(movieTitle: String, starRating: Int) {
+        self.movieTitle = movieTitle
+        self.starRating = starRating
+    }
+}
+
+let shawshankReviewOnYourwebsite = MovieReview(movieTitle: "Shawshank Redemption", starRating: 5)
+
+let referenceToReviewOnTwitter = shawshankReviewOnYourwebsite
+let referenceToReviewOnFacebook = shawshankReviewOnYourwebsite
+
+
+enum Title: String {
+    case mr = "Mr"
+    case mrs = "Mrs"
+    case mister = "mister"
+    case miss = "Miss"
+    case dr = "Dr"
+    case prof = "prof"
+    case other
+ }
+
+
