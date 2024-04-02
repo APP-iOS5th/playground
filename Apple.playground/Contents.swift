@@ -1,4 +1,5 @@
 // 이번에는 ♥️ public 접근 제어 ✨가 어떻게 동작하는지 볼거야
+// 보안과 캡슐화를 위해 접근 제어한다고 이해하기 !!
 public class Person {
     public let name: String
     public init(name: String) {
