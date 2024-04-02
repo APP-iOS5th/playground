@@ -72,3 +72,48 @@ print(moviesToWatch)
 moviesToWatch.remove(at: 6)
 print(moviesToWatch.count)
 print(moviesToWatch)
+
+
+//MARK: - 데이터를 집합(sets)에 포함하기
+
+//1. 집합 생성 및 기본 동작
+let fibonacciArray: Array<Int> = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+let fibonacciSet: Set<Int> = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+print(fibonacciArray.count) // 9
+print(fibonacciSet.count) // 8
+
+//2. 요소 삽입, 제거 및 확인:
+var animals: Set<String> = ["cat", "dog", "mouse", "elephant"]
+animals.insert("rabbit")
+print(animals.contains("dog")) // true
+animals.remove("dog")
+print(animals.contains("dog")) // false
+
+//3. 집합 대수(집합 연산) 수행:
+let evenNumbers = Set<Int>(arrayLiteral: 2, 4, 6, 8, 10)
+let oddNumbers: Set<Int> = [1, 3, 5, 7, 9]
+let squareNumbers: Set<Int> = [1, 4, 9]
+let triangularNumbers: Set<Int> = [1, 3, 6, 10]
+let evenOrTriangularNumbers = evenNumbers.union(triangularNumbers)
+print(evenOrTriangularNumbers.count) // 7
+let oddAndSquareNumbers = oddNumbers.intersection(squareNumbers)
+print(oddAndSquareNumbers.count) // 2
+let squareOrTriangularNotBoth = squareNumbers.symmetricDifference(triangularNumbers)
+print(squareOrTriangularNotBoth.count) // 5
+let squareNotOdd = squareNumbers.subtracting(oddNumbers)
+print(squareNotOdd.count) // 1
+
+//4.집합 멤버십 비교 메서드 활용:
+let animalKingdom: Set<String> = ["dog", "cat", "pidgeon", "chimpanzee", "snake", "kangaroo", "giraffe", "elephant", "tiger", "lion", "panther"]
+let vertebrates: Set<String> = ["dog", "cat", "pidgeon", "chimpanzee", "snake", "kangaroo", "giraffe", "elephant", "tiger", "lion", "panther"]
+let reptile: Set<String> = ["snake"]
+let mammals: Set<String> = ["dog", "cat", "chimpanzee", "kangaroo", "giraffe", "elephant", "tiger", "lion", "panther"]
+let catFamily: Set<String> = ["cat", "tiger", "lion", "panther"]
+let domesticAnimals: Set<String> = ["cat", "dog"]
+print(mammals.isSubset(of: animalKingdom)) // true
+print(mammals.isSuperset(of: catFamily)) // true
+print(vertebrates.isStrictSubset(of: animalKingdom)) // false
+print(mammals.isStrictSubset(of: animalKingdom)) // true
+print(animalKingdom.isStrictSuperset(of: vertebrates)) // false
+print(animalKingdom.isStrictSuperset(of: domesticAnimals)) // true
+print(catFamily.isDisjoint(with: reptile)) // true
