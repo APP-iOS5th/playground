@@ -37,3 +37,10 @@ struct TicTacToe {
 
 var game = TicTacToe()
 print(game.gameStataString())
+
+game.gridStorage[1][1] = .player1
+print(game.gameStataString())
+
+
+game.gridStorage[0][2] = .player2
+print(game.gameStataString())
