@@ -1,18 +1,17 @@
-//func fullName(givenName: String, middleName: String = "Unknown", familyName: String) -> String {
-//    return "\(givenName) \(middleName) \(familyName)"
-//}
-//
-//let myFullName = fullName(givenName: "Keith", familyName: "Moon");
-//
-//print(myFullName)
 
+let evenNumbers = Set<Int>(arrayLiteral: 2, 4, 6, 8, 10)
+let oddNumbers: Set<Int> = [1, 3, 5, 7, 9]
+let squareNumbers: Set<Int> = [1, 4, 9]
+let triangularNumbers: Set<Int> = [1, 3, 6, 10]
 
-func combine(_ givenName: String, _ familyName: String) -> String { return "\(givenName) \(familyName)"}
+let evenOrTriangularNumbers = evenNumbers.union(triangularNumbers) // 2, 4, 6, 8, 10, 1, 3, unordered
+print(evenOrTriangularNumbers.count) // 7
 
-func combine(_ integer1: Int, _ interger2: Int) -> Int { return integer1 + interger2}
+let oddAndSquareNumbers = oddNumbers.intersection(squareNumbers) // 1, 9, unordered
+print(oddAndSquareNumbers.count) // 2
 
-let combinedString = combine("Finnley", "Moon")
-let combinedInt = combine(5, 10)
+let squareOrTriangularNotBoth = squareNumbers.symmetricDifference(triangularNumbers) // 4, 9, 3, 6, 10, unordered
+print(squareOrTriangularNotBoth.count) // 5
 
-print(combinedString)
-print(combinedInt)
+let squareNotOdd = squareNumbers.subtracting(oddNumbers) // 4
+print(squareNotOdd.count) // 1
