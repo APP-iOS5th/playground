@@ -21,13 +21,14 @@ struct Person: Hashable {
 
 let person1 = Person(name: "Alice", age: 30)
 let person2 = Person(name: "Bob", age: 25)
+let person3 = Person(name: "Alice", age: 20)
 
-let hashResult = person1.hashValue
-print("Hash result:", hashResult)
+print("person1 hash:", person1.hashValue)
+print("person2 hash:", person2.hashValue)
+print("person3 hash:", person3.hashValue)
 
 var peopleSet: Set<Person> = [person1, person2]
 
-let person3 = Person(name: "Alice", age: 20)
 
 peopleSet.insert(person3)
 
