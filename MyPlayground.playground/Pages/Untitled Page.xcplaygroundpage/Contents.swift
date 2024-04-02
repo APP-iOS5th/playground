@@ -647,7 +647,7 @@ class UserManager { // 변수 바뀔 때 호출되는거
 let manager = UserManager()
 print(manager.currentUserName)
 manager.currentUserName = "Dade Murphy"
-*/
+
 // < 확장 - Extensions >
 extension String {
     func firstWord() -> String {
@@ -659,3 +659,29 @@ extension String {
 
 let llap = "Live long, and prosper"
 let firstWord = llap.firstWord()
+*/
+
+/// 스위프트는 함수형 뭐시기....
+/// 프로퍼티(변수상수) - 상태를 설명하는 무언가.. (어떤 객체가 가지고 있는거.. 뭐.. 그런거..키.. 색 무게. 이런거?)
+/// 메소드(함수) - 해낼수 있는 기능. 능력. 실행
+/// 개념은 살짝 다른데 둘다 구현가능한 너낌~
+/// 익스텐션 안에서 프로퍼티 선언 불가
+
+protocol IntRepresentable {
+    var intValue: Int {get}
+}
+
+extension Int: IntRepresentable {
+    var intValue: Int {
+        return self
+    }
+}
+
+extension String: IntRepresentable {
+    var intValue: Int {
+        return Int(self) ?? 0
+    }
+}
+
+var ten = "10"
+print(ten.intValue)
