@@ -15,6 +15,15 @@ struct TicTacToe {
         }
     }
     
+    subscript(row: Int, column: Int) -> GridPosition {
+        get {
+            return gridStorage[row][column]
+        }
+        set(newValue) {
+            gridStorage[row][column] = newValue
+        }
+    }
+    
     func gameStateString() -> String {
         var stateString = "------------\n"
         for row in gridStorage {
@@ -27,19 +36,10 @@ struct TicTacToe {
     func printableString(forRow row: [GridPosition]) -> String {
         var rowStirng = "|"
         for position in row {
-            rowStirng += "\(position.rawValue) |"
+            rowStirng += " \(position.rawValue)|"
         }
         rowStirng += "\n"
         return rowStirng
-    }
-    
-    subscript(row: Int, column: Int) -> GridPosition {
-        get {
-            return gridStorage[row][column]
-        }
-        set(newValue) {
-            gridStorage[row][column] = newValue
-        }
     }
 }
 
