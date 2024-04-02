@@ -1,13 +1,13 @@
 
 class UserManager {
     var currentUserName: String = "Emmanuel Goldstein" {
-        willSet (newUserName) {
+        willSet {
             print("Goodbye to \(currentUserName)")
-            print("I hear \(newUserName) is on their way!")
+            print("I hear \(newValue) is on their way!")
         }
-        didSet (oldUserName) {
+        didSet {
             print("Welcome to \(currentUserName)")
-            print("I miss \(oldUserName) already!")
+            print("I miss \(oldValue) already!")
         }
     }
 }
