@@ -48,3 +48,14 @@ let person3 = Person(name: "Alice", age: 30)
 
 peopleSet.insert(person3) // 요소 삽입
 print(peopleSet.count)
+
+
+/**
+ Swift에서 Hashable 프로토콜을 채택하려면 hash(into:) 메서드뿐만 아니라 == 연산자도 구현해야 합니다.
+
+ Hashable 프로토콜은 Equatable 프로토콜을 상속받고 있습니다. 따라서 Hashable을 채택하려면 Equatable도 함께 채택해야 하고, 이는 == 연산자를 구현해야 함을 의미합니다.
+
+ == 연산자는 두 객체가 동등한지를 판단하는 역할을 합니다. 해시 값이 같다고 해서 두 객체가 동등한 것은 아니기 때문에, == 연산자를 통해 실제로 두 객체의 동등성을 확인해야 합니다.
+
+ 따라서 Hashable 프로토콜을 채택할 때는 다음과 같이 == 연산자와 hash(into:) 메서드를 모두 구현해야 합니다.
+ **/
