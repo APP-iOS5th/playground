@@ -26,11 +26,17 @@ struct TicTacToe {
     }
     
     func printableString(forRow row: [GridPosition]) -> String{
-        var rowString = "| \(row[0].rawValue)"
-        rowString += "| \(row[1].rawValue)"
-        rowString += "| \(row[2].rawValue)"
+        var rowString = "| \(row[0].rawValue) "
+        rowString += "| \(row[1].rawValue) "
+        rowString += "| \(row[2].rawValue) |\n"
         return rowString
     }
 }
-    
+var game = TicTacToe()
+print(game.gameStateString())
 
+game.gridStrage[1][1] = .player1
+print(game.gameStateString())
+
+game.gridStrage[0][2] = .player2
+print(game.gameStateString())
