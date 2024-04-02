@@ -10,6 +10,7 @@
 		4A07054D2BBBEA25003A8AC1 /* AppleInc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0705442BBBEA25003A8AC1 /* AppleInc.framework */; };
 		4A0705522BBBEA25003A8AC1 /* AppleIncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0705512BBBEA25003A8AC1 /* AppleIncTests.swift */; };
 		4A0705532BBBEA25003A8AC1 /* AppleInc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A0705472BBBEA25003A8AC1 /* AppleInc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A0705642BBBFA96003A8AC1 /* Apple.playground in Sources */ = {isa = PBXBuildFile; fileRef = 4A0705602BBBF655003A8AC1 /* Apple.playground */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +28,9 @@
 		4A0705472BBBEA25003A8AC1 /* AppleInc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleInc.h; sourceTree = "<group>"; };
 		4A07054C2BBBEA25003A8AC1 /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A0705512BBBEA25003A8AC1 /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
-		4A07055D2BBBEB30003A8AC1 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4A07055E2BBBF2ED003A8AC1 /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4A07055F2BBBF367003A8AC1 /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SecretProductDepartment.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4A0705602BBBF655003A8AC1 /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4A0705602BBBF655003A8AC1 /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Apple.playground; path = ../Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4A0705662BBBFC15003A8AC1 /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AppleStore.playground; path = ../AppleStore.playground; sourceTree = "<group>"; };
+		4A0705672BBBFC15003A8AC1 /* SwiftLanguage.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SwiftLanguage.playground; path = ../SwiftLanguage.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +55,9 @@
 		4A07053A2BBBEA25003A8AC1 = {
 			isa = PBXGroup;
 			children = (
+				4A0705662BBBFC15003A8AC1 /* AppleStore.playground */,
+				4A0705672BBBFC15003A8AC1 /* SwiftLanguage.playground */,
 				4A0705602BBBF655003A8AC1 /* Apple.playground */,
-				4A07055F2BBBF367003A8AC1 /* SecretProductDepartment.playground */,
-				4A07055E2BBBF2ED003A8AC1 /* AppleStore.playground */,
-				4A07055D2BBBEB30003A8AC1 /* AccessControl.playground */,
 				4A0705462BBBEA25003A8AC1 /* AppleInc */,
 				4A0705502BBBEA25003A8AC1 /* AppleIncTests */,
 				4A0705452BBBEA25003A8AC1 /* Products */,
@@ -199,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0705642BBBFA96003A8AC1 /* Apple.playground in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

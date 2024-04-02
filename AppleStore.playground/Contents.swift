@@ -28,3 +28,5 @@ public class AppleStore {
         return factory.makeiPhone(pfModel: model)
     }
 }
+
+print("HHH")

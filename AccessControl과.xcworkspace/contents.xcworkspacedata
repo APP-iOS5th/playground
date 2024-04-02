@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AppleInc/../AppleStore.playground">
+   </FileRef>
+   <FileRef
+      location = "group:AppleInc/../Apple.playground">
+   </FileRef>
+   <FileRef
+      location = "group:AppleInc/../SwiftLanguage.playground">
+   </FileRef>
+   <FileRef
       location = "group:AppleInc/importTest.playground">
    </FileRef>
    <FileRef
