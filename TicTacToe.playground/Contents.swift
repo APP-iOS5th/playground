@@ -7,7 +7,7 @@ enum GridPosition: String {
 struct TicTacToe {
     var gridStorage: [[GridPosition]] = []
     
-    subscript(row: Int, column: Int) -> GridPosition {
+    subscript(atRow: Int, atColumn: Int) -> GridPosition {
         get {
             return gridStorage[row][column]
         }
@@ -46,6 +46,7 @@ var game = TicTacToe()
 print(game.gameStateString())
 
 print(game[0, 0])
+print(game[atRow: 0])
 
 game[1, 1] = .player1
 print(game.gameStateString())
