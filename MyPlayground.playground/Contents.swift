@@ -1,25 +1,72 @@
-// Hashable
+// Dictionary
 
-struct Person: Hashable {
-    var name: String
-    var age: Int
+struct PersonName {
+    let givenName: String
+    let familyName: String
+}
+
+enum CommunicationMethod {
+    case phone
+    case email
+    case textMessage
+    case fax
+    case telepathy
+    case subSpaceRelay
+    case tachyons
+}
+
+class Person {
+    let name: PersonName
+    let preferredCommunicationMethod: CommunicationMethod
     
-    func hash(into hasher: inout Hasher) {                  // 지역 함수
-        hasher.combine(name)
-        hasher.combine(age)
-    }   // 이름 또는 나이를 통해 해시값으로 구분
+    convenience init(givenName: String, familyName: String, commsMethod: CommunicationMethod) {
+        let name = PersonName(givenName: givenName, familyName: familyName)
+        self.init(name: name, commsMethod: commsMethod)
+    }
     
-    static func == (lhs: Person, rhs: Person) -> Bool {     // 전역 함수
-        return lhs.name == rhs.name && lhs.age == rhs.age
+    init(name: PersonName, commsMethod: CommunicationMethod) {
+        self.name = name
+        preferredCommunicationMethod = commsMethod
+    }
+    
+    var displayName: String {
+        return "\(name.givenName) \(name.familyName)"
     }
 }
 
-let person1 = Person(name: "Alice", age: 30)
-let person2 = Person(name: "Bob", age: 25)
+var crew = Dictionary<String, Person>()
 
-var peopleSet: Set<Person> = [person1, person2]
+crew["Captain"] = Person(givenName: "Jean-Luc",
+                         familyName: "Picard",
+                         commsMethod: .phone)
 
-let person3 = Person(name: "Alice", age: 30)
+crew["First Officer"] = Person(givenName: "William",
+                               familyName: "Riker",
+                               commsMethod: .email)
 
-peopleSet.insert(person3)
-print(peopleSet.count)      // person1과 person3은 같은 해시값
+crew["Chief Engineer"] = Person(givenName: "Geordi",
+                                familyName: "LaForge",
+                                commsMethod: .textMessage)
+
+crew["Second Officer"] = Person(givenName: "Data",
+                                familyName: "Soong",
+                                commsMethod: .fax)
+
+crew["Councillor"] = Person(givenName: "Deanna",
+                            familyName: "Troi",
+                            commsMethod: .telepathy)
+
+crew["Security Officer"] = Person(givenName: "Tasha",
+                                  familyName: "Yar",
+                                  commsMethod: .subSpaceRelay)
+
+crew["Chief Medical Officer"] = Person(givenName: "Beverly",
+                                       familyName: "Crusher",
+                                       commsMethod: .tachyons)
+
+let roles = Array(crew.keys)
+print(roles)
+
+let firstRole = roles.first!
+let cmo = crew[firstRole]!
+print("\(firstRole): \(cmo.displayName)")
