@@ -28,7 +28,7 @@
 		4173F44D2BBBED5A008CDD43 /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4173F4522BBBED5A008CDD43 /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
 		4173F4622BBBF63B008CDD43 /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4173F4692BBBFB05008CDD43 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4173F46D2BBBFD61008CDD43 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 		4173F43B2BBBED5A008CDD43 = {
 			isa = PBXGroup;
 			children = (
-				4173F4692BBBFB05008CDD43 /* AccessControl.playground */,
+				4173F46D2BBBFD61008CDD43 /* AccessControl.playground */,
 				4173F4622BBBF63B008CDD43 /* Apple.playground */,
 				4173F4472BBBED5A008CDD43 /* AppleInc */,
 				4173F4512BBBED5A008CDD43 /* AppleIncTests */,

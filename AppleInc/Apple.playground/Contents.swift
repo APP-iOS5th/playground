@@ -14,6 +14,7 @@ public class Apple {
     //set 은 private한 것 -> ceo를 바꿀수 없음, 읽기는 가능
     public private(set) var ceo: Person
     private var employees = [Person]()
+    var access = AccessControl()
     
     public let store = AppleStore()
     private let secretDepartment = SecretProductDepartment()
