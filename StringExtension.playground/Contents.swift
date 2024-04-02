@@ -11,3 +11,7 @@ let llap = "Live long, and prosper"
 let firstWord = llap.firstWord()
 
 print(firstWord)
+
+var ten = "10"
+var intTen = Int(ten)
+print(intTen!)
