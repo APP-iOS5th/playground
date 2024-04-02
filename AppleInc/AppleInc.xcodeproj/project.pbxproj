@@ -28,6 +28,10 @@
 		582741012BBBEE650047221B /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		582741062BBBEE650047221B /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
 		582741142BBBF6A30047221B /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Apple.playground; path = ../Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		582741162BBBFD250047221B /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AccessControl.playground; path = ../Apple.playground/Sources/AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		582741172BBC011C0047221B /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SecretProductDepartment.playground; path = ../Apple.playground/Sources/SecretProductDepartment.playground; sourceTree = "<group>"; };
+		582741192BBC011C0047221B /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AppleStore.playground; path = ../Apple.playground/Sources/AppleStore.playground; sourceTree = "<group>"; };
+		5827411A2BBC01B90047221B /* SwiftLanguage.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SwiftLanguage.playground; path = ../Apple.playground/Sources/AccessControl.playground/Sources/SwiftLanguage.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,10 @@
 		582740EF2BBBEE650047221B = {
 			isa = PBXGroup;
 			children = (
+				5827411A2BBC01B90047221B /* SwiftLanguage.playground */,
+				582741192BBC011C0047221B /* AppleStore.playground */,
+				582741172BBC011C0047221B /* SecretProductDepartment.playground */,
+				582741162BBBFD250047221B /* AccessControl.playground */,
 				582741142BBBF6A30047221B /* Apple.playground */,
 				582740FB2BBBEE650047221B /* AppleInc */,
 				582741052BBBEE650047221B /* AppleIncTests */,
