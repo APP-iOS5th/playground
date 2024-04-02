@@ -1,5 +1,4 @@
-
-enum GridPosition : String {
+enum GridPosition: String {
     case player1 = "o"
     case player2 = "x"
     case empty = " "
@@ -8,22 +7,22 @@ enum GridPosition : String {
 struct TicTacToe {
     var gridStorage: [[GridPosition]] = []
     
-    subscript(row: Int, column: Int) -> GridPosition {
+    subscript(atRow row: Int, atColumn column: Int) -> GridPosition {
         get {
             return gridStorage[row][column]
         }
-        set(newValue) /*newValue 생략가능*/ {
+        set(newValue) {
             gridStorage[row][column] = newValue
         }
     }
     
-    init(){
+    init() {
         gridStorage.append(Array(repeating: .empty, count: 3))
         gridStorage.append(Array(repeating: .empty, count: 3))
         gridStorage.append(Array(repeating: .empty, count: 3))
     }
     
-    func gameStataString() -> String {
+    func gameStateString() -> String {
         var stateString = "-------------\n"
         stateString += printableString(forRow: gridStorage[0])
         stateString += "-------------\n"
@@ -41,18 +40,16 @@ struct TicTacToe {
         rowString += "| \(row[2].rawValue) |\n"
         return rowString
     }
-    
 }
 
 var game = TicTacToe()
-print(game.gameStataString())
+print(game.gameStateString())
 
+print(game.gridStorage[0][0])
+print(game[atRow: 0,atColumn:0])
 
-print(game[0, 0])
+game[atRow:1, atColumn: 1] = .player1
+print(game.gameStateString())
 
-game[1, 1] = .player1
-print(game.gameStataString())
-
-
-game[0, 2] = .player2
-print(game.gameStataString())
+game[atRow:0, atColumn: 2] = .player2
+print(game.gameStateString())
