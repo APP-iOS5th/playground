@@ -7,6 +7,16 @@ enum GridPosition: String {
 struct TicTacToe {
     var gridStrage: [[GridPosition]] = []
     
+    //subscript
+    subscript(row: Int, column: Int) -> GridPosition{
+        get{
+            return gridStrage[row][column]
+        }
+        set(newValue){
+            gridStrage[row][column] = newValue
+        }
+    }
+    
     init(){
         gridStrage.append(Array(repeating: .empty, count: 3))
         gridStrage.append(Array(repeating: .empty, count: 3))
@@ -32,11 +42,14 @@ struct TicTacToe {
         return rowString
     }
 }
+
 var game = TicTacToe()
 print(game.gameStateString())
 
-game.gridStrage[1][1] = .player1
+print(game[0,0])
+
+game[1, 1] = .player1
 print(game.gameStateString())
 
-game.gridStrage[0][2] = .player2
+game[0, 2] = .player2
 print(game.gameStateString())
