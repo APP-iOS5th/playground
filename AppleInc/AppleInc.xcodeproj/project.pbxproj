@@ -29,6 +29,7 @@
 		582741062BBBEE650047221B /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
 		582741112BBBEEB60047221B /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		582741122BBBEF630047221B /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SecretProductDepartment.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		582741132BBBF2CF0047221B /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +54,7 @@
 		582740EF2BBBEE650047221B = {
 			isa = PBXGroup;
 			children = (
+				582741132BBBF2CF0047221B /* AppleStore.playground */,
 				582741122BBBEF630047221B /* SecretProductDepartment.playground */,
 				582741112BBBEEB60047221B /* AccessControl.playground */,
 				582740FB2BBBEE650047221B /* AppleInc */,
