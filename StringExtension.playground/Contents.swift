@@ -3,9 +3,7 @@
 
 
 extension String {
-    
-    
-    func firstWord() -> String {
+    var firstWord: String {
         let spaceIndex = firstIndex(of: " ") ?? endIndex
         let word = prefix(upTo: spaceIndex)
         return String(word)
@@ -13,5 +11,5 @@ extension String {
 }
 
 let llap = "Live long, and prosper"
-let firstWord = llap.firstWord()
+let firstWord = llap.firstWord
 print(firstWord)
