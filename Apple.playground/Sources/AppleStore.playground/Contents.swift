@@ -16,7 +16,7 @@ public class AppleiPhone {
     }
 }
 
-// 공장은 외부에 공개되어있지 않다
+// 공장은 외부에 공개되어있지 않다 🏭
 fileprivate class Factory {
     // 아이폰 생성 메소드
     func makeiPhone(ofModel model: DeviceModel) -> AppleiPhone {
@@ -24,7 +24,7 @@ fileprivate class Factory {
     }
 }
 
-// 스토어는 외부에 공개되어있다
+// 스토어는 외부에 공개되어있다 🏬
 public class AppleStore {
     private var factory = Factory()
     
