@@ -659,14 +659,13 @@ extension String {
 
 let llap = "Live long, and prosper"
 let firstWord = llap.firstWord()
-*/
 
 /// 스위프트는 함수형 뭐시기....
 /// 프로퍼티(변수상수) - 상태를 설명하는 무언가.. (어떤 객체가 가지고 있는거.. 뭐.. 그런거..키.. 색 무게. 이런거?)
 /// 메소드(함수) - 해낼수 있는 기능. 능력. 실행
 /// 개념은 살짝 다른데 둘다 구현가능한 너낌~
-/// 익스텐션 안에서 프로퍼티 선언 불가
-
+/// 익스텐션 안에서 프로퍼티 바인딩 불가?
+*/
 protocol IntRepresentable {
     var intValue: Int {get}
 }
@@ -683,5 +682,27 @@ extension String: IntRepresentable {
     }
 }
 
-var ten = "10"
-print(ten.intValue)
+enum CrewComplement: Int {
+    case enterpriseD = 1014
+    case voyager = 150
+    case deepSpaceNine = 2000
+}
+
+extension CrewComplement: IntRepresentable {
+    var intValue: Int {
+        return rawValue
+    }
+}
+
+var intableThings = [IntRepresentable]()
+intableThings.append(55)
+intableThings.append(1200)
+intableThings.append("5")
+intableThings.append("1009")
+intableThings.append(CrewComplement.enterpriseD)
+intableThings.append(CrewComplement.voyager)
+intableThings.append(CrewComplement.deepSpaceNine)
+
+let over1000 = intableThings.compactMap{$0.intValue > 1000 ? $0.intValue : nil}
+print(over1000)
+
