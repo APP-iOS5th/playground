@@ -489,8 +489,10 @@ struct TicTacToe {
 var game = TicTacToe()
 print(game.gameStateString())
 
-game.gridStorage[1][1] = .player1
+print(game[0,0])
+
+game[1, 1] = .player1
 print(game.gameStateString())
 
-game.gridStorage[0][2] = .player2
+game[0, 2] = .player2
 print(game.gameStateString())
