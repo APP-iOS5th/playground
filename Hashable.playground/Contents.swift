@@ -9,13 +9,21 @@ struct Person: Hashable {
     }
     
     //해쉬테이블 비교연산자
-    static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.name == rhs.name && lhs.age == rhs.age
+    static func == (lhs: Person, rhs: Person) -> Bool { //static: 전역함수
+        return lhs.hashValue == rhs.hashValue
+    }
+    var hashValue: Int{
+        var hasher = Hasher()
+        self.hash(into: &hasher)
+        return hasher.finalize()
     }
 }
 
 let person1 = Person(name: "Alice", age: 30)
 let person2 = Person(name: "Bob", age: 35)
+
+let hashResult = person1.hashValue
+print("Hash result:", hashResult)
 
 var peopleSet: Set<Person> = [person1, person2]
 
