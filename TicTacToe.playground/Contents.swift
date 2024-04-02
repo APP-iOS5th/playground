@@ -9,7 +9,7 @@ struct TicTacToe {
     var gridStorage: [[GridPosition]] = []
     
     // 서브스크립트
-    subscript(row: Int, column: Int) -> GridPosition {
+    subscript(atRow row: Int, atCol column: Int) -> GridPosition {
         get {
             return gridStorage[row][column]
         }
@@ -48,16 +48,17 @@ struct TicTacToe {
 var game = TicTacToe()
 print(game.gameStateString())
 
+// subscript로 인해 아래 코드와 동일
 //game.gridStorage[1][1] = .player1
 //print(game.gameStateString())
 //
 //game.gridStorage[0][2] = .player2
 //print(game.gameStateString())
 
-print(game[0,0])
+print(game[atRow: 0, atCol: 0])
 
-game[1, 1] = .player1
+game[atRow:1, atCol:1] = .player1
 print(game.gameStateString())
 
-game[0, 2] = .player2
+game[atRow:0, atCol:2] = .player2
 print(game.gameStateString())
