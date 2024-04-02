@@ -28,8 +28,7 @@
 		B876972C2BBBED9F008AE800 /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87697312BBBED9F008AE800 /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
 		B876973C2BBBEDCA008AE800 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B876973D2BBBEDF1008AE800 /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SecretProductDepartment.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B876973E2BBBF353008AE800 /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B876973F2BBBF62F008AE800 /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +53,7 @@
 		B876971A2BBBED9F008AE800 = {
 			isa = PBXGroup;
 			children = (
-				B876973E2BBBF353008AE800 /* AppleStore.playground */,
-				B876973D2BBBEDF1008AE800 /* SecretProductDepartment.playground */,
+				B876973F2BBBF62F008AE800 /* Apple.playground */,
 				B876973C2BBBEDCA008AE800 /* AccessControl.playground */,
 				B87697262BBBED9F008AE800 /* AppleInc */,
 				B87697302BBBED9F008AE800 /* AppleIncTests */,
