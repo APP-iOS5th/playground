@@ -1,6 +1,6 @@
 
 extension String {
-    func firstWord() -> String {
+    var firstWord: String {
         let spaceIndex = firstIndex(of: " ") ?? endIndex
         let word = prefix(upTo: spaceIndex) // prefix : 말머리, 접두사
         
@@ -9,5 +9,5 @@ extension String {
 }
 
 let llap = "Live long, and prosper"
-let firstWord = llap.firstWord()
+let firstWord = llap.firstWord
 print(firstWord)
