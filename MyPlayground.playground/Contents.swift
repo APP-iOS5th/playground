@@ -442,104 +442,140 @@ import UIKit
 //let cmo = crew[firstRole]
 //print("\(firstRole): \(cmo?.displayName ?? "N/A")")
 
+//
+//enum GridPosition: String {
+//    case player1 = "o"
+//    case player2 = "x"
+//    case empty = " "
+//}
+//
+//struct TicTacToe {
+//    var gridStorage: [[GridPosition]] = []
+//    
+//    subscript(atRow row: Int, atColumn column: Int) -> GridPosition {
+//        get {
+//            return gridStorage[row][column]
+//        }
+//        set(newValue) {
+//            gridStorage[row][column] = newValue
+//        }
+//    }
+//    init() {
+//        gridStorage.append(Array(repeating: .empty, count: 3))
+//        gridStorage.append(Array(repeating: .empty, count: 3))
+//        gridStorage.append(Array(repeating: .empty, count: 3))
+//    }
+//    func gameStateString() -> String {
+//        var stateString = "-------------\n"
+//        stateString += printableString(forRow: gridStorage[0])
+//        stateString += "-------------\n"
+//        stateString += printableString(forRow: gridStorage[1])
+//        stateString += "-------------\n"
+//        stateString += printableString(forRow: gridStorage[2])
+//        stateString += "-------------\n"
+//        
+//        return stateString
+//    }
+//    func printableString(forRow row: [GridPosition]) -> String {
+//        var rowString = "| \(row[0].rawValue) "
+//        rowString += "| \(row[1].rawValue) "
+//        rowString += "| \(row[2].rawValue) |\n"
+//        
+//        return rowString
+//        
+//    }
+//}
+//
+//var game = TicTacToe()
+//print(game.gameStateString())
+//
+//print(game.gridStorage[0][0])
+//print(game[atRow: 0,atColumn:0])
+//
+//game[atRow:1, atColumn: 1] = .player1
+//print(game.gameStateString())
+//
+//game[atRow:0, atColumn: 2] = .player2
+//print(game.gameStateString())
+//
+//
+//struct Pug {
+//    let name: String
+//}
+//let pugs = [Pug]()
+//
+//typealias Grumble = [Pug]
+//
+//var grumble = Grumble()
+//
+//let marty = Pug(name: "Marty McPug")
+//let wolfie = Pug(name: "Wolfgang Pug")
+//let buddy = Pug(name: "Buddy")
+//
+//grumble.append(marty)
+//grumble.append(wolfie)
+//grumble.append(buddy)
+//
+//
+//enum Channel {
+//    case BBC1
+//    case BBC2
+//    case BBCNews
+//}
+//
+//class ProgrammerFetcher {
+//    
+//    typealias FetchResultHandler = (String?, Error?) -> Void
+//    
+//    func fetchCurrentProgrammeName(forChannel channel: Channel, resultHandler: FetchResultHandler) {
+//        let exampleProgrammName = "Sherlock"
+//        resultHandler(exampleProgrammName,nil)
+//    }
+//    
+//    func fetchNextProgrammeName(forChannel channel: Channel, resultHandler: FetchResultHandler) {
+//        let exampleProgrammName = "Luther"
+//        resultHandler(exampleProgrammName,nil)
+//    }
+//    
+//}
+//
+//let fetcher = ProgrammerFetcher()
+//fetcher.fetchCurrentProgrammeName(forChannel: .BBC1, resultHandler: { programmeName, error in
+//    print(programmeName ?? "N/A")
+//})
 
-enum GridPosition: String {
-    case player1 = "o"
-    case player2 = "x"
-    case empty = " "
-}
 
-struct TicTacToe {
-    var gridStorage: [[GridPosition]] = []
-    
-    subscript(atRow row: Int, atColumn column: Int) -> GridPosition {
-        get {
-            return gridStorage[row][column]
+//class UserManager {
+//    var currentUserName: String = "Emmanuel Goldstein" {
+//        willSet (newUserName) {
+//            print("Goodbye to \(currentUserName)")
+//            print("I hear \(newUserName) is on their way!")
+//        }
+//        didSet (oldUserName) {
+//            print("Welcome to \(currentUserName)")
+//            print("I miss \(oldUserName) already!")
+//        }
+//    }
+//}
+//
+//let manager = UserManager()
+//print(manager.currentUserName)
+//manager.currentUserName = "Dade Murphy"
+
+
+class UserManager {
+    var currentUserName: String = "Emmanuel Goldstein" {
+        willSet {
+            print("Goodbye to \(currentUserName)")
+            print("I hear \(newValue) is on their way!")
         }
-        set(newValue) {
-            gridStorage[row][column] = newValue
+        didSet {
+            print("Welcome to \(currentUserName)")
+            print("I miss \(oldValue) already!")
         }
     }
-    init() {
-        gridStorage.append(Array(repeating: .empty, count: 3))
-        gridStorage.append(Array(repeating: .empty, count: 3))
-        gridStorage.append(Array(repeating: .empty, count: 3))
-    }
-    func gameStateString() -> String {
-        var stateString = "-------------\n"
-        stateString += printableString(forRow: gridStorage[0])
-        stateString += "-------------\n"
-        stateString += printableString(forRow: gridStorage[1])
-        stateString += "-------------\n"
-        stateString += printableString(forRow: gridStorage[2])
-        stateString += "-------------\n"
-        
-        return stateString
-    }
-    func printableString(forRow row: [GridPosition]) -> String {
-        var rowString = "| \(row[0].rawValue) "
-        rowString += "| \(row[1].rawValue) "
-        rowString += "| \(row[2].rawValue) |\n"
-        
-        return rowString
-        
-    }
 }
 
-var game = TicTacToe()
-print(game.gameStateString())
-
-print(game.gridStorage[0][0])
-print(game[atRow: 0,atColumn:0])
-
-game[atRow:1, atColumn: 1] = .player1
-print(game.gameStateString())
-
-game[atRow:0, atColumn: 2] = .player2
-print(game.gameStateString())
-
-
-struct Pug {
-    let name: String
-}
-let pugs = [Pug]()
-
-typealias Grumble = [Pug]
-
-var grumble = Grumble()
-
-let marty = Pug(name: "Marty McPug")
-let wolfie = Pug(name: "Wolfgang Pug")
-let buddy = Pug(name: "Buddy")
-
-grumble.append(marty)
-grumble.append(wolfie)
-grumble.append(buddy)
-
-
-enum Channel {
-    case BBC1
-    case BBC2
-    case BBCNews
-}
-
-class ProgrammerFetcher {
-    
-    typealias FetchResultHandler = (String?, Error?) -> Void
-    
-    func fetchCurrentProgrammeName(forChannel channel: Channel, resultHandler: FetchResultHandler) {
-        let exampleProgrammName = "Sherlock"
-        resultHandler(exampleProgrammName,nil)
-    }
-    
-    func fetchNextProgrammeName(forChannel channel: Channel, resultHandler: FetchResultHandler) {
-        let exampleProgrammName = "Luther"
-        resultHandler(exampleProgrammName,nil)
-    }
-    
-}
-
-let fetcher = ProgrammerFetcher()
-fetcher.fetchCurrentProgrammeName(forChannel: .BBC1, resultHandler: { programmeName, error in
-    print(programmeName ?? "N/A")
-})
+let manager = UserManager()
+print(manager.currentUserName)
+manager.currentUserName = "Dade Murphy"
