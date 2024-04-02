@@ -489,3 +489,37 @@ crew[.captain] = Person(givenName: "Jean-Luc", familyName: "Picard", commsMethod
 crew[.firstOfficer] = Person(givenName: "William", familyName: "Riker", commsMethod: .email)
 crew[.chiefEngineer] = Person(givenName: "Geordi", familyName: "LaForge", commsMethod: .textMessage)
 */
+
+// << TicTacToe >>
+enum GridPosition: String {
+    case player1 = "o"
+    case player2 = "x"
+    case empty = " "
+}
+
+struct TicTacToe {
+    var girdStorage: [[GridPosition]] = []
+    
+    init() {
+        girdStorage.append(Array(repeating: .empty, count: 3))
+        girdStorage.append(Array(repeating: .empty, count: 3))
+        girdStorage.append(Array(repeating: .empty, count: 3))
+    }
+    
+    func gameStateString() -> String {
+        var stateString = "-------------\n"
+        stateString += printableString(forRow: girdStorage[0])
+        stateString += "-------------\n"
+        stateString += printableString(forRow: girdStorage[1])
+        stateString += "-------------\n"
+        stateString += printableString(forRow: girdStorage[2])
+        
+        return stateString
+    }
+    func printableString(forRow row: [GridPosition]) -> String {
+        var rowString = "| \(row[0].rawValue)"
+        rowString += "| \(row[1].rawValue)"
+        rowString += "| \(row[2].rawValue)"
+        return rowString
+    }
+}
