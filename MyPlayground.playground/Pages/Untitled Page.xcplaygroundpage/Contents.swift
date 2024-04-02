@@ -513,16 +513,23 @@ struct TicTacToe {
         stateString += printableString(forRow: girdStorage[1])
         stateString += "-------------\n"
         stateString += printableString(forRow: girdStorage[2])
-        
+        stateString += "-------------\n"
         return stateString
     }
+    
     func printableString(forRow row: [GridPosition]) -> String {
-        var rowString = "| \(row[0].rawValue) |\n"
-        rowString += "| \(row[1].rawValue) |\n"
+        var rowString = "| \(row[0].rawValue) "
+        rowString += "| \(row[1].rawValue) "
         rowString += "| \(row[2].rawValue) |\n"
         return rowString
     }
 }
 
 var game = TicTacToe()
+print(game.gameStateString())
+
+game.girdStorage[1][1] = .player1
+print(game.gameStateString())
+
+game.girdStorage[0][2] = .player2
 print(game.gameStateString())
