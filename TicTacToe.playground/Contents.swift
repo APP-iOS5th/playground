@@ -25,10 +25,10 @@ struct TicTacToe {
     }
     
     func gameStateString() -> String {
-        var stateString = "------------\n"
+        var stateString = "-------------\n"
         for row in gridStorage {
             stateString += printableString(forRow: row)
-            stateString += "------------\n"
+            stateString += "-------------\n"
         }
         return stateString
     }
@@ -36,7 +36,7 @@ struct TicTacToe {
     func printableString(forRow row: [GridPosition]) -> String {
         var rowStirng = "|"
         for position in row {
-            rowStirng += " \(position.rawValue)|"
+            rowStirng += " \(position.rawValue) |"
         }
         rowStirng += "\n"
         return rowStirng
