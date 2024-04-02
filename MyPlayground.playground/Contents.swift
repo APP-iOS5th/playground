@@ -1,79 +1,79 @@
 import UIKit
 
-var greeting = "Hello, playground"
-
-let phrase: String = "The quick brown fox jumps over the lazy dog"
-
-greeting = "Modification"
-
-let numberOfFoxes: Int = 1
-let numberOfAnimals: Int = 2
-
-let averageCharactersPerWord: Float = (3+5+5+3+5+4+3+4+3) / 9
-
-var anotherPhase = phrase
-
-anotherPhase = "Modification"
-
-var phraseInfo = "The phrase" + " has: "
-print(phraseInfo)
-
-phraseInfo = phraseInfo + "\(numberOfFoxes) fox and \(numberOfAnimals)  animals"
-print(phraseInfo)
-
-print("Number of characters in phrase: \(phrase.count)")
-
-
-let multilineExplanation = """
- Why is the following phrase often used?
- "The quick brown fox jumps over the lazy dog"
- this Phrase contains every letter in the alphabet.
- """
-
-let phrasesAreEqual = phrase == anotherPhase
-print(phrasesAreEqual)
-
-let phraseHas43Characters = phrase.count == 40 + 3
-print(phraseHas43Characters)
-
-var dayOfTheWeek: String = "Monday"
-dayOfTheWeek = "Tuesday"
-dayOfTheWeek = "Wednesday"
+//var greeting = "Hello, playground"
+//
+//let phrase: String = "The quick brown fox jumps over the lazy dog"
+//
+//greeting = "Modification"
+//
+//let numberOfFoxes: Int = 1
+//let numberOfAnimals: Int = 2
+//
+//let averageCharactersPerWord: Float = (3+5+5+3+5+4+3+4+3) / 9
+//
+//var anotherPhase = phrase
+//
+//anotherPhase = "Modification"
+//
+//var phraseInfo = "The phrase" + " has: "
+//print(phraseInfo)
+//
+//phraseInfo = phraseInfo + "\(numberOfFoxes) fox and \(numberOfAnimals)  animals"
+//print(phraseInfo)
+//
+//print("Number of characters in phrase: \(phrase.count)")
+//
+//
+//let multilineExplanation = """
+// Why is the following phrase often used?
+// "The quick brown fox jumps over the lazy dog"
+// this Phrase contains every letter in the alphabet.
+// """
+//
+//let phrasesAreEqual = phrase == anotherPhase
+//print(phrasesAreEqual)
+//
+//let phraseHas43Characters = phrase.count == 40 + 3
+//print(phraseHas43Characters)
+//
+//var dayOfTheWeek: String = "Monday"
+//dayOfTheWeek = "Tuesday"
+//dayOfTheWeek = "Wednesday"
 //dayOfTheWeek = nil
-
-
-var numberOfFingerHeldUpByFinn: Int?
-numberOfFingerHeldUpByFinn = nil
+//
+//
+//var numberOfFingerHeldUpByFinn: Int?
+//numberOfFingerHeldUpByFinn = nil
 //numberOfFingerHeldUpByFinn = 3
 
-print(numberOfFingerHeldUpByFinn ?? "Unknown")
+//print(numberOfFingerHeldUpByFinn ?? "Unknown")
 
 //let lastNumberOfFingerHeldUpByFinn: Int = numberOfFingerHeldUpByFinn!
 //print(lastNumberOfFingerHeldUpByFinn)
 
-
-func fullName(giveName: String, middleName: String = " ", familyName: String) -> String {
-    return " \(giveName) \(middleName) \(familyName)"
-}
-
-let myFullName = fullName(giveName: "Keith", familyName: "Moon")
-
-print(myFullName)
-
-
-func combine(_ giveName: String, _ familyName: String) -> String {
-    return "\(giveName) \(familyName)"
-}
-
-func combine(_ integer1: Int, _ integer2: Int) -> Int {
-    return integer1 + integer2
-}
-
-let combinedString = combine("Finnley", "Moon")
-let combinedInt = combine(5, 10)
-
-print(combinedString)
-print(combinedInt)
+//
+//func fullName(giveName: String, middleName: String = " ", familyName: String) -> String {
+//    return " \(giveName) \(middleName) \(familyName)"
+//}
+//
+//let myFullName = fullName(giveName: "Keith", familyName: "Moon")
+//
+//print(myFullName)
+//
+//
+//func combine(_ giveName: String, _ familyName: String) -> String {
+//    return "\(giveName) \(familyName)"
+//}
+//
+//func combine(_ integer1: Int, _ integer2: Int) -> Int {
+//    return integer1 + integer2
+//}
+//
+//let combinedString = combine("Finnley", "Moon")
+//let combinedInt = combine(5, 10)
+//
+//print(combinedString)
+//print(combinedInt)
 
 
 //class Person {
@@ -362,72 +362,118 @@ print(combinedInt)
 //    }
 //}
 
+//
+//struct PersonName {
+//    let givenName: String
+//    let familyName: String
+//}
+//
+//enum CommunicationMethod {
+//    case phone
+//    case email
+//    case textMessage
+//    case fax
+//    case telepathy
+//    case subSpaceRelay
+//    case tachyons
+//}
+//enum Role: String {
+//    case captain = "Captain"
+//    case firstOfficer = "First Officer"
+//    case secondOfficer = "Second Officer"
+//    case chiefEngineer = "Chief Engineer"
+//    case councillor = "Councillor"
+//    case securityOfficer = "Security Officer"
+//    case chiefMedicalOfficer = "Chief Medical Officer"
+//}
+//
+//
+//class Person {
+//    let name: PersonName
+//    let preferredCommunicationMethod: CommunicationMethod
+//    
+//    convenience init(givenName: String, familyName: String, commsMethod: CommunicationMethod) {
+//        let name = PersonName(givenName: givenName, familyName: familyName)
+//        self.init(name: name, commsMethod: commsMethod)
+//    }
+//    
+//    init(name: PersonName, commsMethod: CommunicationMethod) {
+//        self.name = name
+//        preferredCommunicationMethod = commsMethod
+//    }
+//    var displayName: String {
+//        return "\(name.givenName) \(name.familyName)"
+//    }
+//}
+//
+//var crew = Dictionary<Role, Person>()
+//crew[.captain] = Person(givenName: "Jean-Luc",
+//                         familyName: "Picard",
+//                         commsMethod: .phone)
+//
+//crew[.firstOfficer] = Person(givenName: "William",
+//                               familyName: "Riker",
+//                               commsMethod: .email)
+//
+//crew[.chiefEngineer] = Person(givenName: "Geordi",
+//                                familyName: "LaForge",
+//                                commsMethod: .textMessage)
+//
+//crew[.secondOfficer] = Person(givenName: "Data",
+//                                familyName: "Soong",
+//                                commsMethod: .fax)
+//
+//crew[.councillor] = Person(givenName: "Deanna",
+//                            familyName: "Troi",
+//                            commsMethod: .telepathy)
+//
+//crew[.securityOfficer] = Person(givenName: "Tasha",
+//                                  familyName: "Yar",
+//                                  commsMethod: .subSpaceRelay)
+//
+//crew[.chiefMedicalOfficer] = Person(givenName: "Beverly",
+//                                       familyName: "Crusher",
+//                                       commsMethod: .tachyons)
+//
+//let roles = Array(crew.keys)
+//print(roles)
+//
+//let firstRole = roles.first!
+//let cmo = crew[firstRole]
+//print("\(firstRole): \(cmo?.displayName ?? "N/A")")
 
-struct PersonName {
-    let givenName: String
-    let familyName: String
+
+enum GridPosition: String {
+    case player1 = "o"
+    case player2 = "x"
+    case empty = " "
 }
 
-enum CommunicationMethod {
-    case phone
-    case email
-    case textMessage
-    case fax
-    case telepathy
-    case subSpaceRelay
-    case tachyons
-}
-
-class Person {
-    let name: PersonName
-    let preferredCommunicationMethod: CommunicationMethod
+struct TicTacToe {
+    var gridStorage: [[GridPosition]] = []
     
-    convenience init(givenName: String, familyName: String, commsMethod: CommunicationMethod) {
-        let name = PersonName(givenName: givenName, familyName: familyName)
-        self.init(name: name, commsMethod: commsMethod)
+    init() {
+        gridStorage.append(Array(repeating: .empty, count: 3))
+        gridStorage.append(Array(repeating: .empty, count: 3))
+        gridStorage.append(Array(repeating: .empty, count: 3))
     }
-    
-    init(name: PersonName, commsMethod: CommunicationMethod) {
-        self.name = name
-        preferredCommunicationMethod = commsMethod
+    func gameStateString() -> String {
+        var stateString = "-------------\n"
+        stateString += printableString(forRow: gridStorage[0])
+        stateString += "-------------\n"
+        stateString += printableString(forRow: gridStorage[1])
+        stateString += "-------------\n"
+        stateString += printableString(forRow: gridStorage[2])
+        stateString += "-------------\n"
+        
+        return stateString
     }
-    var displayName: String {
-        return "\(name.givenName) \(name.familyName)"
+    func printableString(forRow row: [GridPosition]) -> String {
+        var rowString = "| \(row[0].rawValue)"
+        rowString += "| \(row[1].rawValue)"
+        rowString += "| \(row[2].rawValue)"
+        
+        return rowString
+        
     }
 }
-
-var crew = Dictionary<String, Person>()
-crew["Captain"] = Person(givenName: "Jean-Luc",
-                         familyName: "Picard",
-                         commsMethod: .phone)
-
-crew["First Officer"] = Person(givenName: "William",
-                               familyName: "Riker",
-                               commsMethod: .email)
-
-crew["Chief Engineer"] = Person(givenName: "Geordi",
-                                familyName: "LaForge",
-                                commsMethod: .textMessage)
-
-crew["Second Officer"] = Person(givenName: "Data",
-                                familyName: "Soong",
-                                commsMethod: .fax)
-
-crew["Councillor"] = Person(givenName: "Deanna",
-                            familyName: "Troi",
-                            commsMethod: .telepathy)
-
-crew["Security Officer"] = Person(givenName: "Tasha",
-                                  familyName: "Yar",
-                                  commsMethod: .subSpaceRelay)
-
-crew["Chief Medical Officer"] = Person(givenName: "Beverly",
-                                       familyName: "Crusher",
-                                       commsMethod: .tachyons)
-
-let roles = Array(crew.keys)
-print(roles)
-
-let firstRole = roles.first!
-let cmo = crew[firstRole]
-print("\(firstRole): \(cmo?.displayName ?? "N/A")")
