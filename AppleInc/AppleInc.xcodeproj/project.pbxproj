@@ -29,6 +29,7 @@
 		37F8CE522BBBE60F00FF0D8E /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
 		37F8CE5D2BBBE66C00FF0D8E /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		37F8CE5E2BBBE93300FF0D8E /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SecretProductDepartment.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		CDB5703B2BBBF2C600A71B22 /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +54,7 @@
 		37F8CE3B2BBBE60F00FF0D8E = {
 			isa = PBXGroup;
 			children = (
+				CDB5703B2BBBF2C600A71B22 /* AppleStore.playground */,
 				37F8CE5E2BBBE93300FF0D8E /* SecretProductDepartment.playground */,
 				37F8CE5D2BBBE66C00FF0D8E /* AccessControl.playground */,
 				37F8CE472BBBE60F00FF0D8E /* AppleInc */,
