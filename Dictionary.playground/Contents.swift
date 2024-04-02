@@ -32,33 +32,44 @@ class Person {
     }
 }
 
-var crew = Dictionary<String, Person>()
+enum Role: String {
+    case captain = "Captain"
+    case firstOfficer = "First Officer"
+    case secondOfficer = "Second Officer"
+    case chiefEngineer = "Chief Engineer"
+    case councillor = "Councillor"
+    case securityOfficer = "Security Officer"
+    case chiefMedicalOfficer = "Chief Medical Officer"
+}
 
-crew["Captain"] = Person(givenName: "Jean-Luc",
+
+var crew = Dictionary<Role, Person>()
+
+crew[.captain] = Person(givenName: "Jean-Luc",
                          familyName: "Picard",
                          commsMethod: .phone)
 
-crew["First Officer"] = Person(givenName: "William",
+crew[.firstOfficer] = Person(givenName: "William",
                                familyName: "Riker",
                                commsMethod: .email)
 
-crew["Chief Engineer"] = Person(givenName: "Geordi",
+crew[.chiefEngineer] = Person(givenName: "Geordi",
                                 familyName: "LaForge",
                                 commsMethod: .textMessage)
 
-crew["Second Officer"] = Person(givenName: "Data",
+crew[.secondOfficer] = Person(givenName: "Data",
                                 familyName: "Soong",
                                 commsMethod: .fax)
 
-crew["Councillor"] = Person(givenName: "Deanna",
+crew[.councillor] = Person(givenName: "Deanna",
                             familyName: "Troi",
                             commsMethod: .telepathy)
 
-crew["Security Officer"] = Person(givenName: "Tasha",
+crew[.securityOfficer] = Person(givenName: "Tasha",
                                   familyName: "Yar",
                                   commsMethod: .subSpaceRelay)
 
-crew["Chief Medical Officer"] = Person(givenName: "Beverly",
+crew[.chiefMedicalOfficer] = Person(givenName: "Beverly",
                                        familyName: "Crusher",
                                        commsMethod: .tachyons)
 
