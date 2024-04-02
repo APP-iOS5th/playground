@@ -40,4 +40,4 @@ print(moviesToWatch.count)
 //해당하는 인덱스값을 제거
 moviesToWatch.remove(at:6)
 print(moviesToWatch.count)
-print(moviesToWatch)a
+print(moviesToWatch)
