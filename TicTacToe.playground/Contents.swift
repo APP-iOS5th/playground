@@ -9,7 +9,7 @@ enum GridPosition: String {
 struct TicTacToe {
     var gridStorage: [[GridPosition]] = []
     
-    subscript(row: Int, column: Int) -> GridPosition {
+    subscript(atRow row: Int, atColumn column: Int) -> GridPosition {
         get {
             return self.gridStorage[row][column]
         }
@@ -57,11 +57,12 @@ game.gridStorage[0][2] = .player2
 print(game.gameStateString())
 
 // used subscript
+// MARK: subscript를 사용할때는 Class[value] 이런식으로 접근 하나부다
 var game2 = TicTacToe()
 print(game.gameStateString())
 
-game[1, 1] = .player1
+game[atRow: 1, atColumn: 1] = .player1
 print(game.gameStateString())
 
-game[0, 2] = .player2
+game[atRow: 0, atColumn: 2] = .player2
 print(game.gameStateString())
