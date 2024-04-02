@@ -13,6 +13,16 @@ enum CommunicationMethod {
     case tachyons
 }
 
+enum Role: String {
+    case captain = "Captain"
+    case firstOfficer = "First Officer"
+    case secondOfficer = "Second Officer"
+    case chiefEngineer = "Chief Enginner"
+    case councillor = "Councillor"
+    case securityOfficer = "Security Officer"
+    case chiefMedicalOfficer = "Chief Medical Officer"
+}
+
 class Person {
     let name: PersonName
     let preferredCommunicationMethod: CommunicationMethod
@@ -32,26 +42,25 @@ class Person {
     }
 }
 
-var crew: [String: Person] = [:]
+var crew: [Role: Person] = [:]
 
-crew["Captain"] = Person(givenName: "Seongbin", familyName: "Jo", commsMethod: .phone)
+crew[.captain] = Person(givenName: "Seongbin", familyName: "Jo", commsMethod: .phone)
 
-crew["First Officer"] = Person(givenName: "William", familyName: "Riker", commsMethod: .email)
+crew[.firstOfficer] = Person(givenName: "William", familyName: "Riker", commsMethod: .email)
 
-crew["Chief Engineer"] = Person(givenName: "Geordi", familyName: "LaForge", commsMethod: .textMessage)
+crew[.chiefEngineer] = Person(givenName: "Geordi", familyName: "LaForge", commsMethod: .textMessage)
 
-crew["Second Officer"] = Person(givenName: "Data", familyName: "Soong", commsMethod: .fax)
+crew[.secondOfficer] = Person(givenName: "Data", familyName: "Soong", commsMethod: .fax)
 
-crew["Councillor"] = Person(givenName: "Deanna", familyName: "Troi", commsMethod: .telepathy)
+crew[.councillor] = Person(givenName: "Deanna", familyName: "Troi", commsMethod: .telepathy)
 
-crew["Security Officer"] = Person(givenName: "Tasha", familyName: "Yar", commsMethod: .subSpaceRelay)
+crew[.securityOfficer] = Person(givenName: "Tasha", familyName: "Yar", commsMethod: .subSpaceRelay)
 
-crew["Chief Medical Officer"] = Person(givenName: "Beverly", familyName: "Crusher", commsMethod: .tachyons)
+crew[.chiefMedicalOfficer] = Person(givenName: "Beverly", familyName: "Crusher", commsMethod: .tachyons)
 
 
 print(crew)
 
 let roles = Array(crew.keys)
-print(roles)
 print(roles.first!)
 print(crew[roles.first!]!.displayName)
