@@ -15,9 +15,12 @@ class MovieReviewClassifier {
     var state: ClassificationState = .initial
     
     func classify(forStartOutOf10 stars: Int) -> MovieReviewClass {
-        
+        precondition(state == .initial, "Classifier state must be initail")
         state = .classifying
         
+        defer {
+            state = .complete
+        }
         defer {
             state = .complete
         }
@@ -28,10 +31,11 @@ class MovieReviewClassifier {
             return .good
         } else if stars > 3 {
             return .average
-        } else {
+        } else if stars > 0 {
             return .bad
+        } else {
+            fatalError("Start rating must be between 1 and 10")
         }
-        state = .complete
     }
 }
 
