@@ -16,9 +16,11 @@ enum ClassificationState {
 
 class MovieReviewClassifier {
     //init 생략 그리고 클래스안에는 자동으로 생성됨
-    var state: ClassificationState = .initial
+    var state: ClassificationState = .classifying
     
     func classify(forStarsOutOf10 stars: Int) -> MovieReviewClass {
+        precondition(state == .initial, "Classsifier state must be initial") //함수 실행에 전제조건
+        
         
         state = .classifying
         
@@ -35,14 +37,17 @@ class MovieReviewClassifier {
         else if stars > 3 {
             return .average
         }
-        else {
+        else if stars > 0 {
             return .bad
+        }
+        else {
+            fatalError("Stars rating must be between 1 and 10")
         }
     }
 }
 
 let classifire = MovieReviewClassifier()
 
-let review1 = classifire.classify(forStarsOutOf10: 9)
+let review1 = classifire.classify(forStarsOutOf10: -1)
 print(review1)
 print(classifire.state)
