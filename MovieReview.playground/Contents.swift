@@ -21,6 +21,8 @@ class MovieReviewClassifier {
     var state: ClassificationState = .initial
     
     func classify(forStartOutOf10 stars: Int) -> MovieReviewClass {
+        precondition(state == .initial, "Classifier state must be initial")
+        
         state = .classifying
         
         // defer가 두개 있으면 아래 것부터 실행한다. (역순) -> 다중 defer 문
@@ -35,14 +37,14 @@ class MovieReviewClassifier {
         } else if stars > 3 {
             return .average
         } else {
-            return .bad
+            fatalError("Star rating must be between 1 and 10")
         }
     }
 }
 
 let classifier = MovieReviewClassifier()
 
-let review1 = classifier.classify(forStartOutOf10: 9)
+let review1 = classifier.classify(forStartOutOf10: -1)
 print(review1)
 
 /// classifier 사용하여 리뷰 분류
