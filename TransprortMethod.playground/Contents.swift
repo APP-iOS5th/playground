@@ -1,14 +1,19 @@
+import CoreLocation
 
-protocol TransprortMethod {
-    associatedtype CollectionPoint
-    var defalutCollectionPoint: CollectionPoint { get } //읽기만 가능한 프로퍼티
-    var averageSpeedInKPH: Double{ get }//읽기만 가능한 프로퍼티
+protocol TransportLocation {
+    var location: CLLocation { get }
 }
 
-struct Train: TransprortMethod {
+protocol TransportMethod {
+    associatedtype CollectionPoint: TransportLocation
+    var defaultCollectionPoint: CollectionPoint { get }
+    var averageSpeedInKPH: Double { get }
+}
+
+struct Train: TransportMethod {
     typealias CollectionPoint = TrainStation
     
-    var defalutCollectionPoint: TrainStation {
+    var defaultCollectionPoint: TrainStation {
         return TrainStation.BMS
     }
     
@@ -17,22 +22,38 @@ struct Train: TransprortMethod {
     }
 }
 
-enum TrainStation: String {
+enum TrainStation: String, TransportLocation {
     case BMS = "Bromley South"
-    case VIC = "Lodon Victoria"
+    case VIC = "London Victoria"
     case RAI = "Rainham (Kent)"
     case BTN = "Brighton (East Sussex)"
+    
+    var location: CLLocation {
+        switch self {
+        case .BMS:
+            return CLLocation(latitude: 51.4000504,
+                              longitude: 0.0174237)
+        case .VIC:
+            return CLLocation(latitude: 51.4952103,
+                              longitude: -0.1438979)
+        case .RAI:
+            return CLLocation(latitude: 51.3663,
+                              longitude: 0.61137)
+        case .BTN:
+            return CLLocation(latitude: 50.829,
+                              longitude: -0.14125)
+        }
+    }
 }
 
-
-
-//TransportType는 제네릭으로 선언
-class Journey<TransportType: TransprortMethod> { //TransportType는 제네릭으로 선언
+class Journey<TransportType: TransportMethod> {
     let start: TransportType.CollectionPoint
     let end: TransportType.CollectionPoint
     let method: TransportType
     
-    init(start: TransportType.CollectionPoint, end: TransportType.CollectionPoint, method: TransportType) {
+    init(start: TransportType.CollectionPoint,
+         end: TransportType.CollectionPoint,
+         method: TransportType) {
         self.start = start
         self.end = end
         self.method = method
