@@ -78,5 +78,4 @@ func makePlanets(fromInput input: [[String: Any]]) -> [Planet] {
     return planets
 }
 
-
 makePlanets(fromInput: inputData)
