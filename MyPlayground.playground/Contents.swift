@@ -5,7 +5,7 @@ moviesToWatch.append("The Shawshank Redemption")
 moviesToWatch.append("Ghostbusters")
 moviesToWatch.append("Terminator 2")
 
-print(moviesToWatch[2])
+print(moviesToWatch[1])
 print(moviesToWatch.count)
 
 moviesToWatch.insert("The Matrix", at: 2)
@@ -20,7 +20,7 @@ print(moviesToWatch)
 
 let spyMovieSuggestions: [String] = ["The Bourne Identity", "Casino Royale", "Mission Impossible"]
 moviesToWatch = moviesToWatch + spyMovieSuggestions
-print(moviesToWatch)
+print(moviesToWatch.count)
 print(moviesToWatch)
 
 var starWarsTrilogy = Array<String>(repeating: "Star Wars: ", count: 3)
