@@ -11,10 +11,26 @@ enum MealState {
 
 enum MealError: Error {
     case canOnlyMoveToAppropriateState
+    case wrongStateToAddSalt
+    case tooMuchSalt
 }
 
 class Meal {
-    private(set) var state: MealState = .initial
+    
+    private (set) var state: MealState = .initial
+    
+    private (set) var saltAdded = 0
+    
+    func addSault() throws {
+        if saltAdded >= 5 {
+            throw MealError.tooMuchSalt
+        } else if case .initial = state, case .buyIngredients = state {
+            throw MealError.wrongStateToAddSalt
+        } else {
+            saltAdded += 1
+        }
+    }
+    
     func change(to newState: MealState) throws {
         switch (state, newState) {
         case (.initial, .buyIngredients),
@@ -26,8 +42,27 @@ class Meal {
         default:
             throw MealError.canOnlyMoveToAppropriateState
         }
-    
     }
+    
+    func buyIngredients() throws {
+            try change(to: .buyIngredients)
+        }
+        
+        func prepareIngredients() throws {
+            try change(to: .prepareIngredients)
+        }
+         
+        func cook() throws {
+            try change(to: .cook)
+        }
+         
+        func plateUp() throws {
+            try change(to: .plateUp)
+        }
+         
+        func serve() throws {
+            try change(to: .serve)
+        }
 }
 
 let dinner = Meal()
@@ -41,3 +76,20 @@ do {
 } catch let error {
     print(error)
 }
+
+do {
+    try dinner.buyIngredients()
+    try dinner.prepareIngredients()
+    try dinner.cook()
+    try dinner.plateUp()
+    try dinner.serve()
+} catch MealError.canOnlyMoveToAppropriateState {
+    print("It's not possible to move to this state")
+} catch MealError.tooMuchSalt {
+    print("Too Much Salt!")
+} catch MealError.wrongStateToAddSalt {
+    print("Can't add salt at this stage")
+} catch let error {
+    print("Some Other Error : \(error)")
+}
+
