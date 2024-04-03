@@ -2,7 +2,7 @@
 
 enum MealState {
     case initial
-    case buyIngredients
+    case buyIngregients
     case prepareIngredients
     case cook
     case plateUp
@@ -16,10 +16,10 @@ enum MealError: Error {
 class Meal {
     private(set) var state: MealState = .initial
     
-    func chnage(to newState: MealState) throws {
+    func change(to newState: MealState) throws {
         switch (state, newState) {
-        case (.initial, .buyIngredients),
-            (.buyIngredients, .prepareIngredients),
+        case (.initial, .buyIngregients),
+            (.buyIngregients, .prepareIngredients),
             (.prepareIngredients, .cook),
             (.cook, .plateUp),
             (.plateUp, .serve):
@@ -28,6 +28,27 @@ class Meal {
             throw MealError.canOnlyMoveToAppropriateState
         }
     }
+    
+    func buyIngredients() throws {
+           try change(to: .buyIngregients)
+       }
+       
+       func prepareIngredients() throws {
+           try change(to: .prepareIngredients)
+       }
+        
+       func cook() throws {
+           try change(to: .cook)
+       }
+        
+       func plateUp() throws {
+           try change(to: .plateUp)
+       }
+        
+       func serve() throws {
+           try change(to: .serve)
+       }
+
 }
 
 
@@ -35,12 +56,14 @@ class Meal {
 let dinner = Meal()
 
 do {
-    try dinner.chnage(to: .buyIngredients)
-    try dinner.chnage(to: .prepareIngredients)
-    try dinner.chnage(to: .cook)
-    try dinner.chnage(to: .plateUp)
-    try dinner.chnage(to: .serve)
+    try dinner.buyIngredients()
+    try dinner.prepareIngredients()
+    try dinner.cook()
+    try dinner.plateUp()
+    try dinner.serve()
+    
     print("Dinner is Served!")
 } catch let error {
     print(error)
 }
+
