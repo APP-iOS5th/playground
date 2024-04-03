@@ -1,5 +1,5 @@
 //if문
-enum PoolBallType {
+enum PoolBallType: String {
     case solid
     case stripe
     case black
