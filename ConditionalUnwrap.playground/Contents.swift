@@ -19,6 +19,7 @@ func poolBallType(forNumber number: Int) -> PoolBallType? {
 func printBallDetails(ofNumber number: Int) {
     let possibleBallType = poolBallType(forNumber: number)
     
+    // let 이 지정되면 True 를, nil 이면 False 를. (조건부 언래핑)
     if let ballType = possibleBallType {
         print("\(number) - \(ballType.rawValue)")
     } else {
