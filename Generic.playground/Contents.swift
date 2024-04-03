@@ -1,12 +1,13 @@
 
-class RecentList {
-    var slot1: String?
-    var slot2: String?
-    var slot3: String?
-    var slot4: String?
-    var slot5: String?
+// ListItemType - 나중에 들어올 타입
+class RecentList<ListItemType> {
+    var slot1: ListItemType?
+    var slot2: ListItemType?
+    var slot3: ListItemType?
+    var slot4: ListItemType?
+    var slot5: ListItemType?
     
-    func add(recent: String) {
+    func add(recent: ListItemType) {
         slot5 = slot4
         slot4 = slot3
         slot3 = slot2
@@ -14,10 +15,10 @@ class RecentList {
         slot1 = recent
     }
     
-    func getAll() -> [String] {
+    func getAll() -> [ListItemType] {
         
         // 빈 배열 초기화
-        var recent = [String]()
+        var recent = [ListItemType]()
         
         if let slot1 = slot1 {
             recent.append(slot1)
@@ -38,10 +39,34 @@ class RecentList {
     }
 }
 
-let recentlyCopiedList = RecentList()
+let recentlyCopiedList = RecentList<String>() // 나중에 올 타입이 String
 recentlyCopiedList.add(recent: "First")
 recentlyCopiedList.add(recent: "Next")
 recentlyCopiedList.add(recent: "Last")
 
 var recentlyCopied = recentlyCopiedList.getAll()
 print(recentlyCopied)
+
+
+class Person {
+    let name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+let rod = Person(name: "Rod")
+let jane = Person(name: "Jane")
+let freddy = Person(name: "Freddy")
+
+let lastCalledList = RecentList<Person>() // 나중에 올 타입이 Person
+
+lastCalledList.add(recent: freddy)
+lastCalledList.add(recent: jane)
+lastCalledList.add(recent: rod)
+
+let lastCalled = lastCalledList.getAll()
+
+for person in lastCalled {
+    print(person.name)
+}
