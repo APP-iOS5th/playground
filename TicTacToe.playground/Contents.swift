@@ -39,18 +39,18 @@ struct TicTacToe {
         var rowString = "| \(row[0].rawValue) "
         rowString += "| \(row[1].rawValue) "
         rowString += "| \(row[2].rawValue) |\n"
-        
         return rowString
     }
 }
 
 var game = TicTacToe()
-
-game[atRow: 1, atColumn: 1] = .player1
-
-game[atRow: 0, 2] = .player2
-
 print(game.gameStateString())
 
+print(game.gridStorage[0][0])
+print(game[atRow: 0, atColumn:0])
 
+game[atRow:1, atColumn: 1] = .player1
+print(game.gameStateString())
 
+game[atRow:0, atColumn: 2] = .player2
+print(game.gameStateString())
