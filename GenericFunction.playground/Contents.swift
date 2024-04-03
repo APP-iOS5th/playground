@@ -1,8 +1,8 @@
 //제네릭 함수
 
-func makeDuplicates<ItemType>(of item: ItemType, withKeys keys: Set<String>) ->
-    [String: ItemType] {
-    var duplicates = [String: ItemType]()
+//밑에함수는 Hashable프로토콜로 인해 제약적이게 됨
+func makeDuplicates<ItemType, KeyType: Hashable>(of item: ItemType, withKeys keys: Set<KeyType>) -> [KeyType: ItemType] {
+    var duplicates = [KeyType: ItemType]()
     for key in keys {
         duplicates[key] = item
     }
