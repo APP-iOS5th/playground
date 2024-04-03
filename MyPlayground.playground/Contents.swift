@@ -1,44 +1,41 @@
-// try, throw, do, catch로 오류 처리하기
+// Protocol Generic
 
-enum MealState {
-    case initial
-    case buyIngredients
-    case prepareIngredients
-    case cook
-    case plateUp
-    case serve
+protocol TransportMethod {
+    associatedtype CollectionPoint
+    var defaultCollectionPoint: CollectionPoint { get }
+    var averageSpeedInKPH: Double { get }
 }
 
-enum MealError: Error {
-    case canOnlyMoveToAppropriateState
-}
-
-class Meal {
-    private(set) var state: MealState = .initial
+struct Train: TransportMethod {
+    typealias CollectionPoint = TrainStation
     
-    func change(to newState: MealState) throws {
-        switch (state, newState) {
-        case (.initial, .buyIngredients), 
-            (.buyIngredients, .prepareIngredients),
-            (.prepareIngredients, .cook),
-            (.cook, .plateUp),
-            (.plateUp, .serve):
-            state = newState
-        default:
-            throw MealError.canOnlyMoveToAppropriateState
-        }
+    var defaultCollectionPoint: TrainStation {
+        return TrainStation.BMS
+    }
+    
+    var averageSpeedInKPH: Double {
+        return 100
     }
 }
 
-let dinner = Meal()
+enum TrainStation: String {
+    case BMS = "Bromley South"
+    case VIC = "London Victoria"
+    case RAI = "Rainham (Kent)"
+    case BTN = "Brighton (East Sussex)"
+}
 
-do {
-    try dinner.change(to: .buyIngredients)
-    try dinner.change(to: .prepareIngredients)
-    try dinner.change(to: .cook)
-    try dinner.change(to: .plateUp)
-    try dinner.change(to: .serve)
-    print("Dinner is served!")
-} catch let error {
-    print(error)
+class Journey<TransportType: TransportMethod> {
+    let start: TransportType.CollectionPoint
+    let end: TransportType.CollectionPoint
+    let method: TransportType
+    
+    init(start: TransportType.CollectionPoint,
+         end: TransportType.CollectionPoint,
+         method: TransportType) {
+        self.start = start
+        self.end = end
+        self.method = method
+    }
+    
 }
