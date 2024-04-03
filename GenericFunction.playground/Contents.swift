@@ -1,4 +1,3 @@
-
 func makeDuplicates<ItemType, KeyType: Hashable>(of item: ItemType, winthKeys keys: Set<KeyType>) -> [KeyType: ItemType] {
     var duplicates = [KeyType: ItemType]()
     for key in keys {
