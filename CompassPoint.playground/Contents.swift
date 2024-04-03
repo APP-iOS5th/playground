@@ -19,3 +19,30 @@ func lookTowards(_ direction: CompassPoint) {
 }
 
 lookTowards(.south)
+
+enum Item {
+    case key
+    case lockedDoor
+    case openDoor
+    case bluntknife
+    case sharpeningStone
+    case sharpKnife
+}
+
+func combine(_ firstItem: Item, with secondItem: Item) -> Item? {
+    switch(firstItem, secondItem) {
+    case (.key, .lockedDoor):
+        print("You have unlocked the door!")
+        return .openDoor
+    case (.bluntknife, .sharpeningStone):
+        print("Your knife is now sharp")
+        return .sharpKnife
+    default:
+        print("\(firstItem) and \(secondItem) cannot be combined")
+        return nil
+    }
+}
+
+let door = combine(.key, with: .lockedDoor)
+let oilAndWater = combine(.bluntknife, with: .lockedDoor)
+
