@@ -10,6 +10,10 @@
 		3C9CA3ED2BBBE61200EEFE51 /* AppleInc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9CA3E42BBBE61200EEFE51 /* AppleInc.framework */; };
 		3C9CA3F22BBBE61200EEFE51 /* AppleIncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CA3F12BBBE61200EEFE51 /* AppleIncTests.swift */; };
 		3C9CA3F32BBBE61200EEFE51 /* AppleInc.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C9CA3E72BBBE61200EEFE51 /* AppleInc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C9CA4022BBBFA8600EEFE51 /* Apple.playground in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CA4012BBBF6A900EEFE51 /* Apple.playground */; };
+		3C9CA4032BBBFA8600EEFE51 /* AppleStore.playground in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CA3FF2BBBF31300EEFE51 /* AppleStore.playground */; };
+		3C9CA4042BBBFA8600EEFE51 /* AccessControl.playground in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CA3FE2BBBEBC700EEFE51 /* AccessControl.playground */; };
+		3C9CA4052BBBFA8600EEFE51 /* SecretProductDepartment.playground in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CA3FD2BBBE94900EEFE51 /* SecretProductDepartment.playground */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +34,7 @@
 		3C9CA3FD2BBBE94900EEFE51 /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SecretProductDepartment.playground; path = ../SecretProductDepartment.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3C9CA3FE2BBBEBC700EEFE51 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AccessControl.playground; path = ../AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3C9CA3FF2BBBF31300EEFE51 /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3C9CA4012BBBF6A900EEFE51 /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Apple.playground; path = AppleInc/Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +59,7 @@
 		3C9CA3DA2BBBE61200EEFE51 = {
 			isa = PBXGroup;
 			children = (
+				3C9CA4012BBBF6A900EEFE51 /* Apple.playground */,
 				3C9CA3FF2BBBF31300EEFE51 /* AppleStore.playground */,
 				3C9CA3FE2BBBEBC700EEFE51 /* AccessControl.playground */,
 				3C9CA3FD2BBBE94900EEFE51 /* SecretProductDepartment.playground */,
@@ -197,6 +203,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C9CA4022BBBFA8600EEFE51 /* Apple.playground in Sources */,
+				3C9CA4032BBBFA8600EEFE51 /* AppleStore.playground in Sources */,
+				3C9CA4042BBBFA8600EEFE51 /* AccessControl.playground in Sources */,
+				3C9CA4052BBBFA8600EEFE51 /* SecretProductDepartment.playground in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
