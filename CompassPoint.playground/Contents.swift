@@ -59,3 +59,39 @@ func combine(_ firstItem: Item, with secondItem: Item) -> Item? { // Switch 문�
 
 let door = combine(.key, with: .lockedDoor)
 let oilAndWather = combine(.bluntKnife, with: .lockedDoor)
+
+
+
+/// 플레이어가 만날 수 있는 캐릭터를 정의.
+enum Character: String {
+    case wizard
+    case bartender
+    case dragon
+}
+
+/// 무엇을 말하고, 누구에게 말할지에 따라 상호작용이 달라지는 함수.
+/// - Parameters:
+///   - textToSay: 말할 문장 (위 3개의 정해진 문장이 아니여도 상관없음)
+///   - character: 말할 캐릭터(대상)
+func say(_ textToSay: String, to character: Character? = nil) {
+    switch (textToSay, character) {
+    case ("abracadabra", .wizard?):
+        print("The wizard says, \"Hey, that's my line!\"")
+        
+    case ("Pour me a drink", .bartender?):
+        print("The bartender pours you a drink")
+        
+    case ("Can I have some of your gold?", .dragon?):
+        print("The dragon burns you to death with his fiery breath")
+        
+    case (let textSaid, nil): // 무엇을 말하지는 있지만, 말할 캐릭터가 정해지지 않았을 때.
+        print("You say \"\(textSaid)\", to no-one.")
+        
+    case (_, let anyCharacter?): // 무엇을 말할지 없지만, 말할 캐릭터가 정해져있을 때.
+        print("The \(anyCharacter) looks at you, blankly")
+    }
+}
+
+say("Is anybody there?")
+say("Pour me a drink", to: .bartender)
+say("Can I open a tab?", to: .bartender)
