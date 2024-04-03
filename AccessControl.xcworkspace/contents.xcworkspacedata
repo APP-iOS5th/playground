@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+<<<<<<< HEAD
+=======
+      location = "group:AppleInc/../AccessControl.playground">
+   </FileRef>
+   <FileRef
+>>>>>>> main
       location = "group:AppleInc/AppleInc.xcodeproj">
    </FileRef>
 </Workspace>

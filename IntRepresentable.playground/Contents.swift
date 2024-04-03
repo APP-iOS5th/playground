@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 protocol IntRepresentable {
     var intValue: Int { get }
 }
@@ -34,6 +38,15 @@ intableThings.append("1009")
 intableThings.append(CrewComplement.enterpriseD)
 intableThings.append(CrewComplement.voyager)
 intableThings.append(CrewComplement.deepSpaceNine)
+<<<<<<< HEAD
 let over1000 = intableThings.compactMap { $0.intValue > 1000 ? $0.intValue : nil }
 print(over1000)
 
+=======
+ 
+let over1000 = intableThings.compactMap { $0.intValue > 1000 ? $0.intValue : nil }
+print(over1000)
+
+
+
+>>>>>>> main

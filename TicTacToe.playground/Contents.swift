@@ -15,6 +15,10 @@ struct TicTacToe {
             gridStorage[row][column] = newValue
         }
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> main
     init() {
         gridStorage.append(Array(repeating: .empty, count: 3))
         gridStorage.append(Array(repeating: .empty, count: 3))
@@ -44,6 +48,7 @@ struct TicTacToe {
 var game = TicTacToe()
 print(game.gameStateString())
 
+<<<<<<< HEAD
 //game.gridStorage[1][1] = .player1
 //print(game.gameStateString())
 //
@@ -57,3 +62,13 @@ print(game.gameStateString())
 game[atRow: 0, atColumn: 2] = .player2
 print(game.gameStateString())
 
+=======
+print(game.gridStorage[0][0])
+print(game[atRow: 0, atColumn:0])
+
+game[atRow:1, atColumn: 1] = .player1
+print(game.gameStateString())
+
+game[atRow:0, atColumn: 2] = .player2
+print(game.gameStateString())
+>>>>>>> main

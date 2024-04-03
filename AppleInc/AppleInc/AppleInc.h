@@ -2,7 +2,11 @@
 //  AppleInc.h
 //  AppleInc
 //
+<<<<<<< HEAD
 //  Created by Jungjin Park on 2024-04-02.
+=======
+//  Created by Jungman Bae on 4/2/24.
+>>>>>>> main
 //
 
 #import <Foundation/Foundation.h>

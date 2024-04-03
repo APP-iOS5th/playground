@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class UserManager {
     var currentUserName: String = "Emmanuel Goldstein" {
 //        willSet (newUserName) {
@@ -11,6 +12,14 @@ class UserManager {
         willSet {
             print("Good bye to \(currentUserName)")
             print("I hear \(newValue) in on their way!")
+=======
+
+class UserManager {
+    var currentUserName: String = "Emmanuel Goldstein" {
+        willSet {
+            print("Goodbye to \(currentUserName)")
+            print("I hear \(newValue) is on their way!")
+>>>>>>> main
         }
         didSet {
             print("Welcome to \(currentUserName)")

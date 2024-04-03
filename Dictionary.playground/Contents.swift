@@ -13,6 +13,7 @@ enum CommunicationMethod {
     case tachyons
 }
 
+<<<<<<< HEAD
 enum Role: String {
     case captain = "Captian"
     case firstOfficer = "First Officer"
@@ -21,6 +22,8 @@ enum Role: String {
     case councillor = "Councillor"
     case securityOfficer = "Security Officer"
     case chiefMedicalOfficer = "Chief Medical Officer"}
+=======
+>>>>>>> main
 class Person {
     let name: PersonName
     let preferredCommunicationMethod: CommunicationMethod
@@ -40,12 +43,40 @@ class Person {
     }
 }
 
+<<<<<<< HEAD
 var crew = Dictionary<Role, Person>()
 
 //crew["Captain"] = Person(givenName: "Jean-Luc", familyName: "Picard", commsMethod: CommunicationMethod.phone)
 crew[.captain] = Person(givenName: "Jean-Luc", familyName: "Picard", commsMethod: .phone)
 crew[.firstOfficer] = Person(givenName: "William", familyName: "Riker", commsMethod: .email)
 crew[.chiefEngineer] = Person(givenName: "Geordi", familyName: "Laforge", commsMethod: .textMessage)
+=======
+enum Role: String {
+    case captain = "Captain"
+    case firstOfficer = "First Officer"
+    case secondOfficer = "Second Officer"
+    case chiefEngineer = "Chief Engineer"
+    case councillor = "Councillor"
+    case securityOfficer = "Security Officer"
+    case chiefMedicalOfficer = "Chief Medical Officer"
+}
+
+
+var crew = Dictionary<Role, Person>()
+
+crew[.captain] = Person(givenName: "Jean-Luc",
+                         familyName: "Picard",
+                         commsMethod: .phone)
+
+crew[.firstOfficer] = Person(givenName: "William",
+                               familyName: "Riker",
+                               commsMethod: .email)
+
+crew[.chiefEngineer] = Person(givenName: "Geordi",
+                                familyName: "LaForge",
+                                commsMethod: .textMessage)
+
+>>>>>>> main
 crew[.secondOfficer] = Person(givenName: "Data",
                                 familyName: "Soong",
                                 commsMethod: .fax)
@@ -61,6 +92,7 @@ crew[.securityOfficer] = Person(givenName: "Tasha",
 crew[.chiefMedicalOfficer] = Person(givenName: "Beverly",
                                        familyName: "Crusher",
                                        commsMethod: .tachyons)
+<<<<<<< HEAD
 crew[.secondOfficer] = Person(givenName: "Data", familyName: "Soong", commsMethod: .fax)
 
 crew[.councillor] = Person(givenName: "Deanna", familyName: "Troi", commsMethod: .telepathy)
@@ -68,14 +100,23 @@ crew[.councillor] = Person(givenName: "Deanna", familyName: "Troi", commsMethod:
 crew[.securityOfficer] = Person(givenName: "Tasha", familyName: "Yar", commsMethod: .subSpaceRelay)
 
 crew[.chiefEngineer] = Person(givenName: "Beverly", familyName: "Crusher", commsMethod: .tachyons)
+=======
+>>>>>>> main
 
 let roles = Array(crew.keys)
 print(roles)
 
 let firstRole = roles.first!
+<<<<<<< HEAD
 //let cmo = crew[firstRole]!
 //print("\(firstRole): \(cmo.displayName)")
 
 let cmo = crew[firstRole]
 print("\(firstRole): \(cmo?.displayName ?? "N/A")")
 
+=======
+let cmo = crew[firstRole]
+print("\(firstRole): \(cmo?.displayName ?? "N/A")")
+
+
+>>>>>>> main

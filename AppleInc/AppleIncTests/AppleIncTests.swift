@@ -2,13 +2,21 @@
 //  AppleIncTests.swift
 //  AppleIncTests
 //
+<<<<<<< HEAD
 //  Created by Jungjin Park on 2024-04-02.
+=======
+//  Created by Jungman Bae on 4/2/24.
+>>>>>>> main
 //
 
 import XCTest
 @testable import AppleInc
 
+<<<<<<< HEAD
 final class AppleIncTests: XCTestCase {
+=======
+class AppleIncTests: XCTestCase {
+>>>>>>> main
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
