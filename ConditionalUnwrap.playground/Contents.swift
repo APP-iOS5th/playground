@@ -41,7 +41,7 @@ class PoolTable{
 }
 func printBallTypeOfPlayer1(forTable table: PoolTable){
 
-// 이런 중첩 조건문이 밑에 처럼 간단하게 될수있음 그것이 수위푸튜의 장점 !ㅍ 할수있긴함 
+// 이런 중첩 조건문이 밑에 처럼 간단하게 될수있음 그것이 수위푸튜의 장점 !ㅍ 할수있긴함
 //    let frame = table.currentFrame
 //    if(frame != nil){
 //        let ballType = frame?.player1BallType
@@ -58,3 +58,10 @@ func printBallTypeOfPlayer1(forTable table: PoolTable){
         
     }
 }
+let table = PoolTable()
+table.currentFrame =  nil
+printBallTypeOfPlayer1(forTable: table)
+
+let frame = PoolFrame()
+frame.player1BallType = nil
+frame.player2BallType = nil
