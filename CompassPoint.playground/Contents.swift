@@ -30,7 +30,7 @@ enum Item {
     case sharpeningStone
     case sharpKnife
 }
-
+// combine switch
 func combine(_ firstItem: Item, with secondItem: Item) -> Item? {
     switch(firstItem, secondItem) {
     case(.key, .lockedDoor):
@@ -55,7 +55,7 @@ enum Character: String {
     case bartender
     case dragon
 }
-
+// underscore
 func say(_ textToSay: String, to character: Character? = nil) {
     switch(textToSay, character) {
     case ("abracadabra", .wizard?):
