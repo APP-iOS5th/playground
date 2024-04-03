@@ -49,10 +49,58 @@ class Journey<TransportType: TransportMethod> {
     let start: TransportType.CollectionPoint
     let end: TransportType.CollectionPoint
     let method: TransportType
+    let distanceInKMs: Double
+    let durationInHours: Double
     
     init(start: TransportType.CollectionPoint, end:TransportType.CollectionPoint, method: TransportType) {
         self.start = start
         self.end = end
         self.method = method
+        self.distanceInKMs = end.location.distance(from: start.location) / 1000
+        self.durationInHours = distanceInKMs / method.averageSpeedInKPH
     }
 }
+
+extension CLLocation: TransportLocation {
+    var location: CLLocation {
+        return self
+    }
+}
+
+enum Road: TransportMethod {
+    typealias CollectionPoint = CLLocation
+    
+    case car
+    case motobike
+    case van
+    case hgv
+    
+    var defaultCollectionPoint: CLLocation {
+        return CLLocation(latitude: 51.1, longitude: 0.1)
+    }
+    
+    var averageSpeedInKPH: Double {
+        switch self {
+        case .car:
+            return 60
+        case .motobike:
+            return 70
+        case .van:
+            return 55
+        case .hgv:
+            return 50
+        }
+  
+        
+    }
+}
+
+let start = CLLocation(latitude: 51.3994669, longitude: 0.011688)
+let end = CLLocation(latitude: 51.2968654, longitude: 0.5053609)
+let roadJourney = Journey(start: start, end: end, method: Road.car)
+
+let distanceByRoad = roadJourney.distanceInKMs
+let durationInHours = roadJourney.durationInHours
+
+print("Journey distance: \(distanceByRoad) km")
+print("journey duration: \(durationInHours) hours")
