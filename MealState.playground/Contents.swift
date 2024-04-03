@@ -26,6 +26,26 @@ class Meal {
             throw MealError.canOnlyMoveToAppropriateSate
         }
     }
+    
+    func buyIngredients() throws {
+        try change(to: .buyIngregients)
+    }
+    
+    func perpareIngredients() throws {
+        try change(to: .prepareIngredients)
+    }
+    
+    func cook() throws {
+        try change(to: .cook)
+    }
+    
+    func plateUp() throws {
+        try change(to: .plateUp)
+    }
+    
+    func serve() throws {
+        try change(to: .serve)
+    }
 }
 
 let dinner = Meal()
