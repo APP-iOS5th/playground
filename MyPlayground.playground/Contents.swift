@@ -1,17 +1,36 @@
 
-let evenNumbers = Set<Int>(arrayLiteral: 2, 4, 6, 8, 10)
-let oddNumbers: Set<Int> = [1, 3, 5, 7, 9]
-let squareNumbers: Set<Int> = [1, 4, 9]
-let triangularNumbers: Set<Int> = [1, 3, 6, 10]
+var moviesToWatch: Array<String> = Array()
 
-let evenOrTriangularNumbers = evenNumbers.union(triangularNumbers) // 2, 4, 6, 8, 10, 1, 3, unordered
-print(evenOrTriangularNumbers.count) // 7
+moviesToWatch.append("The Shawshank Redemption")
+moviesToWatch.append("Ghostbusters")
+moviesToWatch.append("Terminator 2")
 
-let oddAndSquareNumbers = oddNumbers.intersection(squareNumbers) // 1, 9, unordered
-print(oddAndSquareNumbers.count) // 2
+print(moviesToWatch[1])
+print(moviesToWatch.count)
 
-let squareOrTriangularNotBoth = squareNumbers.symmetricDifference(triangularNumbers) // 4, 9, 3, 6, 10, unordered
-print(squareOrTriangularNotBoth.count) // 5
+moviesToWatch.insert("The Matrix", at: 2)
 
-let squareNotOdd = squareNumbers.subtracting(oddNumbers) // 4
-print(squareNotOdd.count) // 1
+print(moviesToWatch.first ?? "Empty")
+print(moviesToWatch.last ?? "Empty")
+
+let secondMovieToWatch = moviesToWatch[1]
+moviesToWatch[1] = "Ghostbusters (1984)"
+print(moviesToWatch.count)
+print(moviesToWatch)
+
+let spyMovieSuggestions: [String] = ["The Bourne Identity", "Casino Royale", "Mission Impossible"]
+moviesToWatch = moviesToWatch + spyMovieSuggestions
+print(moviesToWatch.count)
+print(moviesToWatch)
+
+var starWarsTrilogy = Array<String>(repeating: "Star Wars: ", count: 3)
+starWarsTrilogy[0] += "A New Hope"
+starWarsTrilogy[1] += "Empire Strikes Back"
+starWarsTrilogy[2] += "Return of the Jedi"
+print(starWarsTrilogy)
+
+moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
+print(moviesToWatch.count)
+
+moviesToWatch.remove(at: 6)
+print(moviesToWatch.count)
