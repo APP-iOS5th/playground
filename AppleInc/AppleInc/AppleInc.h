@@ -2,7 +2,7 @@
 //  AppleInc.h
 //  AppleInc
 //
-//  Created by 이융의 on 4/2/24.
+//  Created by Jungman Bae on 4/2/24.
 //
 
 #import <Foundation/Foundation.h>
