@@ -53,5 +53,5 @@ class MovieReviewClassifier {
 let classifier = MovieReviewClassifier()
 
 //let review1 = classifier.classify(forStarsOutOf10: -1) //Fatal error: Start rating must be between 1 and 10
-print(review1)
+//print(review1)
 print(classifier.state)
