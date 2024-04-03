@@ -1,6 +1,7 @@
 
-func makeDuplicates<ItemType>(of item: ItemType, withKeys keys: Set<String>) -> [String: ItemType] {
-    var duplicates = [String: ItemType] ()
+// key는 고유값이어야하므로 Hashable protocol의 제약조건을 추가한다
+func makeDuplicates<ItemType, KeyType: Hashable>(of item: ItemType, withKeys keys: Set<KeyType>) -> [KeyType: ItemType] {
+    var duplicates = [KeyType: ItemType] ()
     for key in keys {
         duplicates[key] = item
     }
