@@ -59,3 +59,20 @@ print(recentList.getAll())
 recentList.add(recent: "10")
 print(recentList.getAll())
 
+class Person {
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+let rod: Person = Person(name: "Rod")
+let jane: Person = Person(name: "Jane")
+let freddy: Person = Person(name: "Freddy")
+
+let lastCalledList = RecentList<Person>()
+lastCalledList.add(recent: rod)
+lastCalledList.add(recent: jane)
+lastCalledList.add(recent: freddy)
+lastCalledList.getAll().map{ $0.name }.forEach{ print($0) }
