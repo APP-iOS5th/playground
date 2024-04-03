@@ -35,7 +35,6 @@
 		37F8CE712BBCC92B00FF0D8E /* AppleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStore.swift; sourceTree = "<group>"; };
 		37F8CE732BBCC94000FF0D8E /* SecretProductDepartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretProductDepartment.swift; sourceTree = "<group>"; };
 		37F8CE752BBCC94A00FF0D8E /* SwiftLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLanguage.swift; sourceTree = "<group>"; };
-		37F8CE772BBCCD7100FF0D8E /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AccessControl.playground; path = ../AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +59,6 @@
 		37F8CE3B2BBBE60F00FF0D8E = {
 			isa = PBXGroup;
 			children = (
-				37F8CE772BBCCD7100FF0D8E /* AccessControl.playground */,
 				37F8CE6D2BBCC91400FF0D8E /* Apple.swift */,
 				37F8CE712BBCC92B00FF0D8E /* AppleStore.swift */,
 				37F8CE732BBCC94000FF0D8E /* SecretProductDepartment.swift */,
