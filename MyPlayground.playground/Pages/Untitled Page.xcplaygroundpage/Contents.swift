@@ -558,7 +558,7 @@ import Foundation
  //    if let input = readLine()?.split(separator: " ").map({ Int($0) ?? 0 }) {
  //        let row = input[0]
  //        let col = input[1]
- //        
+ //
  //        if row >= 0 && row < 3 && col >= 0 && col < 3 {
  //            game.placePlayer(player: player == 1 ? .player1 : .player2, row: row, column: col)
  //            print(game.gameStateString())
