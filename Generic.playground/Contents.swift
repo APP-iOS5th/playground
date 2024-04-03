@@ -49,3 +49,26 @@ recentlyCopiedList.add(recent: "Next")
 recentlyCopiedList.add(recent: "Last")
 var recentlyCopied = recentlyCopiedList.getAll()
 print(recentlyCopied)
+
+class Person {
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+let rod = Person(name: "Rod")
+let jane = Person(name: "Jane")
+let freddy = Person(name: "Freddy")
+
+let lastCalledList = RecentList<Person>()
+
+lastCalledList.add(recent: freddy)
+lastCalledList.add(recent:jane)
+lastCalledList.add(recent: rod)
+
+let lastCalled = lastCalledList.getAll()
+for person in lastCalled {
+    print(person.name)
+}
