@@ -1,8 +1,16 @@
+import CoreLocation
+
 /**  프로토콜과 함꼐 제네릭 사용하기  **/
 /// 1. 교통수단에 대한 프로토콜 정의
 /// 2. 가처룰 위한 구조체 생성
 /// 3. TrainStation 타입 정의
 /// 4. 여정 객체 생성
+/// 5. 위치 정보 제공 프로토콜 정의
+
+/// 5. CLLocation 객체를 반환하는 TransportLocation 프로토콜을 생성.
+protocol TransportLocation {
+    var location: CLLocation{ get }
+}
 
 /// 1. 교통 수단의 특징을 정의하는 프로토콜을 생성.
 protocol TransportMethod {
@@ -26,11 +34,24 @@ struct Train: TransportMethod {
 }
 
 /// 3. TrainStation 타입 열거형으로 정의.
-enum TrainStation: String {
+enum TrainStation: String, TransportLocation {
     case BMS = "Bromley South"
     case VIC = "London Victoria"
     case RAI = "Rainham (Kent)"
     case BTN = "Brighton (East Sussex)"
+    
+    var location: CLLocation {
+        switch self {
+        case .BMS:
+            return CLLocation(latitude: 51.4000504, longitude: 0.0174237)
+        case .VIC:
+            return CLLocation(latitude: 51.4952103, longitude: -0.1438979)
+        case .RAI:
+            return CLLocation(latitude: 51.3663, longitude: 0.61137)
+        case .BTN:
+            return CLLocation(latitude: 50.829, longitude: -0.14125)
+        }
+    }
 }
 
 /// 4. 시작점과 종점을 가진 Journey 클래스 생성.
