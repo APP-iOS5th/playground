@@ -13,7 +13,7 @@ func howManyHeadsInARow() -> Int {
     var numberOfHeadsInARow = 0
     
     while CoinFlip.flipCoin() == .heads {
-        numberOfHeadsInARow == numberOfHeadsInARow + 1
+        numberOfHeadsInARow = numberOfHeadsInARow + 1
     }
     return numberOfHeadsInARow
 }
