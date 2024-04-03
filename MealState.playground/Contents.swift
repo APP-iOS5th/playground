@@ -13,12 +13,23 @@ enum MealState {
 /// 오류를 정의하는 Swift의 프로토콜 지향 접근 방식을 따라 오류를 정의
 enum MealError: Error {
     case canOnlyMoveToAppropriateState
+    case tooMuchSalt
+    case wrongStateToAddSalt
 }
 
 /// 식사를 준비하는 과정을 통해 식사의 상태를 추적하는 객체를 생성.
 class Meal {
     // 상태 변경은 외부에 공개하고 싶지 않아! -> private
     private(set) var state: MealState = .initial
+    private(set) var saltAdded = 0
+    
+    func addSalt() throws {
+        if saltAdded >= 5 {
+            throw MealError.tooMuchSalt
+        } else if case.initial = state, case .buyIngredients = state {
+            saltAdded = saltAdded + 1
+        }
+    }
     
     /// 상태 변경을 위한 함수 생성, 상태 전환에 오류가 발생하면 오류 발생
     /// - Parameter newState: 새로운 식사 준비 단계 (새로운 상태)
@@ -77,9 +88,16 @@ do {
     try dinner.buyIngredients()
     try dinner.prepareIngredients()
     try dinner.cook()
-    try dinner.serve()
     try dinner.plateUp()
+    try dinner.serve()
     print("Dinner is served!")
-} catch let error {
-    print(error)
+} catch MealError.canOnlyMoveToAppropriateState  {
+    print("It's not possible to move to this state")
+} catch MealError.tooMuchSalt {
+    print("Too much salt!")
+} catch MealError.wrongStateToAddSalt {
+    print("Can't add salt at this stage")
+} catch {
+    print("Some other error: \(error)")
 }
+
