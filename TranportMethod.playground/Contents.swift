@@ -100,3 +100,10 @@ let durationInHours = roadJourney.durationInHours
 
 print("Journey distance: \(distanceByRoad) km")
 print("Journey duration: \(durationInHours) hours")
+
+let train = Train()
+
+
+let journey2 = Journey(start: TrainStation.BTN, end: TrainStation.BMS, method: train)
+print(journey2.distanceInKMs)
+print(journey2.durationInHours)
