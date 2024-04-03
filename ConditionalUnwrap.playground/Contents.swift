@@ -38,3 +38,40 @@ printBallDetails(ofNumber: 12)
 printBallDetails(ofNumber: 0)
 printBallDetails(ofNumber: 16)
 
+
+
+// 옵셔널 언래핑 연결
+// if문을 사용하여 옵셔널 값을 연쇄적으로 언래핑할 수 있음.
+class PoolFrame {
+    var player1BallType: PoolBallType?
+    var player2BallType: PoolBallType?
+}
+
+class PoolTable {
+    var currentFrame: PoolFrame?
+}
+
+func printBallTypeOfPlayer1(foeTable table: PoolTable) {
+    if let frame = table.currentFrame, let ballType = frame.player1BallType {
+        print(ballType.rawValue)
+    } else {
+        print("Player 1 has no ball type or there is no current frame")
+    }
+}
+
+let table = PoolTable()
+table.currentFrame = nil
+printBallTypeOfPlayer1(foeTable: table)
+
+let frame = PoolFrame()
+frame.player1BallType = nil
+frame.player2BallType = nil
+table.currentFrame = frame
+printBallTypeOfPlayer1(foeTable: table)
+
+frame.player1BallType = .solid
+frame.player2BallType = .solid
+
+printBallTypeOfPlayer1(foeTable: table)
+
+
