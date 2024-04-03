@@ -1,3 +1,11 @@
-import UIKit
+class SecretProductDepartment {
+    private var secretCodeWord = "Titan"
+    private var secretProducts = ["Apple Glasses", "Apple Car", "Apple Brain Implant"]
 
-var greeting = "Hello, playground"
+
+    func nextProduct(codeWord: String) -> String? {
+        let codeCorrect = codeWord == secretCodeWord
+        return codeCorrect ? secretProducts.first : nil
+    }
+
+}
