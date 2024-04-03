@@ -10,7 +10,7 @@ enum CoinFlip: Int {
 }
 
 func howManyHeadsInARow() -> Int {
-    var numberOfHeadsInRow = 0    
+    var numberOfHeadsInRow = 0
     while CoinFlip.flipCoin() == .heads {
         numberOfHeadsInRow = numberOfHeadsInRow + 1
     }
