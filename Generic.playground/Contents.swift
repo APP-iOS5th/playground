@@ -62,3 +62,6 @@ lastCalledList.add(recent: jane)
 lastCalledList.add(recent: rod)
 
 let lastCalled = lastCalledList.getAll()
+for person in lastCalled {
+    print(person.name)
+}
