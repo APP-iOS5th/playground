@@ -17,7 +17,7 @@ class MovieReviewClassifier {
     
     func classify(forStarsOutOf10 stars: Int) -> MovieReviewClass {
         precondition(state == .initial, "Classifier state must be initial")
-        assert(state == .initial)
+//        assert(state == .initial)
         state = .classifying
         
         defer {
