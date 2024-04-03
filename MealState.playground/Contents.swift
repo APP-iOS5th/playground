@@ -26,13 +26,35 @@ class Meal {
             throw MealError.canOnlyMoveToAppropriateSate
         }
     }
+    //추가
+    func buyIngredients() throws {
+        try change(to: .buyIngregients)
+    }
+    
+    func prepareIngredients() throws {
+        try change(to: .prepareIngredients)
+    }
+     
+    func cook() throws {
+        try change(to: .cook)
+    }
+     
+    func plateUp() throws {
+        try change(to: .plateUp)
+    }
+     
+    func serve() throws {
+        try change(to: .serve)
+    }
 }
 // 변수 소문자 함수 대문자
 let dinner = Meal()
 
 do {
-    try dinner.change(to: .buyIngregients)
-    try dinner.change(to: .prepareIngredients)
+    //변경
+    try dinner.buyIngredients()
+    try dinner.prepareIngredients()
+    
     try dinner.change(to: .cook)
     try dinner.change(to: .plateUp)
     try dinner.change(to: .serve)
@@ -40,3 +62,4 @@ do {
 } catch let error {
     print(error)
 }
+
