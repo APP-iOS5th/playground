@@ -27,10 +27,8 @@
 		4BB76DC72BBBE61100CB369A /* Applelnc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Applelnc.h; sourceTree = "<group>"; };
 		4BB76DCC2BBBE61100CB369A /* ApplelncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplelncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB76DD12BBBE61100CB369A /* ApplelncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplelncTests.swift; sourceTree = "<group>"; };
-		4BB76DDC2BBBE67400CB369A /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AccessControl.playground; path = ../AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4BB76DDD2BBBE93900CB369A /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SecretProductDepartment.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4BB76DDE2BBBF2E000CB369A /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4BB76DDF2BBBF64E00CB369A /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4BB76DE12BBBFBA600CB369A /* SwiftLanguage.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SwiftLanguage.playground; path = ../SwiftLanguage.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +53,8 @@
 		4BB76DBA2BBBE61100CB369A = {
 			isa = PBXGroup;
 			children = (
+				4BB76DE12BBBFBA600CB369A /* SwiftLanguage.playground */,
 				4BB76DDF2BBBF64E00CB369A /* Apple.playground */,
-				4BB76DDE2BBBF2E000CB369A /* AppleStore.playground */,
-				4BB76DDD2BBBE93900CB369A /* SecretProductDepartment.playground */,
-				4BB76DDC2BBBE67400CB369A /* AccessControl.playground */,
 				4BB76DC62BBBE61100CB369A /* Applelnc */,
 				4BB76DD02BBBE61100CB369A /* ApplelncTests */,
 				4BB76DC52BBBE61100CB369A /* Products */,
