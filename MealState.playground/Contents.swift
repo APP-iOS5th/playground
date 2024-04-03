@@ -34,6 +34,26 @@ class Meal {
             throw MealError.canOnlyMoveToAppropriateState
         }
     }
+    
+    func buyIngredients() throws {
+        try change(to: .buyIngredients)
+    }
+    
+    func prepareIngredients() throws {
+        try change(to: .prepareIngredients)
+    }
+     
+    func cook() throws {
+        try change(to: .cook)
+    }
+     
+    func plateUp() throws {
+        try change(to: .plateUp)
+    }
+     
+    func serve() throws {
+        try change(to: .serve)
+    }
 }
 
 let dinner = Meal()
@@ -45,6 +65,20 @@ do {
     try dinner.change(to: .cook)
     try dinner.change(to: .serve)
     try dinner.change(to: .plateUp)
+    print("Dinner is served!")
+} catch let error {
+    print(error)
+}
+
+// 위 코드와 아래 코드는 같은 방식이지만 표현만 다르게 해본다.
+// 위 코드는 change라는 함수를 switch문으로 표현해서 사용한 것이고 아래 코드는 각각을 함수로 표현해서 사용한 것이다.
+
+do {
+    try dinner.buyIngredients()
+    try dinner.prepareIngredients()
+    try dinner.cook()
+    try dinner.serve()
+    try dinner.plateUp()
     print("Dinner is served!")
 } catch let error {
     print(error)
