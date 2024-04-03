@@ -30,7 +30,10 @@
 		5805C0A92BBBE95500103ABA /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5805C0AE2BBBE95500103ABA /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
 		5805C0BC2BBBF62400103ABA /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		5805C0BE2BBBFFC800103ABA /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		58F94DE92BBCD44E00C76138 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AccessControl.playground; path = Apple.playground/Sources/AccessControl.playground; sourceTree = "<group>"; };
+		58F94DEA2BBCD45900C76138 /* AppleStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppleStore.playground; sourceTree = "<group>"; };
+		58F94DEB2BBCD45E00C76138 /* SecretProductDepartment.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SecretProductDepartment.playground; sourceTree = "<group>"; };
+		58F94DEC2BBCD46500C76138 /* SwiftLanguage.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftLanguage.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +58,10 @@
 		5805C0952BBBE95500103ABA = {
 			isa = PBXGroup;
 			children = (
-				5805C0BE2BBBFFC800103ABA /* AccessControl.playground */,
+				58F94DEC2BBCD46500C76138 /* SwiftLanguage.playground */,
+				58F94DEB2BBCD45E00C76138 /* SecretProductDepartment.playground */,
+				58F94DEA2BBCD45900C76138 /* AppleStore.playground */,
+				58F94DE92BBCD44E00C76138 /* AccessControl.playground */,
 				5805C0BC2BBBF62400103ABA /* Apple.playground */,
 				5805C0A12BBBE95500103ABA /* AppleInc */,
 				5805C0AD2BBBE95500103ABA /* AppleIncTests */,
