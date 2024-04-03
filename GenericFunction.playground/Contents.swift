@@ -1,6 +1,6 @@
 
-func makeDuplicates<ItemType>(of item: ItemType, withKeys keys: Set<String>) -> [String: ItemType] {
-    var duplicates = [String: ItemType]()
+func makeDuplicates<ItemType, KeyType: Hashable>(of item: ItemType, withKeys keys: Set<KeyType>) -> [KeyType: ItemType] {
+    var duplicates = [KeyType: ItemType]()
     
     for key in keys {
         duplicates[key] = item
