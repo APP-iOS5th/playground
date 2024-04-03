@@ -18,6 +18,7 @@ class MovieReviewClassifier {
     
     // 정수 별점을 받으면 MovieReviewClass 로 리턴함
     func classify(forStarsOutOf10 stars: Int) -> MovieReviewClass {
+        precondition(state == .initial, "Classifier state must be initial")
         
         state = .classifying
         
@@ -31,8 +32,10 @@ class MovieReviewClassifier {
             return .good
         } else if stars > 3 {
             return .average
-        } else {
+        } else if stars > 0 {
             return .bad
+        } else {
+            fatalError("Start rating must be between 1 and 10")
         }
     }
 }
