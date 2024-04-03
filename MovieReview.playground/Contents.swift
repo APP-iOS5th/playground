@@ -13,10 +13,11 @@ enum ClassificationState {
 }
 
 class MovieReviewClassifier {
-    var state: ClassificationState = .initial
+    var state: ClassificationState = .classifying
     
     func classify(forStarsOutOf10 stars: Int) -> MovieReviewClass {
-        
+        precondition(state == .initial, "Classifier state must be initial")
+
         state = .classifying
         
         defer {
@@ -29,8 +30,10 @@ class MovieReviewClassifier {
             return .good
         } else if stars > 3 {
             return .average
-        } else {
+        } else if stars > 0 {
             return .bad
+        } else {
+            fatalError("Stars rating must be between 1 and 10")
         }
     }
 }
