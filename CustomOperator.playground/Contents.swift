@@ -1,7 +1,8 @@
 
-// >> -> Shift 연산
 // operator -> 기존의 연산자 기호(ex: '>>>') 를 함수명으로 사용할 수 있도록 재정의 해줌.
-// infix -> 이항 연산자
+// infix -> 중위 -> ㅇㅇ >>> ㅇㅇ
+// prefix -> 전위 -> >>> ㅇㅇ ㅇㅇ
+// postifx -> 후위 -> ㅇㅇ ㅇㅇ >>>
 infix operator >>>
 
 func >>> (lhs: String, rhs: String) -> String {
@@ -13,13 +14,10 @@ func >>> (lhs: String, rhs: String) -> String {
 
 //이미 존재하는 >>> 함수에 오버로딩함.
 //>>> 오버로딩 예제 #1
-func >>> (lhs: String, rhs: [String]) -> String {
-    var rhs = rhs
-    var combined = ""
-    rhs.append(lhs)
-    for i in rhs {
-        combined += String(i)
-    }
+//<Elment> -> 제네럴 타입 지정(제네릭)
+func >>> <Elment> (lhs: Elment, rhs: Array<Elment>) -> Array<Elment> {
+    var combined = rhs
+    combined.append(lhs)
     return combined
 }
 
