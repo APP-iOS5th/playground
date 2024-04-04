@@ -6,7 +6,13 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 let config = URLSessionConfiguration.default
 let session = URLSession(configuration: config)
 
-func fetchRepo(forUsername username: String) {
+enum ResponseError: Error {
+    case requestUnSuccessful
+    case unexpectedResponseStructure
+    
+}
+
+func fetchRepo(forUsername username: String, completionHandler: @escaping ([[String: Any]]?, Error?) -> Void) {
     let urlString = "https://api.github.com/users/\(username)/repos"
     let url = URL(string: urlString)!
     var request = URLRequest(url: url)
@@ -18,28 +24,36 @@ func fetchRepo(forUsername username: String) {
         }
         
         guard let jsonData = data else {
-            print(error ?? "Network Error!")
+            completionHandler(nil, ResponseError.requestUnSuccessful)
             return
         }
         
         do {
             let deserialized = try JSONSerialization.jsonObject(with: jsonData, options: [])
-//            print(deserialized)
             
             guard let repos = deserialized as? [[String: Any]] else {
                 print("ERROR while deserialized >> Unexpected Response!")
+                completionHandler(nil, ResponseError.unexpectedResponseStructure)
                 return
             }
             
-            repos.forEach{ print($0) }
-            print(repos.count) // 27
+            completionHandler(repos, nil)
             
         } catch {
-            print("ERROR! > \(error)")
+            completionHandler(nil, error)
         }
     }
     
     task.resume()
 }
 
-fetchRepo(forUsername: "madcow95")
+fetchRepo(forUsername: "madcow95") { (repos, err) in
+    if let error = err {
+        print("error >> \(error)")
+        return
+    }
+    
+    if let repos = repos {
+        print("repos >> \(repos)")
+    }
+}
