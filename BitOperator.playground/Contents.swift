@@ -35,11 +35,27 @@ let supportedDevices = phone + tablet + tv
 /// - Parameter device: 연산할 장치의 비트
 /// - Returns: supportedDevices와 받은 Parameter와 AND 연산의 결과를 Boolean으로 반환
 func isSupported(device: Int) -> Bool {
-    let bitWiseANDResult = supportedDevices & device
+    let bitWiseANDResult = supportedDevices & device //AND Operator : 두 값 모두 1이어야 1비트 설정
     let containsDevice = bitWiseANDResult == device
     
     return containsDevice
 }
 
+let phonetSupported = isSupported(device: phone)
+print(brainImplantSupported)
+
 let brainImplantSupported = isSupported(device: brainImplant)
 print(brainImplantSupported)
+
+
+let deviceThatSupportUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+
+///OR Operator: 두 값 중 하나라고 1이면 1비트 설정.
+let stationaryOrUIKitDevices = deviceThatSupportUIKit | stationaryDevices
+///XOR Operator: 두 값 중 하나만 1일 때 해당 비트를 1로 설정.
+let onlyStationaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices
+
+print(String(deviceThatSupportUIKit, radix: 2))
+print(String(stationaryDevices, radix: 2))
+print(String(onlyStationaryOrUIKitDevices, radix: 2))
