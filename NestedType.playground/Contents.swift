@@ -1,4 +1,6 @@
 
+/**  중첩 유형 및 네임스페이스  **/
+
 class Device {
     
     enum Categoty {
