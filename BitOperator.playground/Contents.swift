@@ -7,13 +7,13 @@ let five: Int  = 0b101
 let six: Int   = 0b110
 let seven: Int = 0b111
 
-let phone: Int        = 0b0000001
-let tablet: Int       = 0b0000010
-let watch: Int        = 0b0000100
-let laptop: Int       = 0b0001000
-let desktop: Int      = 0b0010000
-let tv: Int           = 0b0100000
-let brainImplant: Int = 0b1000000
+let phone: Int        = 1 << 0
+let tablet: Int       = 1 << 1
+let watch: Int        = 1 << 2
+let laptop: Int       = 1 << 3
+let desktop: Int      = 1 << 4
+let tv: Int           = 1 << 5
+let brainImplant: Int = 1 << 6
 
 print(String(five, radix: 2))
 print(String(phone + tablet + watch, radix: 2))
@@ -34,3 +34,16 @@ let brainImplantSupported = isSupported(device: brainImplant)
 print(brainImplantSupported)
 
 
+let deviceThatSupportUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+
+let stationaryOrUIKitDevices = deviceThatSupportUIKit | stationaryDevices
+// or 연산은 하나라도 1이면 1
+
+print(String(deviceThatSupportUIKit, radix: 2))
+print(String(stationaryDevices, radix: 2))
+print(String(stationaryOrUIKitDevices, radix: 2))
+
+// xor 연산은 둘의 값이 같으면 0
+let onlyStationaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices
+print(String(onlyStationaryOrUIKitDevices, radix: 2))
