@@ -1,0 +1,38 @@
+
+import Foundation
+
+
+func howLongUntilChrismas() -> String {
+    let calendar = Calendar.current
+    let timeZone = TimeZone.current
+    
+    let now = Date()
+    let yearOfNextChristmas = calendar.component(.year, from: now)
+    
+    var component = DateComponents(calendar: calendar,
+                                   timeZone: timeZone,
+                                   year: yearOfNextChristmas,
+                                   month: 12,
+                                   day: 25,
+                                   hour: 0,
+                                   minute: 0,
+                                   second: 0)
+    
+    var christmas = component.date!
+    if christmas < now {
+        component.year = yearOfNextChristmas + 1
+        christmas = component.date!
+    }
+    
+    let componentFormatter = DateComponentsFormatter()
+    componentFormatter.unitsStyle = .full
+    componentFormatter.allowedUnits = [.month, .day, .hour, .minute, .second]
+    
+    return componentFormatter.string(from: now, to:christmas)!
+}
+
+howLongUntilChrismas()
+
+
+let timeUntilChrismas = howLongUntilChrismas()
+print("Time until Chrismas: \(timeUntilChrismas)")
