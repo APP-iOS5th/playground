@@ -38,3 +38,19 @@ print(phoneSupported)
 
 let brainImplantSupported = isSupported(device: brainImplant)
 print(brainImplantSupported)
+
+
+//Or연산자
+
+let deviceThatSupportUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+
+
+let sttionaryOrUIKitDevices = deviceThatSupportUIKit | stationaryDevices
+print(String(deviceThatSupportUIKit, radix: 2))
+print(String(stationaryDevices, radix: 2))
+print(String(sttionaryOrUIKitDevices, radix: 2))
+
+let onlyStationaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices
+
+
