@@ -2,19 +2,13 @@ infix operator >>>
 //prefix operator
 //postfix operator
 
-func >>> (lhs: String, rhs: String) -> String {
+func >>> <Element>(lhs: Element, rhs: Array<Element>) -> Array<Element> {
     var combined = rhs
     combined.append(lhs)
     return combined
 }
 
-func >>> (lhs: String, rhs: [String]) -> [String] {
-    var combined = rhs
-    combined.append(lhs)
-    return combined
-}
-
-func >>> (lhs: [String], rhs: [String]) -> [String] {
+func >>> <Element> (lhs: Array<Element>, rhs: Array<Element>) -> Array<Element> {
     var combined = rhs
     combined.append(contentsOf: lhs)
     return combined
@@ -22,13 +16,10 @@ func >>> (lhs: [String], rhs: [String]) -> [String] {
 
 
 
-let appendedString = "Two" >>> "One"
-print(appendedString)
-
-
 let appendString2 = "Two" >>> ["One"]
 print(appendString2)
 
 let appendString3 = ["Three", "Four"] >>> ["One", "Two"]
 print(appendString3)
+
 
