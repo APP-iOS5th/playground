@@ -47,3 +47,20 @@ func printBallTypeOfPlayer1(forTable table: PoolTable) {
         print("Player 1 has no ball type or there is no current frame")
     }
 }
+
+let table = PoolTable()
+table.currentFrame = nil
+printBallTypeOfPlayer1(forTable: table)
+
+let frame = PoolFrame()
+frame.player1BallType = nil
+frame.player2BallType = nil
+table.currentFrame = frame
+printBallTypeOfPlayer1(forTable: table)
+
+frame.player1BallType = .solid
+frame.player2BallType = .stripe
+
+printBallTypeOfPlayer1(forTable: table)
+
+

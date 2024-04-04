@@ -7,5 +7,7 @@ class WinSwift: SwiftLanguage {
     
     override func supportedPlatforms() -> [String] {
         var supported = super.supportedPlatforms()
+        supported.append("Windows")
+        return supported
     }
 }

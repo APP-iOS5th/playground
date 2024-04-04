@@ -1,3 +1,30 @@
-import Cocoa
+public class Person {
+    public let name: String
+    public init(name: String) {
+        self.name = name
+    }
+}
 
-var greeting = "Hello, playground"
+public class Apple {
+    public private(set) var ceo: Person
+    private var employees = [Person]()
+    public let store = AppleStore()
+    private let secretDepartement = SecretProductDepartment()
+    
+    public init() {
+        ceo = Person(name: "Tim Cook")
+        employees.append(ceo)
+    }
+    
+    public func newEmployee(person: Person) {
+        employees.append(person)
+    }
+    
+    func weeklyProductMeeting() {
+        var superSecretProduct = secretDepartement.nextProduct(codeWord: "not sure")
+        
+        var superSecretProduct = secretDepartement.nextProduct(codeWord: "Titan")
+        
+        print(superSecretProduct as Any)
+    }
+}
