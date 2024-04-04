@@ -29,6 +29,7 @@ print(phone + tablet + watch) // 10 진수 계산
 // bit 연산
 let supportedDevices = phone + tablet + tv
 
+// AND 연산
 func isSupported(device: Int) -> Bool {
     let bitANDResult = supportedDevices & device // & -> AND
     let containsDevice = bitANDResult == device
@@ -40,3 +41,27 @@ print(phoneSupported)
 
 let brainImplantSupported = isSupported(device: brainImplant)
 print(brainImplantSupported)
+
+
+
+// OR 연산
+let deviceThatSupportUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+
+let stationaryORUIKitDevices = deviceThatSupportUIKit | stationaryDevices
+print(stationaryORUIKitDevices)
+print(String(stationaryORUIKitDevices, radix: 2))
+
+
+// XOR 연산 (같으면 0, 다르면 1)
+let onlyStationaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices
+print(String(onlyStationaryOrUIKitDevices, radix: 2))
+
+
+// Shift
+let phone_: Int = 0b0000001
+let phoneSH: Int = 1 << 2
+print(phone_)
+print(String(phone_, radix: 2))
+print(phoneSH)
+print(String(phoneSH, radix: 2))
