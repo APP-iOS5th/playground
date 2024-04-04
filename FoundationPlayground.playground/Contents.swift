@@ -28,3 +28,6 @@ func howLongUntilChristmas() -> String {
     
     return componentFormatter.string(from: now, to: christmas)!
 }
+
+let timeUntilChrestmas = howLongUntilChristmas()
+print("Time until Christmas: \(timeUntilChrestmas)")
