@@ -26,3 +26,17 @@ print(String(phone + tablet + watch, radix: 2))
 print(phone + tablet + watch) // 10 진수 계산
 
 
+// bit 연산
+let supportedDevices = phone + tablet + tv
+
+func isSupported(device: Int) -> Bool {
+    let bitANDResult = supportedDevices & device // & -> AND
+    let containsDevice = bitANDResult == device
+    return containsDevice
+}
+
+let phoneSupported = isSupported(device: phone)
+print(phoneSupported)
+
+let brainImplantSupported = isSupported(device: brainImplant)
+print(brainImplantSupported)
