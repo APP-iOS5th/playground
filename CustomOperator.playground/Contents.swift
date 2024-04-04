@@ -13,7 +13,6 @@ func >>> (lhs: String, rhs: String) -> String {
 }
 
 //이미 존재하는 >>> 함수에 오버로딩함.
-//>>> 오버로딩 예제 #1
 //<Elment> -> 제네럴 타입 지정(제네릭)
 func >>> <Elment> (lhs: Elment, rhs: Array<Elment>) -> Array<Elment> {
     var combined = rhs
@@ -21,7 +20,6 @@ func >>> <Elment> (lhs: Elment, rhs: Array<Elment>) -> Array<Elment> {
     return combined
 }
 
-//>>> 오버로딩 예제 #2
 func >>> (lhs: [String], rhs: [String]) -> String {
     var rhs = rhs
     var combined = ""
@@ -40,3 +38,25 @@ print(appendedAryString)
 
 let appendedAryAry = ["Three", "Four"] >>> ["One", "Two"]
 print(appendedAryAry)
+
+
+
+struct Task {
+    let name: String
+}
+
+class TaskList: CustomStringConvertible {
+    private var tasks: [Task] = []
+    func append(task: Task) {
+        tasks.append(task)
+    }
+    var description: String {
+        return tasks.map { $0.name }.joined(separator: "\n")
+    }
+}
+
+let shoppingList = TaskList()
+let task1 = Task(name: "get milk")
+shoppingList.append(task: task1)
+let task2 = Task(name: "get teabags")
+shoppingList.append(task: task2)
