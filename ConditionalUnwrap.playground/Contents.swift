@@ -15,6 +15,7 @@ func poolBallType(forNumber number: Int) -> PoolBallType? {
         return nil
     }
 }
+<<<<<<< HEAD
 //
 //func printBallDetails(ofNumber number: Int) -> Void {
 //    let possibleBallType: PoolBallType? = poolBallType(forNumber: number)
@@ -28,6 +29,16 @@ func printBallDetails(ofNumber number: Int) {
         print("\(number) - \(ballType.rawValue)")
     } else {
         print("\(number) is not a valid pool ball number.")
+=======
+
+func printBallDetails(ofNumber number: Int) {
+    let possibleBallType = poolBallType(forNumber: number)
+    
+    if let ballType = possibleBallType {
+        print("\(number) - \(ballType.rawValue)")
+    } else {
+        print("\(number) is not a valid pool ball number")
+>>>>>>> main
     }
 }
 
@@ -47,10 +58,31 @@ class PoolTable {
 }
 
 func printBallTypeOfPlayer1(forTable table: PoolTable) {
+<<<<<<< HEAD
     if let frame = table.currentFrame, let ballType = frame.player1BallType {
         print(ballType.rawValue)
     } else {
         print("Player 1 has no ball type or there is no current frame.")
+=======
+//    전통적인 방법
+//    let frame = table.currentFrame
+//    if(frame != nil) {
+//        let ballType = frame?.player1BallType
+//        if(ballType != nil) {
+//            print(ballType.rawValue)
+//        } else {
+//            print("Player 1 has no ball type or there is no current frame")
+//        }
+//    } else {
+//        print("Player 1 has no ball type or there is no current frame")
+//
+//    }
+    
+    if let frame = table.currentFrame, let ballType = frame.player1BallType {
+        print(ballType.rawValue)
+    } else {
+        print("Player 1 has no ball type or there is no current frame")
+>>>>>>> main
     }
 }
 
@@ -67,5 +99,8 @@ printBallTypeOfPlayer1(forTable: table)
 frame.player1BallType = .solid
 frame.player2BallType = .stripe
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 printBallTypeOfPlayer1(forTable: table)

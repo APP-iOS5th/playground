@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class RecentList<ListItemType> {
     var slot1: ListItemType?
     var slot2: ListItemType?
@@ -6,6 +7,16 @@ class RecentList<ListItemType> {
     var slot5: ListItemType?
     
     func add(recent: ListItemType) {
+=======
+class RecentList<나중에_들어올_타입> {
+    var slot1: 나중에_들어올_타입?
+    var slot2: 나중에_들어올_타입?
+    var slot3: 나중에_들어올_타입?
+    var slot4: 나중에_들어올_타입?
+    var slot5: 나중에_들어올_타입?
+    
+    func add(recent: 나중에_들어올_타입) {
+>>>>>>> main
         slot5 = slot4
         slot4 = slot3
         slot3 = slot2
@@ -13,8 +24,13 @@ class RecentList<ListItemType> {
         slot1 = recent
     }
     
+<<<<<<< HEAD
     func getAll() -> [ListItemType] {
         var recent = [ListItemType]()
+=======
+    func getAll() -> [나중에_들어올_타입] {
+        var recent = [나중에_들어올_타입]()
+>>>>>>> main
         if let slot1 = slot1 {
             recent.append(slot1)
         }
@@ -37,8 +53,12 @@ class RecentList<ListItemType> {
 let recentlyCopiedList = RecentList<String>()
 recentlyCopiedList.add(recent: "First")
 recentlyCopiedList.add(recent: "Next")
+<<<<<<< HEAD
 recentlyCopiedList.add(recent: "Lsst")
 
+=======
+recentlyCopiedList.add(recent: "Last")
+>>>>>>> main
 var recentlyCopied = recentlyCopiedList.getAll()
 print(recentlyCopied)
 
@@ -55,9 +75,15 @@ let freddy = Person(name: "Freddy")
 
 let lastCalledList = RecentList<Person>()
 
+<<<<<<< HEAD
 lastCalledList.add(recent: rod)
 lastCalledList.add(recent: jane)
 lastCalledList.add(recent: freddy)
+=======
+lastCalledList.add(recent: freddy)
+lastCalledList.add(recent: jane)
+lastCalledList.add(recent: rod)
+>>>>>>> main
 
 let lastCalled = lastCalledList.getAll()
 for person in lastCalled {

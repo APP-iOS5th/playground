@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 struct Devices: OptionSet {
     let rawValue: Int
     
@@ -10,13 +14,25 @@ struct Devices: OptionSet {
     static let brainImplant = Devices(rawValue: 1 << 6)
     
     static let none: Devices = []
+<<<<<<< HEAD
     static let all: Devices = [.phone, .tablet, .watch, .laptop, .desktop, .tv, .brainImplant]
     
     static let stationary: Devices = [.desktop, .tv]
     static let supportsUIKit: Devices = [.phone, .tablet, tv]
+=======
+    
+    static let all: Devices = [.phone, .tablet, .watch, .laptop, .desktop, .tv, .brainImplant]
+    
+    static let stationary: Devices = [.desktop, .tv]
+    
+    static let supportsUIKit: Devices = [.phone, .tablet, .tv]
+>>>>>>> main
 }
 
 let supportedDevices: Devices = [.phone, .tablet, .watch, .tv]
 
 let phoneIsSupported = supportedDevices.contains(.phone)
+<<<<<<< HEAD
 
+=======
+>>>>>>> main

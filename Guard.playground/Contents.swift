@@ -59,18 +59,35 @@ func makePlanet(fromInput input: [String: Any]) -> Planet? {
     else {
         return nil
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> main
     return Planet(name: name,
                   positionFromSun: positionFromSun,
                   fractionOfEarthMass: fractionOfEarthMass,
                   distanceFromSunInAUs: distanceFromSunInAUs,
                   hasRings: hasRings)
 }
+<<<<<<< HEAD
 func makePlanets(fromInput input: [[String: Any]]) -> [Planet] {
     var planets = [Planet]()
     for inputItem in input {
         guard let planet = makePlanet(fromInput: inputItem) else { continue }
         planets.append(planet)
     }
+=======
+
+func makePlanets(fromInput input: [[String: Any]]) -> [Planet] {
+    var planets = [Planet]()
+    for inputItem in input {
+        guard let planet = makePlanet(fromInput: inputItem) else {
+            continue
+        }
+        planets.append(planet)
+    }
+    
+>>>>>>> main
     return planets
 }
 

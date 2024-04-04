@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<<<<<<< HEAD
 <playground version='5.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+=======
+<playground version='5.0' target-platform='macos' buildActiveScheme='true' importAppTypes='true'>
+>>>>>>> main
     <timeline fileName='timeline.xctimeline'/>
 </playground>

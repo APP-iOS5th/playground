@@ -55,13 +55,21 @@ enum Character: String {
 func say(_ textToSay: String, to character: Character? = nil) {
     switch(textToSay, character) {
     case ("abracadabra", .wizard?):
+<<<<<<< HEAD
         print("The wizard says, \"Hay, That's my line!\"")
+=======
+        print("The wizard says, \"Hey, that's my line!\"")
+>>>>>>> main
     case ("Pour me a drink", .bartender?):
         print("The bartender pours you a drink")
     case ("Can I have some of your gold?", .dragon?):
         print("The dragon burns you to death with his fiery breath")
     case (let textSaid, nil):
+<<<<<<< HEAD
         print("You say \"\(textToSay)\", to no-one")
+=======
+        print("You say \"\(textSaid)\", to no-one.")
+>>>>>>> main
     case (_, let anyCharacter?):
         print("The \(anyCharacter) looks at you, blankly")
     }

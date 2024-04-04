@@ -7,7 +7,18 @@ func howLongUntilChristmas() -> String {
     let now = Date()
     let yearOfNextChristmas = calendar.component(.year, from: now)
     
+<<<<<<< HEAD
     var component = DateComponents(calendar: calendar, timeZone: timeZone, year: yearOfNextChristmas, month: 12, day: 25, hour: 0, minute: 0, second: 0)
+=======
+    var component = DateComponents(calendar: calendar,
+                                   timeZone: timeZone,
+                                   year: yearOfNextChristmas,
+                                   month: 12,
+                                   day: 25,
+                                   hour: 0,
+                                   minute: 0,
+                                   second: 0)
+>>>>>>> main
     
     var christmas = component.date!
     if christmas < now {
@@ -24,3 +35,7 @@ func howLongUntilChristmas() -> String {
 
 let timeUntilChristmas = howLongUntilChristmas()
 print("Time until Christmas: \(timeUntilChristmas)")
+<<<<<<< HEAD
+=======
+
+>>>>>>> main

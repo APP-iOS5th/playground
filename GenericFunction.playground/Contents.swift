@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 func makeDuplicates<ItemType, KeyType: Hashable>(of item: ItemType, withKeys keys: Set<KeyType>) -> [KeyType: ItemType] {
     var duplicates = [KeyType: ItemType]()
     for key in keys {
@@ -7,8 +10,21 @@ func makeDuplicates<ItemType, KeyType: Hashable>(of item: ItemType, withKeys key
     return duplicates
 }
 
+<<<<<<< HEAD
 let awards: Set<String> = ["Best Director", "Best Picture", "Best Original Screenplay", "Best International Feature"]
 
 let oscars2020 = makeDuplicates(of: "Parasite", withKeys: awards)
 print(oscars2020["Best Picture"] ?? "")
 print(oscars2020["Best International Feature"] ?? "")
+=======
+let awards: Set<String> = ["Best Director",
+                           "Best Picture",
+                           "Best Original Screenplay",
+                           "Best International Feature"]
+
+let oscars2020 = makeDuplicates(of: "Parasite", withKeys: awards)
+print(oscars2020["Best Picture"] ?? "")
+
+print(oscars2020["Best International Feature"] ?? "")
+
+>>>>>>> main
