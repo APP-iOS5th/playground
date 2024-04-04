@@ -9,15 +9,13 @@ let five: Int  = 0b101
 let six: Int   = 0b110
 let seven: Int = 0b111
 
-let phone: Int        = 0b0000001
-let tablet: Int       = 0b0000010
-let watch: Int        = 0b0000100
-let laptop: Int       = 0b0001000
-let desktop: Int      = 0b0010000
-let tv: Int           = 0b0100000
-let brainImplant: Int = 0b1000000
-
-
+let phone: Int        = 1 << 0
+let tablet: Int       = 1 << 1
+let watch: Int        = 1 << 2
+let laptop: Int       = 1 << 3
+let desktop: Int      = 1 << 4
+let tv: Int           = 1 << 5
+let brainImplant: Int = 1 << 6
 
 print(String((five), radix: 2))
 print(String((phone + tablet + watch), radix: 2))
@@ -54,3 +52,8 @@ let onlyStationaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices
 print(String((deviceThatSupportUIKit), radix: 2))
 print(String((stationaryDevices), radix: 2))
 print(String((onlyStationaryOrUIKitDevices), radix: 2))
+
+let testBit = 0b101010
+print(String(testBit, radix: 2))
+let result = testBit << 2
+print(String(result, radix: 2))
