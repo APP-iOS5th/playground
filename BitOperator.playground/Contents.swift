@@ -19,8 +19,10 @@ print(String(five, radix: 2))
 print(String(phone + tablet + watch, radix: 2))
 print(String(desktop, radix: 2))
 
+
 let supportedDevices = phone + tablet + tv
 
+// supportedDevices에 device가 포함되는지 확인하는 함수
 func isSupported(device: Int) -> Bool {
     let bitWiseANDResult = supportedDevices & device
     let containsDevice = bitWiseANDResult == device
