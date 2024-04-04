@@ -21,3 +21,19 @@ struct Devices: OptionSet {
 let supportedDevices: Devices = [.phone, .tablet, .watch, .tv]
 
 let phoneIsSupported = supportedDevices.contains(.phone)
+
+
+// custom operator ( 사용자 지정화)
+// >> 는 shift 연산자
+// >>> 는 사용자지정 연산자
+
+infix operator >>>
+
+func >>> (lhs: String, rhs: String) -> String {
+    var combined = rhs
+    combined.append(lhs)
+    return combined
+}
+
+let appendedString = "Two" >>> "One"
+print(appendedString)
