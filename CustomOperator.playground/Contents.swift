@@ -4,27 +4,27 @@ infix operator >>>
 
 // 좌항 lhs, 우항 rhs
 // >>> 라는 연산자 정의하기
-func >>> (lhs: String, rhs: String) -> String {
+//func >>> (lhs: String, rhs: String) -> String {
+//    var combined = rhs
+//    combined.append(lhs)
+//    return combined
+//}
+
+func >>> <Element>(lhs: Element, rhs: Array<Element>) -> Array<Element> {
     var combined = rhs
     combined.append(lhs)
     return combined
 }
 
-func >>> (lhs: String, rhs: [String]) -> [String] {
-    var combined = rhs
-    combined.append(lhs)
-    return combined
-}
-
-func >>> (lhs: [String], rhs: [String]) -> [String] {
+func >>> <Element>(lhs: Array<Element>, rhs: Array<Element>) -> Array<Element> {
     var combined = rhs
     combined.append(contentsOf: lhs)
     return combined
 }
 
 
-let appendedString = "Two" >>> "One"
-print(appendedString)
+//let appendedString = "Two" >>> "One"
+//print(appendedString)
 
 let appendedString2 = "Two" >>> ["One"]
 print(appendedString2)
