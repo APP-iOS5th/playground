@@ -38,7 +38,7 @@ class RSSNewsArticleBuilder: NSObject, XMLParserDelegate {
     var linkString: String?
     var articles = [NewsArticle]()
     
-    
+    // xml parser가 문서 파싱을 시작할 때 호출 -> 파싱에 필요한 변수 초기화
     func parserDidStartDocument(_ parser: XMLParser) {
         inItem = false
         inTitle = false
@@ -48,12 +48,14 @@ class RSSNewsArticleBuilder: NSObject, XMLParserDelegate {
         articles = [NewsArticle]()
     }
     
+    // xml 요소의 시작 태그를 만났을 때 호출
     func parser(_ parser: XMLParser,
                 didStartElement elementName: String,
                 namespaceURI: String?,
                 qualifiedName qName: String?,
                 attributes attributeDict: [String : String] = [:]) {
-
+        
+        // 요소 이름 확인 및 요소 내용 추출
         switch elementName {
             
         case "item":
@@ -73,10 +75,13 @@ class RSSNewsArticleBuilder: NSObject, XMLParserDelegate {
         
     }
     
+    // xml 요소의 끝 태그를 만났을 때 호출
     func parser(_ parser: XMLParser,
                 didEndElement elementName: String,
                 namespaceURI: String?,
                 qualifiedName qName: String?) {
+        
+        // 요소 내용 추출 및 적절한 형태로 저장하거나 처리
         switch elementName {
             
         case "item":
@@ -116,7 +121,6 @@ class RSSNewsArticleBuilder: NSObject, XMLParserDelegate {
         }
     }
 }
-
 
 
 fetchBBCNewsRSSFeed()
