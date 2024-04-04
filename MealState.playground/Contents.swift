@@ -21,7 +21,7 @@ class Meal {
         if saltAdded >= 5 {
             throw MealError.tooMuchSalt
         }
-        else if case .initial = state, case .buyIngregients = state { //if case는 if let 생각하면됨
+        else if case .initial = state, case .buyIngregients = state { // ,(or)
             throw MealError.wrongStateToAddSalt
         }
         else {

@@ -40,7 +40,7 @@ func makePlanets(fromInput input: [[String: Any]]) -> [Planet] {
     var planets = [Planet]()
     for inputItem in input {
         guard let planet = makePlanet(fromInput: inputItem) else {
-            continue
+            continue //실행을 컨트롤 하는 예약어
 }
         planets.append(planet)
     }
