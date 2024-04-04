@@ -45,3 +45,4 @@ let stationaryOrUIKitDevices = deviceThatSupportedUIkit | stationaryDevices
 phone = 1 << 0
 tablet = 1 << 1
 watch = 1 << 2
+
