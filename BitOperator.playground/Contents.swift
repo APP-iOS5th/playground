@@ -24,9 +24,24 @@ let desktop: Int      = 0b0010000
 let tv: Int          = 0b0100000
 let brainImplant: Int  = 0b1000000
 
+/// 비트 시프트 연산자
+/// 특정 비트를 정의할 때 많이 쓰임
+let phoneShift: Int        = 1 << 0
+let tabletShift: Int       = 1 << 1
+let watchShift: Int        = 1 << 2
+let laptopShift: Int       = 1 << 3
+let desktopShift: Int      = 1 << 4
+let tvShift: Int          = 1 << 5
+let brainImplantShift: Int  = 1 << 6
+
 print(String(five, radix: 2)) //앞자기 0을 제외하고 출력해준다.
 print(String(phone + tablet + watch, radix: 2)) //radix: 진수
 print(String(desktop, radix: 2))
+
+let testBit = 0b101010
+print(String(testBit, radix: 2))
+let resultBit = testBit << 2
+print(String(resultBit, radix: 2))
 
 
 let supportedDevices = phone + tablet + tv
