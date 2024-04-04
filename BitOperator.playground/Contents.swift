@@ -22,6 +22,7 @@ print(String(desktop, radix: 2))
 
 let suppottedDevices = phone + tablet + tv
 
+// And 연산자
 func isSupported(device: Int) -> Bool {
     let bitWiseANDResult = suppottedDevices & device
     let containsDevice = bitWiseANDResult == device
@@ -33,3 +34,18 @@ print(phoneSupported)
 
 let brainImplantSupported = isSupported(device: brainImplant)
 print(brainImplant)
+
+// Or 연산자
+
+let deviceThatSupporUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+
+let stationaryOrUIKitDevices = deviceThatSupporUIKit | stationaryDevices
+
+print(String(deviceThatSupporUIKit, radix: 2))
+print(String(stationaryDevices, radix: 2))
+print(String(stationaryOrUIKitDevices, radix: 2))
+
+// XOR 101 001 일경우 100 으로 계산(같은 1 이면 제외)
+let onlyStationaryOrUIKitDevices = deviceThatSupporUIKit ^ stationaryDevices
+print(String(onlyStationaryOrUIKitDevices, radix: 2))
