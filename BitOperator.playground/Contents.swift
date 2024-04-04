@@ -8,17 +8,22 @@ let six: Int   = 0b110
 let seven: Int = 0b111
 
 
-let phone: Int        = 0b0000001
-let tablet: Int       = 0b0000010
-let watch: Int        = 0b0000100
-let laptop: Int       = 0b0001000
-let desktop: Int      = 0b0010000
-let tv: Int           = 0b0100000
-let brainImplant: Int = 0b1000000
+let phone: Int        = 1 << 0 //0b0000001 이진수 시프트 연산자
+let tablet: Int       = 1 << 1 //0b0000010
+let watch: Int        = 1 << 2 //0b0000100
+let laptop: Int       = 1 << 3 //0b0001000
+let desktop: Int      = 1 << 4 //0b0010000
+let tv: Int           = 1 << 5 //0b0100000
+let brainImplant: Int = 1 << 6 //0b1000000
 
 print(String(five, radix: 2))
 print(String(phone + tablet + watch, radix: 2))
 print(String(desktop, radix: 2))
+
+let testBit = 0b101010
+print(String(testBit, radix: 2))
+let resultBit = testBit << 2
+print(String(resultBit, radix: 2))
 
 let suppottedDevices = phone + tablet + tv
 
