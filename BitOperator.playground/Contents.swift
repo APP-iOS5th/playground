@@ -57,3 +57,6 @@ let testBit = 0b101010
 print(String(testBit, radix: 2))
 let result = testBit << 2
 print(String(result, radix: 2))
+
+
+
