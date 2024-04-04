@@ -32,3 +32,15 @@ print(phoneSupported)
 
 let brainImplantSupported = isSupported(device: brainImplant)
 print(brainImplant)
+
+// OR 연산
+let deviceThatSupportUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+
+let stationaryOrUIKitDevieces = deviceThatSupportUIKit | stationaryDevices
+print(String(deviceThatSupportUIKit, radix: 2))
+print(String(stationaryDevices, radix: 2))
+print(String(stationaryOrUIKitDevieces, radix: 2))
+
+let onlyStaionaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices
+print(String(onlyStaionaryOrUIKitDevices, radix: 2))
