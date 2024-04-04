@@ -6,8 +6,13 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 let config = URLSessionConfiguration.default
 let session = URLSession(configuration: config)
 
+enum ResponseError: Error {
+    case requestUnsuccessful
+    case unexpectedResponseStructure
+}
 
-func fetchRepo(forUsername username:String) {
+func fetchRepo(forUsername username:String,
+               completionHandler: @escaping([[String: Any]]?, Error?) -> Void) {
     let urlString = "https://api.github.com/users/\(username)/repos"
     let url = URL(string: urlString)!
     var request = URLRequest(url: url)
@@ -22,7 +27,10 @@ func fetchRepo(forUsername username:String) {
         }
         
         guard let jsonData = data else {
-            print(error ?? "Network Error")
+            // 요청 에러
+//            print(error ?? "Network Error")
+            completionHandler(nil, ResponseError.requestUnsuccessful)
+            
             return
         }
         
@@ -33,10 +41,14 @@ func fetchRepo(forUsername username:String) {
             
             // as?(다운캐스팅): deserialized 타입을 [[String: Any]](딕셔너리 배열의 배열)로 다운캐스팅
             guard let repos = deserialized as? [[String: Any]] else { // 실행 구문이기 때문에 generic이 아닌 any 사용
-                print("Unexpected Response")
+                // 응답 에러
+//                print("Unexpected Response")
+                completionHandler(nil, ResponseError.unexpectedResponseStructure)
+                
                 return
             }
-            print(repos)
+//            print(repos)
+            completionHandler(repos, nil)
             
         } catch {
             print(error)
@@ -48,4 +60,12 @@ func fetchRepo(forUsername username:String) {
 }
 
 //fetchRepo(forUsername: "jihyeep")
-fetchRepo(forUsername: "APP-iOS5th")
+fetchRepo(forUsername: "APP-iOS5th") { (repos, error) in
+    if let repos = repos {
+//        print("repos: \(repos)") // error
+        print(repos)
+    } else {
+//        print("error: \(error ?? "")") // error
+        print(error as Any) // Any 타입으로 타입캐스팅
+    }
+}
