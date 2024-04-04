@@ -19,6 +19,7 @@ print(String(five, radix: 2))
 print(String(phone + tablet + watch, radix: 2))
 print(String(desktop, radix: 2))
 
+// and 연산
 let supportedDevices = phone + tablet + watch
 
 func isSupported(device: Int) -> Bool {
@@ -32,3 +33,15 @@ print(phoneSupported) // true
 
 let brainImplantSupported = isSupported(device: brainImplant)
 print(brainImplantSupported) // false
+
+// or 연산, xor 연산
+let deviceThatSupportUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+print(String(deviceThatSupportUIKit, radix: 2))
+print(String(stationaryDevices, radix: 2))
+
+let stationaryOrUIKitDevices = deviceThatSupportUIKit | stationaryDevices
+print(String(stationaryOrUIKitDevices, radix: 2))
+
+let onlyStationaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices
+print(String(onlyStationaryOrUIKitDevices, radix: 2))
