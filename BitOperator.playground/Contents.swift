@@ -39,3 +39,18 @@ print(phoneSuppoerted)
 let brainImplantSupported = isSuppored(device: brainImplant)
 print(brainImplantSupported)
 
+
+
+let deviceThatSupportUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+
+let stationaryOrUIKitDevices = deviceThatSupportUIKit | stationaryDevices
+print(String((deviceThatSupportUIKit), radix: 2))
+print(String((stationaryDevices), radix: 2))
+print(String((stationaryOrUIKitDevices), radix: 2))
+
+
+let onlyStationaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices
+print(String((deviceThatSupportUIKit), radix: 2))
+print(String((stationaryDevices), radix: 2))
+print(String((onlyStationaryOrUIKitDevices), radix: 2))
