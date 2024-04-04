@@ -50,9 +50,15 @@ class TaskList: CustomStringConvertible {
     }
     var description: String {
         return tasks.map { $0.name }.joined(separator: "\n")
-    } }
+    }
+}
 extension TaskList {
     static func >>> (lhs: Task, rhs: TaskList) {
         rhs.append(task: lhs)
     }
 }
+
+let shoppingList = TaskList()
+let task1 = Task(name: "Get Milk!")
+shoppingList.append(task: task1)
+print(shoppingList.description)
