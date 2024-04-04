@@ -34,3 +34,17 @@ print(phoneSupported) // true
 
 let brainImplantSupported = isSupported(device: brainImplant)
 print(brainImplantSupported) // false
+
+
+let deviceThatSupportUIKit = phone + tablet + tv
+let stationaryDevices = desktop + tv
+
+let stationaryOrUIKitDevices = deviceThatSupportUIKit | stationaryDevices
+
+print(String(deviceThatSupportUIKit, radix: 2))
+print(String(stationaryDevices, radix: 2))
+print(String(stationaryOrUIKitDevices, radix: 2))
+
+// XOR 연산
+let onlyStationaryOrUIKitDevices = deviceThatSupportUIKit ^ stationaryDevices // tv가 중복되므로 제외됨
+print(String(onlyStationaryOrUIKitDevices, radix: 2))
