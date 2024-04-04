@@ -38,7 +38,6 @@ struct TicTacToe {
         var rowString = "| \(row[0].rawValue) "
         rowString += "| \(row[1].rawValue) "
         rowString += "| \(row[2].rawValue) |\n"
-        
         return rowString
     }
 }
