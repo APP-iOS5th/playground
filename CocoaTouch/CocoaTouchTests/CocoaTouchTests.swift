@@ -12,12 +12,16 @@ final class CocoaTouchTests: XCTestCase {
 
     var viewControllerUnderTest: ReposTableViewController?
     
-    //변수 선언 ( 셋팅 )
+    //변수 선언 ( 셋팅 초기화)
     override func setUp() {
+        super.setUp()
         viewControllerUnderTest = ReposTableViewController()
         
     }
-    
+    override func tearDown() {
+        viewControllerUnderTest = nil
+        super.tearDown()
+    }
     
     func testThatRepoIsNotNill() {
         XCTAssertNotNil(viewControllerUnderTest?.repos)
