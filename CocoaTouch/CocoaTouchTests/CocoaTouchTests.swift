@@ -8,6 +8,31 @@
 import XCTest
 @testable import CocoaTouch
 
+class MockURLSession: URLSession {
+    override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return MockURLSessionDataTask(completionHandler: completionHandler, request: request)
+    }
+}
+
+class MockURLSessionDataTask: URLSessionDataTask {
+    
+    var completionHandler: (Data?, URLResponse?, Error?) -> Void
+    var request: URLRequest
+    
+    init(completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void, request: URLRequest) {
+        self.completionHandler = completionHandler
+        self.request = request
+        super.init()
+    }
+    
+    var calledResume = false
+    
+    override func resume() {
+        calledResume = true
+    }
+    
+}
+
 final class CocoaTouchTests: XCTestCase {
     
     var viewControllerUnderTest: ReposTableViewController?
@@ -24,6 +49,12 @@ final class CocoaTouchTests: XCTestCase {
     
     func testThatRepoIsNotNil() {
         XCTAssertNotNil(viewControllerUnderTest?.repos)
+    }
+    
+    func testThatFetchRepoParsesSuccessFulData() {
+        viewControllerUnderTest?.fetchRepos(forUsername: "", completionHandler: { (response) in
+            print("\(response)")
+        })
     }
 
     override func setUpWithError() throws {

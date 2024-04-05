@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A61AB4C62BBFCF4D002FA7F8 /* mock_Data.json in Resources */ = {isa = PBXBuildFile; fileRef = A61AB4C52BBFCF4D002FA7F8 /* mock_Data.json */; };
 		A6DEF3812BBE96930022B9F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEF3802BBE96930022B9F9 /* AppDelegate.swift */; };
 		A6DEF3832BBE96930022B9F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEF3822BBE96930022B9F9 /* SceneDelegate.swift */; };
 		A6DEF3852BBE96930022B9F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEF3842BBE96930022B9F9 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A61AB4C52BBFCF4D002FA7F8 /* mock_Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = mock_Data.json; path = ../../../../Downloads/mock_Data.json; sourceTree = "<group>"; };
 		A6DEF37D2BBE96930022B9F9 /* CocoaTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DEF3802BBE96930022B9F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6DEF3822BBE96930022B9F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		A6DEF3962BBE96980022B9F9 /* CocoaTouchTests */ = {
 			isa = PBXGroup;
 			children = (
+				A61AB4C52BBFCF4D002FA7F8 /* mock_Data.json */,
 				A6DEF3972BBE96980022B9F9 /* CocoaTouchTests.swift */,
 			);
 			path = CocoaTouchTests;
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A61AB4C62BBFCF4D002FA7F8 /* mock_Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
