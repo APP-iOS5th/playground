@@ -91,13 +91,18 @@ class ReposTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath) as? RepoCell else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath)
 
-        
+        let repo = repos[indexPath.row]
+        cell.textLabel?.text = repo.name
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repos[indexPath.row]
+        print(repo.name)
+    }
 
     /*
     // Override to support conditional editing of the table view.
