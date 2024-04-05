@@ -15,9 +15,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="a2h-Es-gg0">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SB0-nc-rky">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="mWo-E4-HPt" id="wFn-Ta-6e1"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="SB0-nc-rky" secondAttribute="bottom" id="CDK-ny-YDq"/>
+                                <constraint firstItem="SB0-nc-rky" firstAttribute="leading" secondItem="a2h-Es-gg0" secondAttribute="leading" id="bxE-Eh-Smb"/>
+                                <constraint firstItem="SB0-nc-rky" firstAttribute="top" secondItem="a2h-Es-gg0" secondAttribute="top" id="mfW-sx-Z6b"/>
+                                <constraint firstAttribute="trailing" secondItem="SB0-nc-rky" secondAttribute="trailing" id="zNK-CX-mJl"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoCell" id="fGY-02-zhO">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="44.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fGY-02-zhO" id="hat-60-Woj">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
