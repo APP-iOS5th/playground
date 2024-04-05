@@ -161,3 +161,30 @@ class ReposTableViewController: UITableViewController {
     */
 
 }
+
+extension ReposTableViewController: UITextFieldDelegate {
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let enteredUsername = textField.text else {
+            repos = []
+            tableView.reloadData()
+            return true
+        }
+        
+        fetchRepos(forUsername: enteredUsername) { [weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos = []
+                print("There was an error: \(error)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        // 키보드가 내려가는 액션
+        textField.resignFirstResponder()
+        return true
+    }
+}
