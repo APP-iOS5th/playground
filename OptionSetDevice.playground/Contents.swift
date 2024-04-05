@@ -1,6 +1,6 @@
 struct Devices: OptionSet {
     let rawValue: Int
-    
+    let aD = 1
     static let phone = Devices(rawValue: 1 << 0)
     static let tablet = Devices(rawValue: 1 << 1)
     static let watch = Devices(rawValue: 1 << 2)
@@ -17,6 +17,8 @@ struct Devices: OptionSet {
     
     static let supportsUIKit: Devices = [.phone, .tablet, .tv]
 }
+
+
 
 let supportedDevices: Devices = [.phone, .tablet, .watch, .tv]
 
