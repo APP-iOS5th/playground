@@ -9,6 +9,26 @@ import XCTest
 @testable import cocoaTouch
 
 final class cocoaTouchTests: XCTestCase {
+    
+    var viewControllerUnderTest: ReposTableViewController?
+    
+    override func setUp() {
+        super.setUp()
+        viewControllerUnderTest = ReposTableViewController()
+    }
+    
+    override func tearDown() {
+        viewControllerUnderTest = nil
+        super.tearDown()
+    }
+    
+    func testThatRepoIsNotNil() {
+        XCTAssertNotNil(viewControllerUnderTest?.repos)
+    }
+    
+    func testThatFetchRepoParsesSuccessfulData() {
+        viewControllerUnderTest?.fetchRepos(forUsername: "", completionHandler: { (response) in print("\(response)")})
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
