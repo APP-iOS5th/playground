@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 // var : 변수
 var greeting = "Hello, playground"
@@ -272,24 +272,57 @@ class Person3: Saveable {
 }
 
 
+// -- 튜플 -- //
+func normalizedStartRating
+(forRating rating: Float, ofPossibleTotal total: Float) 
+-> (Int, String) {
+    let fraction = rating/total
+    let ratingOutOf5 = fraction * 5
+    let rounedRating = round(ratingOutOf5)
+    let numberOfStars = Int(rounedRating)
+    let ratingString = "\(numberOfStars) Star Movie"
+    return(numberOfStars, ratingString) // Touple
+}
+print(normalizedStartRating(forRating: 4.0, ofPossibleTotal: 3.0))
 
 
 
+// -- 배열 -- //
+var moviesToWatch: Array<String> = Array()
+moviesToWatch.append("The shsnakd Redapti")
+moviesToWatch.append("HoshotBurst")
+moviesToWatch.append("Terminator 2")
 
+print(moviesToWatch)
+print(moviesToWatch.count)
+moviesToWatch.insert("The Matrix", at: 2)
+print(moviesToWatch)
+print(moviesToWatch.first ?? "Empty")
+print(moviesToWatch.last ?? "Empty")
 
+let secondMovieToWatch = moviesToWatch[1]
+moviesToWatch[1] = "Ghostbusters (1984)"
+print(moviesToWatch.count)
+print(moviesToWatch)
 
+let spyMovieSuggestions: [String] = ["aaa", "bbb", "ccc"]
+moviesToWatch = moviesToWatch + spyMovieSuggestions // 하나의 배열로 결합
+print(moviesToWatch)
 
+var starWarsTrilogy = Array<String>(repeating: "Star wars :", count : 3)
+print(starWarsTrilogy) // ["Star wars :", "Star wars :", "Star wars :"]
 
+starWarsTrilogy[0] += "A New Hope"
+starWarsTrilogy[1] += "Empire Strikes Back"
+starWarsTrilogy[2] += "Return of the Jedi"
+print(starWarsTrilogy)
 
+// 3~5번째 배열 갈아끼우기
+moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
+print(moviesToWatch)
 
-
-
-
-
-
-
-
-
+moviesToWatch.remove(at:6)
+print(moviesToWatch)
 
 
 
