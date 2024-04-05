@@ -117,6 +117,4 @@ class RSSNewsArticleBuilder: NSObject, XMLParserDelegate {
     }
 }
 
-
-
 fetchBBCNewsRSSFeed()
