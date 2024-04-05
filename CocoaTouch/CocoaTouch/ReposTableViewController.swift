@@ -68,16 +68,22 @@ class ReposTableViewController: UITableViewController {
 
         self.title = "Repos"
         
-        let repo1 = Repo(name: "Test Repo 1", url: URL(string: "https://example.com/repo1"))
-        let repo2 = Repo(name: "Test Repo 2", url: URL(string: "https://example.com/repo2"))
-        
-        repos.append(contentsOf: [repo1, repo2])
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        // 비동기 구문으로 시차가 있어서 그 때 존재하지 않을 수 있는 위험이 있어서 weak 약한 참조를 사용
+        // 주소지에 존재하지 않으면 실행하지 않는다
+        fetchRepos(forUsername: "APP-iOS5th") { [weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos = []
+                print("There was an error: \(error)")
+            }
+            // 메인 흐름에 잠시 끼워준다?
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
