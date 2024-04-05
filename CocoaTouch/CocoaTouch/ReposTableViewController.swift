@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 struct Repo: Codable {
     let name: String?
@@ -122,7 +123,14 @@ class ReposTableViewController: UITableViewController {
         
         return cell
     }
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repos[indexPath.row]
+        guard let repoURL = repo.url else { return }
+        
+        let webViewController = SFSafariViewController(url: repoURL)
+        show(webViewController, sender: nil)
+    }
+    }
     
     /*
      // Override to support conditional editing of the table view.
@@ -169,4 +177,4 @@ class ReposTableViewController: UITableViewController {
      }
      */
     
-}
+
