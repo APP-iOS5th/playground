@@ -7,11 +7,32 @@
 
 import UIKit
 
+struct Repo: Codable {
+    let name: String?
+    let url: URL?
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case url = "html_url"
+    }
+}
+
+enum FetchReposResult {
+    case success([Repo])
+    case failure(Error)
+}
+
+enum ResponseError: Error {
+    case requestUnSuccessful
+    case unexpectedResponseStructure
+}
+
 class ReposTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.title = "Repos"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
