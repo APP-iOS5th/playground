@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SafariServices
 
 struct Repo: Codable {
     let name: String?
@@ -105,6 +105,16 @@ class ReposTableViewController: UITableViewController {
         let repo = repos[indexPath.row]
         cell.textLabel?.text = repo.name
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repos[indexPath.row]
+        guard let repoUrl = repo.url else { return }
+        let webViewController = SFSafariViewController(url: repoUrl)
+//        webViewC  ontroller.modalPresentationStyle = .formSheet
+//        self.present(webViewController, animated: true)
+        show(webViewController, sender: nil)
     }
 
 }
