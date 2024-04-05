@@ -28,6 +28,8 @@ struct Repo: Codable {
     }
 }
 
+
+
 class ReposTableViewController: UITableViewController {
     
     //Properties
@@ -50,7 +52,6 @@ class ReposTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
-            
         }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -123,4 +124,37 @@ class ReposTableViewController: UITableViewController {
         show(webViewController, sender: nil)
     }
     
+}
+
+extension ReposTableViewController: UITextFieldDelegate{
+    
+    //textFieldShouldReturn가 메인쓰레드에서 동작해서 weak self사용 X
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        guard let enteredUsername = textField.text else {
+            repos = []
+            tableView.reloadData()
+            return true
+
+        }
+        
+        fetchRepos(forUsername: enteredUsername) { [weak self] result in
+            
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos = []
+                print("there was an error: \(error)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        
+        //포커스 잃어버리는 메소드
+        textField.resignFirstResponder()
+        
+        return true
+    }
 }

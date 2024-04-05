@@ -15,9 +15,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="cqp-n8-Pea">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ph-2W-vFd">
+                                    <rect key="frame" x="8" y="5" width="377" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="Dvf-9l-aFS" id="uKi-aX-keY"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="5Ph-2W-vFd" firstAttribute="leading" secondItem="cqp-n8-Pea" secondAttribute="leading" constant="8" id="1qC-hr-mqG"/>
+                                <constraint firstItem="5Ph-2W-vFd" firstAttribute="centerY" secondItem="cqp-n8-Pea" secondAttribute="centerY" id="6OZ-4x-DZ6"/>
+                                <constraint firstAttribute="trailing" secondItem="5Ph-2W-vFd" secondAttribute="trailing" constant="8" id="L03-9o-EQV"/>
+                                <constraint firstItem="5Ph-2W-vFd" firstAttribute="top" secondItem="cqp-n8-Pea" secondAttribute="top" constant="5" id="RYh-eW-wMG"/>
+                                <constraint firstItem="5Ph-2W-vFd" firstAttribute="centerX" secondItem="cqp-n8-Pea" secondAttribute="centerX" id="bXP-ND-gu7"/>
+                                <constraint firstAttribute="bottom" secondItem="5Ph-2W-vFd" secondAttribute="bottom" constant="5" id="kbM-je-bMV"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoCell" id="ESQ-Se-CCW">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="44.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ESQ-Se-CCW" id="jOC-5u-gLZ">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
@@ -30,7 +53,9 @@
                             <outlet property="delegate" destination="Dvf-9l-aFS" id="S9L-3j-kaE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="bPv-B6-x5T"/>
+                    <navigationItem key="navigationItem" id="bPv-B6-x5T">
+                        <nil key="title"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PU8-Zo-LdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
