@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F2BBE2E2BBFCF0000075F5A /* mock_Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F2BBE2D2BBFCF0000075F5A /* mock_Data.json */; };
 		7F87D9FC2BBE969600894609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87D9FB2BBE969600894609 /* AppDelegate.swift */; };
 		7F87D9FE2BBE969600894609 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87D9FD2BBE969600894609 /* SceneDelegate.swift */; };
 		7F87DA002BBE969600894609 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87D9FF2BBE969600894609 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F2BBE2D2BBFCF0000075F5A /* mock_Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_Data.json; sourceTree = "<group>"; };
 		7F87D9F82BBE969600894609 /* CocoaTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F87D9FB2BBE969600894609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F87D9FD2BBE969600894609 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				7F87DA122BBE969800894609 /* CocoaTouchTests.swift */,
+				7F2BBE2D2BBFCF0000075F5A /* mock_Data.json */,
 			);
 			path = CocoaTouchTests;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F2BBE2E2BBFCF0000075F5A /* mock_Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
