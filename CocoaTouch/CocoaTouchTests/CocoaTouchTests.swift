@@ -6,7 +6,13 @@ final class CocoaTouchTests: XCTestCase {
     var viewControllerUnderTest: ReposTableViewController?
     
     override func setUp() {
+        super.setUp()
         viewControllerUnderTest = ReposTableViewController()
+    }
+    
+    override func tearDown() {
+        viewControllerUnderTest = nil
+        super.tearDown()
     }
     
     func testThatRepoIsNotNil() {
