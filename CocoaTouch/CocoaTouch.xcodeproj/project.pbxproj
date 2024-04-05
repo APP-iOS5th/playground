@@ -16,6 +16,7 @@
 		58105FF82BBE96FF00363B44 /* CocoaTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58105FF72BBE96FF00363B44 /* CocoaTouchTests.swift */; };
 		581060022BBE96FF00363B44 /* CocoaTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581060012BBE96FF00363B44 /* CocoaTouchUITests.swift */; };
 		581060042BBE96FF00363B44 /* CocoaTouchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581060032BBE96FF00363B44 /* CocoaTouchUITestsLaunchTests.swift */; };
+		581060112BBE9BAC00363B44 /* ReposTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581060102BBE9BAC00363B44 /* ReposTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		58105FFD2BBE96FF00363B44 /* CocoaTouchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaTouchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		581060012BBE96FF00363B44 /* CocoaTouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaTouchUITests.swift; sourceTree = "<group>"; };
 		581060032BBE96FF00363B44 /* CocoaTouchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaTouchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		581060102BBE9BAC00363B44 /* ReposTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				58105FE02BBE96FE00363B44 /* AppDelegate.swift */,
 				58105FE22BBE96FE00363B44 /* SceneDelegate.swift */,
 				58105FE42BBE96FE00363B44 /* ViewController.swift */,
+				581060102BBE9BAC00363B44 /* ReposTableViewController.swift */,
 				58105FE62BBE96FE00363B44 /* Main.storyboard */,
 				58105FE92BBE96FF00363B44 /* Assets.xcassets */,
 				58105FEB2BBE96FF00363B44 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58105FE52BBE96FE00363B44 /* ViewController.swift in Sources */,
+				581060112BBE9BAC00363B44 /* ReposTableViewController.swift in Sources */,
 				58105FE12BBE96FE00363B44 /* AppDelegate.swift in Sources */,
 				58105FE32BBE96FE00363B44 /* SceneDelegate.swift in Sources */,
 			);
