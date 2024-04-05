@@ -17,6 +17,7 @@
 		4174B0E62BBE968B0069293A /* CocoaTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4174B0E52BBE968B0069293A /* CocoaTouchUITests.swift */; };
 		4174B0E82BBE968B0069293A /* CocoaTouchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4174B0E72BBE968B0069293A /* CocoaTouchUITestsLaunchTests.swift */; };
 		4174B0F52BBE9BAC0069293A /* ReposTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4174B0F42BBE9BAC0069293A /* ReposTableViewController.swift */; };
+		41E3EB322BBFCF5200C9D784 /* mock_Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 41E3EB312BBFCF5200C9D784 /* mock_Data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4174B0E52BBE968B0069293A /* CocoaTouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaTouchUITests.swift; sourceTree = "<group>"; };
 		4174B0E72BBE968B0069293A /* CocoaTouchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaTouchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4174B0F42BBE9BAC0069293A /* ReposTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposTableViewController.swift; sourceTree = "<group>"; };
+		41E3EB312BBFCF5200C9D784 /* mock_Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_Data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		4174B0B82BBE968A0069293A = {
 			isa = PBXGroup;
 			children = (
+				41E3EB312BBFCF5200C9D784 /* mock_Data.json */,
 				4174B0C32BBE968A0069293A /* CocoaTouch */,
 				4174B0DA2BBE968B0069293A /* CocoaTouchTests */,
 				4174B0E42BBE968B0069293A /* CocoaTouchUITests */,
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E3EB322BBFCF5200C9D784 /* mock_Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
