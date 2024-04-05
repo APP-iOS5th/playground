@@ -16,6 +16,11 @@ final class CocoaTouchTests: XCTestCase {
         viewControllerUnderTest = ReposTableViewController()
     }
     
+    override func teerDown() {
+        viewControllerUnderTest = nil
+        super.tearDown()
+    }
+    
     func testThatRepoIsNotNil() {
         XCTAssertNotNil(viewControllerUnderTest?.repos)
     }
