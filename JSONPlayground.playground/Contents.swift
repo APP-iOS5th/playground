@@ -6,7 +6,13 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 let config = URLSessionConfiguration.default
 let session = URLSession(configuration: config)
 
-func fetchRepo(forUsername username: String) {
+enum ResponseError: Error {
+    case requestUnsucessful
+    case unexpectedResponseStructure
+}
+
+func fetchRepo(forUsername username: String,
+               completionHandler: @escaping ([[String: Any]]?, Error?) -> Void) {
     let urlString = "https://api.github.com/users/\(username)/repos"
     let url = URL(string: urlString)!
     var request = URLRequest(url: url)
@@ -14,31 +20,40 @@ func fetchRepo(forUsername username: String) {
     request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
     
     let task = session.dataTask(with: request) { (data, response, error) in
-        
-        defer{
+
+        defer {
             PlaygroundPage.current.finishExecution()
-            
         }
-        guard let jsonData = data else{
-            print(error ?? "Network Error")
+        
+        guard let jsonData = data else {
+            completionHandler(nil, ResponseError.requestUnsucessful)
             return
         }
+        
         do {
-            let deserialized = try JSONSerialization.jsonObject(with: jsonData, options:[])
+            let deserialized = try JSONSerialization.jsonObject(with: jsonData, options: [])
             print(deserialized)
             
             guard let repos = deserialized as? [[String: Any]] else {
-                print("Unexpected Response")
+                completionHandler(nil, ResponseError.unexpectedResponseStructure)
                 return
             }
             
-            print(repos)
-            
+            completionHandler(repos, nil)
+    
         } catch {
-            print(error)
+            completionHandler(nil, error)
         }
+
     }
+    
     task.resume()
 }
 
-fetchRepo(forUsername: "yehjinjang")
+fetchRepo(forUsername: "APP-iOS5th") { (repos, error) in
+    if let repos = repos {
+        print(repos)
+    } else {
+        print(error as Any)
+    }
+}
