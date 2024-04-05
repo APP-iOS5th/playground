@@ -4,7 +4,7 @@
 //
 //  Created by JIHYE SEOK on 4/4/24.
 //
-
+import SafariServices
 import UIKit
 
 struct Repo: Codable {
@@ -108,6 +108,14 @@ class ReposTableViewController: UITableViewController {
         cell.textLabel?.text = repo.name
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repos[indexPath.row]
+        guard let repoURL = repo.url else { return }
+        
+        let webViewController = SFSafariViewController(url: repoURL)
+        show(webViewController, sender: nil)
     }
     
     /*
