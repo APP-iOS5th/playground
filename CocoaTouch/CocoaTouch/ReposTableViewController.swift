@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SafariServices
 
 struct Repo: Codable {
     let name: String?
@@ -66,17 +66,27 @@ class ReposTableViewController: UITableViewController {
         return task
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Repos"
         
+        fetchRepos(forUsername: "APP-iOS5th") { [weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos =  []
+                print("There was an error: \(error)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
         
-        let repo1 = Repo(name: "Test Repo 1", url: URL(string: "https:example.com/repo1"))
-        let repo2 = Repo(name: "Test Repo 2", url: URL(string: "https:example.com/repo2"))
-        
-        repos.append(contentsOf: [repo1,repo2])
+    }
+    
         
 
 
@@ -85,8 +95,6 @@ class ReposTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -108,6 +116,14 @@ class ReposTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repos[indexPath.row]
+        guard let repoURL = repo.url else { return }
+        
+        let webViewController = SFSafariViewController(url : repoURL)
+        show(webViewController, sender:nil)
     }
 
     /*
@@ -156,3 +172,34 @@ class ReposTableViewController: UITableViewController {
     */
 
 }
+
+extension ReposTableViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let enteredUsername = textField.text else {
+            repos = []
+            tableView.reloadData()
+            return true
+        }
+        fetchRepos(forUsername: enteredUsername) {[weak self] result in
+            
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos =  []
+                print("There was an error: \(error)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
+    }
+    
+}
+
+
