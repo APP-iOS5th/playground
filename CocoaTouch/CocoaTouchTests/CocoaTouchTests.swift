@@ -10,6 +10,20 @@ import XCTest
 
 final class CocoaTouchTests: XCTestCase {
 
+    var viewControllerUnderTest: ReposTableViewController?
+    
+    //변수 선언 ( 셋팅 )
+    override func setUp() {
+        viewControllerUnderTest = ReposTableViewController()
+        
+    }
+    
+    
+    func testThatRepoIsNotNill() {
+        XCTAssertNotNil(viewControllerUnderTest?.repos)
+    }
+    
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
