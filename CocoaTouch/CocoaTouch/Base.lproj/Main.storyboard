@@ -30,8 +30,8 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="7Bk-kr-C0k" firstAttribute="leading" secondItem="79d-BX-rga" secondAttribute="leading" constant="10" id="N8l-lj-6Np"/>
-                                <constraint firstAttribute="trailing" secondItem="7Bk-kr-C0k" secondAttribute="trailing" constant="10" id="YC9-tw-5bk"/>
+                                <constraint firstItem="7Bk-kr-C0k" firstAttribute="leading" secondItem="79d-BX-rga" secondAttribute="leading" constant="10" id="FV8-Zp-RY3"/>
+                                <constraint firstAttribute="trailing" secondItem="7Bk-kr-C0k" secondAttribute="trailing" constant="10" id="br9-sI-p7z"/>
                                 <constraint firstAttribute="bottom" secondItem="7Bk-kr-C0k" secondAttribute="bottom" constant="5" id="faf-cl-0ee"/>
                                 <constraint firstItem="7Bk-kr-C0k" firstAttribute="top" secondItem="79d-BX-rga" secondAttribute="top" constant="5" id="rQZ-E3-Z0f"/>
                             </constraints>

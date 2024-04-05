@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD3624DA2BBF8A5E00359681 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3624D92BBF8A5E00359681 /* RepoCell.swift */; };
+		CD3624DC2BBFC6E000359681 /* CocoaTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1232BBE969200A7A130 /* CocoaTouchUITests.swift */; };
 		CDB6A1032BBE969000A7A130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1022BBE969000A7A130 /* AppDelegate.swift */; };
 		CDB6A1052BBE969000A7A130 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1042BBE969000A7A130 /* SceneDelegate.swift */; };
 		CDB6A1072BBE969000A7A130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1062BBE969000A7A130 /* ViewController.swift */; };
@@ -15,7 +16,6 @@
 		CDB6A10C2BBE969200A7A130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB6A10B2BBE969200A7A130 /* Assets.xcassets */; };
 		CDB6A10F2BBE969200A7A130 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CDB6A10E2BBE969200A7A130 /* Base */; };
 		CDB6A11A2BBE969200A7A130 /* CocoaTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1192BBE969200A7A130 /* CocoaTouchTests.swift */; };
-		CDB6A1242BBE969200A7A130 /* CocoaTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1232BBE969200A7A130 /* CocoaTouchUITests.swift */; };
 		CDB6A1262BBE969200A7A130 /* CocoaTouchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1252BBE969200A7A130 /* CocoaTouchUITestsLaunchTests.swift */; };
 		CDB6A1332BBE9B5700A7A130 /* ReposTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1322BBE9B5700A7A130 /* ReposTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -285,7 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDB6A1262BBE969200A7A130 /* CocoaTouchUITestsLaunchTests.swift in Sources */,
-				CDB6A1242BBE969200A7A130 /* CocoaTouchUITests.swift in Sources */,
+				CD3624DC2BBFC6E000359681 /* CocoaTouchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
