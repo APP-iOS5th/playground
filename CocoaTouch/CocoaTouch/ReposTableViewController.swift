@@ -13,7 +13,7 @@ struct Repo: Codable {
     let url: URL?
     
     enum CodingKeys: String, CodingKey {
-        case name = "url"
+        case name = "name"
         case url = "html_url"
     }
 }
@@ -39,10 +39,20 @@ class ReposTableViewController: UITableViewController {
         
         self.title = "Repos"
         
-        let repo1 = Repo(name: "testRepo1", url: URL(string: "https://example.com/repo1"))
-        let repo2 = Repo(name: "testRepo2", url: URL(string: "https://example.com/repo2"))
+        self.fetchRepos(forUsername: "iOS-Ruel") {[weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos = []
+                print("There was an error: \(error)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
         
-        repos.append(contentsOf: [repo1, repo2])
+        
     }
 
     @discardableResult
