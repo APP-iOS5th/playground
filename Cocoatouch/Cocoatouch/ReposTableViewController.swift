@@ -31,7 +31,7 @@ struct Repo: Codable {
 class ReposTableViewController: UITableViewController {
     
     //Properties
-    internal var session = URLSession.shared
+    internal var session = URLSession.shared //세션을 분리한 이유 -> 테스트가 편하기 위함! (세션을 목킹함)
     internal var repos = [Repo]()
     
     override func viewDidLoad() {
