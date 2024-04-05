@@ -2,7 +2,11 @@
 //  CocoaTouchUITestsLaunchTests.swift
 //  CocoaTouchUITests
 //
+<<<<<<< HEAD
 //  Created by Jungjin Park on 2024-04-04.
+=======
+//  Created by Jungman Bae on 4/5/24.
+>>>>>>> main
 //
 
 import XCTest

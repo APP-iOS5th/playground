@@ -155,7 +155,10 @@ class RSSNewsArticleBuilder: NSObject, XMLParserDelegate {
 =======
 }
 
+<<<<<<< HEAD
 
 
+>>>>>>> main
+=======
 >>>>>>> main
 fetchBBCNewsRSSFeed()

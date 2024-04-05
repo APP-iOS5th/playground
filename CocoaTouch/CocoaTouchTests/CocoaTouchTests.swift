@@ -2,12 +2,20 @@
 //  CocoaTouchTests.swift
 //  CocoaTouchTests
 //
+<<<<<<< HEAD
 //  Created by Jungjin Park on 2024-04-04.
+=======
+//  Created by Jungman Bae on 4/5/24.
+>>>>>>> main
 //
 
 import XCTest
 @testable import CocoaTouch
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 class MockURLSession: URLSession {
     override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         return MockURLSessionDataTask(completionHandler: completionHandler, request: request)
@@ -34,7 +42,11 @@ class MockURLSessionDataTask: URLSessionDataTask {
 }
 
 final class CocoaTouchTests: XCTestCase {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> main
     var viewControllerUnderTest: ReposTableViewController?
     
     override func setUp() {
@@ -42,7 +54,10 @@ final class CocoaTouchTests: XCTestCase {
         viewControllerUnderTest = ReposTableViewController()
     }
     
+<<<<<<< HEAD
     // test 가 끝났을 때 테스트 자료를 지우는 것
+=======
+>>>>>>> main
     override func tearDown() {
         viewControllerUnderTest = nil
         super.tearDown()
@@ -52,6 +67,7 @@ final class CocoaTouchTests: XCTestCase {
         XCTAssertNotNil(viewControllerUnderTest?.repos)
     }
     
+<<<<<<< HEAD
     func testThatFetchRepoParsesSuccessfulData() {
         viewControllerUnderTest?.session = MockURLSession()
         
@@ -66,6 +82,45 @@ final class CocoaTouchTests: XCTestCase {
         })
     }
     
+=======
+    var mockData: Data {
+        if let path = Bundle.main.path(forResource: "mock_Data", ofType: "json"), let contents = FileManager.default.contents(atPath: path){
+            return contents
+        }
+        return Data()
+    }
+
+    
+    func testThatFetchRepoParsesSuccessfulData() {
+        viewControllerUnderTest?.session = MockURLSession()
+
+        var responseObject: FetchReposResult?
+
+        let result = viewControllerUnderTest?.fetchRepos(forUsername: "", completionHandler: { (response) in
+            responseObject = response
+        }) as? MockURLSessionDataTask
+
+        result?.completionHandler(mockData, nil, nil)
+
+        switch responseObject {
+        case .success(let repos):
+            
+            // Our test data had 3 repos, lets check that parsed okay
+            XCTAssertEqual(repos.count, 9)
+            
+            // We know the first repo has a specific name... let's check that
+            XCTAssertEqual(repos.first?.name, "aerogear-ios-oauth2")
+        case .failure(let error):
+            print("\(error)")
+        default:
+            // Anything other than success - failure...
+            XCTFail()
+        }
+
+    }
+    
+
+>>>>>>> main
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

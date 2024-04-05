@@ -92,7 +92,7 @@ func fetchRepo(forUsername username: String,
 fetchRepo(forUsername: "APP-iOS5th") { (repos, error) in
     if let repos = repos {
         print(repos)
-    } else {
+    } else {    
         print(error as Any)
     }
 }
