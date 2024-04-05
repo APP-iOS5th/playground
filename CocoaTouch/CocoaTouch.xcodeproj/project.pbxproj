@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD3624DA2BBF8A5E00359681 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3624D92BBF8A5E00359681 /* RepoCell.swift */; };
 		CD3624DC2BBFC6E000359681 /* CocoaTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1232BBE969200A7A130 /* CocoaTouchUITests.swift */; };
+		CD3624DE2BBFCF2400359681 /* mock_Data.json in Resources */ = {isa = PBXBuildFile; fileRef = CD3624DD2BBFCF2400359681 /* mock_Data.json */; };
 		CDB6A1032BBE969000A7A130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1022BBE969000A7A130 /* AppDelegate.swift */; };
 		CDB6A1052BBE969000A7A130 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1042BBE969000A7A130 /* SceneDelegate.swift */; };
 		CDB6A1072BBE969000A7A130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB6A1062BBE969000A7A130 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		CD3624D92BBF8A5E00359681 /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		CD3624DD2BBFCF2400359681 /* mock_Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_Data.json; sourceTree = "<group>"; };
 		CDB6A0FF2BBE969000A7A130 /* CocoaTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB6A1022BBE969000A7A130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB6A1042BBE969000A7A130 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CDB6A1192BBE969200A7A130 /* CocoaTouchTests.swift */,
+				CD3624DD2BBFCF2400359681 /* mock_Data.json */,
 			);
 			path = CocoaTouchTests;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3624DE2BBFCF2400359681 /* mock_Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
