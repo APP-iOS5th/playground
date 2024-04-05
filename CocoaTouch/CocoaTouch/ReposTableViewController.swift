@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 struct Repo: Codable {
     let name: String?
@@ -108,8 +109,16 @@ class ReposTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repos[indexPath.row]
+        guard let repoURL = repo.url else { return }
+        
+        let webViewController = SFSafariViewController(url: repoURL)
+        show(webViewController, sender: nil)
+    }
     
     /*
+     #imageLiteral(resourceName: "simulator_screenshot_B1BEBC0E-8232-451F-B5D1-4BF7109266AF.png")
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
      // Return false if you do not want the specified item to be editable.
