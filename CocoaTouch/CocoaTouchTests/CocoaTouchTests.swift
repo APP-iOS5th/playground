@@ -8,8 +8,57 @@
 import XCTest
 @testable import CocoaTouch
 
-final class CocoaTouchTests: XCTestCase {
 
+class MockURLSession: URLSession {
+    override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return MockURLSessionDataTask(completionHandler: completionHandler, request: request)
+    }
+}
+
+class MockURLSessionDataTask: URLSessionDataTask {
+    
+    var completionHandler: (Data?, URLResponse?, Error?) -> Void
+    var request: URLRequest
+    
+    init(completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void, request: URLRequest) {
+        self.completionHandler = completionHandler
+        self.request = request
+        super.init()
+    }
+    
+    var calledResume = false
+    
+    override func resume() {
+        calledResume = true
+    }
+    
+}
+
+
+final class CocoaTouchTests: XCTestCase {
+    
+    var viewControllerUnderTest: ReposTableViewController?
+    
+    override func setUp() {
+        super.setUp()
+        viewControllerUnderTest = ReposTableViewController()
+    }
+    
+    override func tearDown() {
+        viewControllerUnderTest = nil
+        super.tearDown()
+    }
+    
+    func testThatRepoIsNotNil() {
+        XCTAssertNotNil(viewControllerUnderTest?.repos)
+    }
+
+    func testThatFetchRepoParsesSucessfulData() {
+        viewControllerUnderTest?.fetchRepos(forUsername: "", completionHandler:{(response) in
+                                            print("\(response)")
+        })
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

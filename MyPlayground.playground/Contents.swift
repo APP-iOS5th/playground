@@ -1,43 +1,36 @@
 
-var moviesToWatch: Array<String> = Array()
+import CoreLocation
 
-moviesToWatch.append("The Shawshank Redemption")
-moviesToWatch.append("Ghostbusters")
-moviesToWatch.append("Terminator 2")
+protocol TransportLocation {
+    var location: CLLocation { get }
+}
 
-print(moviesToWatch[0])
-print(moviesToWatch.count)
+protocol TransportMethod {
+    associatedtype CollectionPoint: TransportLocation
+    var dedaultCollectionPoint: CollectionPoint { get }
+    var averageSpeedInKPH: Double { get }
+    
+}
 
-moviesToWatch.insert("The Matrix", at:2)
+struct Train: TransportMethod, TransporLocation {
+    var location: CLLocation
+    
+    typealias CollectionPoint = TrainStation
+    
+    var dedaultCollectionPoint: TrainStation {
+        return TrainStation.BMS
+    }
+    
+    var averageSpeedInKPH: Double
+    
+   
+    
+    
+}
 
-//빈 배열일때 실행하면 안되기때문에 옵셔널로 지정
-print(moviesToWatch.first ?? "Empty")
-print(moviesToWatch.last ?? "Empty")
-
-let secondMovieToWatch = moviesToWatch[1]
-moviesToWatch[1] = "Ghost busters (1984)"
-print(moviesToWatch.count)
-print(moviesToWatch)
-
-let spyMovieSuggestions: [String] = ["The bourne", "Casino Royale", "Mission Impossible"]
-moviesToWatch = moviesToWatch + spyMovieSuggestions
-print(moviesToWatch.count)
-print(moviesToWatch)
-
-
-//배열을 초기화하면서 값 넣기
-var starWarsTrilogy = Array<String>(repeating: "Star Wars", count: 3)
-starWarsTrilogy[0] += "A New Hope"
-starWarsTrilogy[1] += "Empire Strikes Back"
-starWarsTrilogy[2] += "Return of the Jedi"
-print(starWarsTrilogy)
-
-
-//2~4번째 배열을 새롭게 변경
-moviesToWatch.replaceSubrange(2...4, with: starWarsTrilogy)
-print(moviesToWatch.count)
-
-//해당하는 인덱스값을 제거
-moviesToWatch.remove(at:6)
-print(moviesToWatch.count)
-print(moviesToWatch)
+enum TrainStation: String {
+    case BMS = "1"
+    case VIC = "2"
+    case RAI = "3"
+    case BTN = "4"
+}
