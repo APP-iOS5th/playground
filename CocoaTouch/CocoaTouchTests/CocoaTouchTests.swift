@@ -6,10 +6,89 @@
 //
 
 import XCTest
-@testable import CocoaTouch
+@testable import CocoaTouch // 내가 만든 코드 불러옴
+
+class MockURLSession: URLSession {
+    override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return MockURLSessionDataTask(completionHandler: completionHandler, request: request)
+    }
+}
+
+class MockURLSessionDataTask: URLSessionDataTask {
+    
+    var completionHandler: (Data?, URLResponse?, Error?) -> Void
+    var request: URLRequest
+    
+    init(completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void, request: URLRequest) {
+        self.completionHandler = completionHandler
+        self.request = request
+        super.init()
+    }
+    
+    var calledResume = false
+    
+    override func resume() {
+        calledResume = true
+    }
+    
+}
 
 final class CocoaTouchTests: XCTestCase {
+    
+    var viewControllerUnderTest: ReposTableViewController?
+    
+    // 초기화
+    override func setUp() {
+        viewControllerUnderTest = ReposTableViewController()
+    }
+    
+    // 테스트 종료(시동 끄기)
+    override func tearDown() {
+        viewControllerUnderTest = nil
+        super.tearDown()
+    }
+    
+    func testThatRepoIsNotNil() {
+        XCTAssertNotNil(viewControllerUnderTest?.repos)
+    }
+   
+    // Mocking..?
+    var mockData: Data {
+        if let path = Bundle.main.path(forResource: "mock_Data", ofType: "json"), let contents = FileManager.default.contents(atPath: path){
+            return contents
+        }
+        return Data()
+    }
 
+    func testThatFetchRepoParsesSuccessfulData() {
+        viewControllerUnderTest?.session = MockURLSession()
+
+        var responseObject: FetchReposResult?
+
+        let result = viewControllerUnderTest?.fetchRepos(forUsername: "", completionHandler: { (response) in
+            responseObject = response
+        }) as? MockURLSessionDataTask
+
+        result?.completionHandler(mockData, nil, nil)
+
+        switch responseObject {
+        case .success(let repos):
+
+            // Our test data had 3 repos, lets check that parsed okay
+            XCTAssertEqual(repos.count, 9)
+
+            // We know the first repo has a specific name... let's check that
+            XCTAssertEqual(repos.first?.name, "aerogear-ios-oauth2")
+        case .failure(let error):
+            print("\(error)")
+        default:
+            // Anything other than success - failure...
+            XCTFail()
+        }
+
+    }
+    
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
