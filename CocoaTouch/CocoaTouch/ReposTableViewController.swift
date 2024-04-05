@@ -118,3 +118,32 @@ class ReposTableViewController: UITableViewController {
     }
 
 }
+
+extension ReposTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let enteredUserName = textField.text else {
+            repos = []
+            tableView.reloadData()
+            return true
+        }
+        
+        fetchRepos(forUsername: enteredUserName) {[weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos = []
+                print("There was an error: \(error)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.title = enteredUserName
+            }
+        }
+        
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
+}
