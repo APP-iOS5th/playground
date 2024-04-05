@@ -38,10 +38,19 @@ class ReposTableViewController: UITableViewController {
         
         self.title = "Repos"
         
-        let repo1 = Repo(name: "Test Repo 1", url: URL(string: "https//example.com/repo1"))
-        let repo2 = Repo(name: "Test Repo 2", url: URL(string: "https//example.com/repo2"))
-        
-        repos.append(contentsOf: [repo1, repo2])
+        fetchRepos(forUsername: "jjwon2149") { [weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos = []
+                print("there was an error: \(error)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+            
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -61,7 +70,7 @@ class ReposTableViewController: UITableViewController {
                          forHTTPHeaderField: "Accept")
         let task = session.dataTask(with: request) { (data,
                                                       response, error) in
-            
+
             // First unwrap the optional data
             guard let data = data else {
                 completionHandler(.failure(ResponseError.requestUnsuccessful))
