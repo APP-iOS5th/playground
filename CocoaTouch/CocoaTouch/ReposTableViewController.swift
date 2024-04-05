@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices // SFSafariViewController
 
 struct Repo: Codable {
     let name: String?
@@ -131,6 +132,14 @@ class ReposTableViewController: UITableViewController {
         cell.textLabel?.text = repo.name
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repos[indexPath.row]
+        guard let repoURL = repo.url else { return }
+        
+        let webViewController = SFSafariViewController(url: repoURL) // 아직까진 사파리만 가능
+        show(webViewController, sender: nil)
     }
     
     /*
