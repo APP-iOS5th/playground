@@ -29,7 +29,8 @@
 		D8509FA42BBBE624000ADE20 /* AppleIncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleIncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8509FA92BBBE624000ADE20 /* AppleIncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIncTests.swift; sourceTree = "<group>"; };
 		D8D0CC9F2BBBF65B00E29B06 /* Apple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Apple.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D8D0CCA42BBBFAFE00E29B06 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; };
+		D8D0CCA62BBBFC6B00E29B06 /* SwiftLanguage.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftLanguage.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D8D0CCA72BBBFCC600E29B06 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +55,8 @@
 		D8509F922BBBE624000ADE20 = {
 			isa = PBXGroup;
 			children = (
-				D8D0CCA42BBBFAFE00E29B06 /* AccessControl.playground */,
+				D8D0CCA72BBBFCC600E29B06 /* AccessControl.playground */,
+				D8D0CCA62BBBFC6B00E29B06 /* SwiftLanguage.playground */,
 				D8D0CC9F2BBBF65B00E29B06 /* Apple.playground */,
 				D8509F9E2BBBE624000ADE20 /* AppleInc */,
 				D8509FA82BBBE624000ADE20 /* AppleIncTests */,

@@ -97,6 +97,6 @@ let roadJourney = Journey(start: start, end: end, method: Road.car)
 let distanceByRoad = roadJourney.distanceInKMs
 let durationByRoad = roadJourney.durationInHours
 
-print("Journey distance: \(distanceByRoad)")
-print("Journey duration \(durationByRoad)")
+print("Journey distance: \(distanceByRoad) km")
+print("Journey duration \(durationByRoad) hours")
 
