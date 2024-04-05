@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B5B37402BBFD13A00202806 /* mock_Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_Data.json; sourceTree = "<group>"; };
 		3B945E5C2BBE969400ABC6F1 /* CocoaTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B945E5F2BBE969400ABC6F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B945E612BBE969400ABC6F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		3B945E532BBE969400ABC6F1 = {
 			isa = PBXGroup;
 			children = (
+				3B5B37402BBFD13A00202806 /* mock_Data.json */,
 				3B945E5E2BBE969400ABC6F1 /* CocoaTouch */,
 				3B945E752BBE969600ABC6F1 /* CocoaTouchTests */,
 				3B945E7F2BBE969600ABC6F1 /* CocoaTouchUITests */,
