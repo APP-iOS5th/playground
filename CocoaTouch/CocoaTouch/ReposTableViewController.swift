@@ -113,3 +113,29 @@ class ReposTableViewController: UITableViewController {
         present(webViewController, animated: true)
     }
 }
+
+extension ReposTableViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let tf = textField.text else {
+            self.repos = []
+            tableView.reloadData()
+            return true
+        }
+        
+        fetchRepos(forUsername: tf) { [weak self] res in
+            switch res {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos = []
+                print("error >> \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        
+        return true
+    }
+}

@@ -15,9 +15,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="79d-BX-rga">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Bk-kr-C0k">
+                                    <rect key="frame" x="10" y="5" width="373" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="apZ-wg-v3Q" id="aOY-PF-7oB"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="7Bk-kr-C0k" firstAttribute="leading" secondItem="79d-BX-rga" secondAttribute="leading" constant="10" id="N8l-lj-6Np"/>
+                                <constraint firstAttribute="trailing" secondItem="7Bk-kr-C0k" secondAttribute="trailing" constant="10" id="YC9-tw-5bk"/>
+                                <constraint firstAttribute="bottom" secondItem="7Bk-kr-C0k" secondAttribute="bottom" constant="5" id="faf-cl-0ee"/>
+                                <constraint firstItem="7Bk-kr-C0k" firstAttribute="top" secondItem="79d-BX-rga" secondAttribute="top" constant="5" id="rQZ-E3-Z0f"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RepoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoCell" id="leL-KG-muh" customClass="RepoCell" customModule="CocoaTouch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="44.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="leL-KG-muh" id="cM5-TA-5SQ">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
@@ -30,7 +51,9 @@
                             <outlet property="delegate" destination="apZ-wg-v3Q" id="C8L-9Y-GQM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DwA-Ek-JR7"/>
+                    <navigationItem key="navigationItem" id="DwA-Ek-JR7">
+                        <nil key="title"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4j-hM-Ui6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
