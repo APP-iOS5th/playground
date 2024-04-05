@@ -19,9 +19,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Toz-h7-JjX">
-                                    <rect key="frame" x="18" y="5" width="357" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Toz-h7-JjX">
+                                    <rect key="frame" x="20" y="5" width="350" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -30,6 +29,14 @@
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Toz-h7-JjX" secondAttribute="bottom" constant="5" id="DE4-yh-gte"/>
+                                <constraint firstItem="Toz-h7-JjX" firstAttribute="top" secondItem="Ppq-Db-8FK" secondAttribute="top" constant="10" id="F8D-BJ-WIz"/>
+                                <constraint firstItem="Toz-h7-JjX" firstAttribute="top" secondItem="Ppq-Db-8FK" secondAttribute="top" constant="5" id="IHW-Ot-BKB"/>
+                                <constraint firstItem="Toz-h7-JjX" firstAttribute="leading" secondItem="Ppq-Db-8FK" secondAttribute="leading" constant="20" id="NvO-FZ-sTe"/>
+                                <constraint firstAttribute="bottom" secondItem="Toz-h7-JjX" secondAttribute="bottom" constant="10" id="bwQ-4W-Bcv"/>
+                                <constraint firstAttribute="trailing" secondItem="Toz-h7-JjX" secondAttribute="trailing" constant="20" id="qP0-JI-yHP"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoCell" id="olJ-IR-1HE">
