@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 struct Repo: Codable {
     let name: String?
@@ -71,7 +72,7 @@ class ReposTableViewController: UITableViewController {
         
         self.title = "Repos"
         
-        fetchRepos(forUsername: "APP-iOS5th") { [weak self] result in //weak self 비동기 실행조건을 가지고잇음.. 코드시차가 있기 때문에 그때 self가 존재하지 않을 윟머이... 그래서 약한참조를 쓴다고.. , 
+        fetchRepos(forUsername: "APP-iOS5th") { [weak self] result in //weak self 비동기 실행조건을 가지고잇음.. 코드시차가 있기 때문에 그때 self가 존재하지 않을 윟머이... 그래서 약한참조를 쓴다고.. ,
             switch result {
             case .success(let repos):
                 self?.repos = repos
@@ -105,6 +106,14 @@ class ReposTableViewController: UITableViewController {
         cell.textLabel?.text = repo.name
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repos[indexPath.row]
+        guard let repoURL = repo.url else { return }
+        
+        let webViewController = SFSafariViewController(url: repoURL)
+        show(webViewController, sender: nil)
     }
     
     /*
@@ -152,4 +161,29 @@ class ReposTableViewController: UITableViewController {
      }
      */
     
+}
+
+extension ReposTableViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let enteredUsername = textField.text else {
+            repos = []
+            tableView.reloadData()
+            return true
+        }
+        fetchRepos(forUsername: enteredUsername) { [weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+            case .failure(let error):
+                self?.repos = []
+                print("There was an error: \(error)")
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        
+        textField.resignFirstResponder()
+        return true
+    }
 }
