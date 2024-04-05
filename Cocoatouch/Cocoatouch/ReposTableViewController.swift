@@ -28,8 +28,6 @@ struct Repo: Codable {
     }
 }
 
-
-
 class ReposTableViewController: UITableViewController {
     
     //Properties
