@@ -1,15 +1,18 @@
-//
-//  CocoaTouchTests.swift
-//  CocoaTouchTests
-//
-//  Created by 김정우 on 4/4/24.
-//
-
 import XCTest
 @testable import CocoaTouch
 
 final class CocoaTouchTests: XCTestCase {
 
+    var viewControllerUnderTest: ReposTableViewController?
+    
+    override func setUp() {
+        viewControllerUnderTest = ReposTableViewController()
+    }
+    
+    func testThatRepoIsNotNil() {
+        XCTAssertNotNil(viewControllerUnderTest?.repos)
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
