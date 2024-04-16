@@ -1,56 +1,71 @@
+@propertyWrapper
+struct FixCase {
+    private(set) var value: String = ""
+    var wrappedValue: String {
+        get {value}
+        set {value = newValue.uppercased()}
+    }
+    init(wrappedValue initialValue: String) {
+        self.wrappedValue = initialValue
+    }
+}
+struct Contact {
+    @FixCase var name: String
+    @FixCase var city: String
+    @FixCase var country: String
+}
 
-struct SampleStruct {
-    var name: String
+var contact = Contact(name: "John Smith", city: "London", country: "United Kingdom")
+print("\(contact.name), \(contact.city), \(contact.country)")
+
+struct Address {
+    private var cityname: String = ""
     
-    init(name: String) {
-        self.name = name
+    var city: String {
+        get {cityname}
+        set {cityname = newValue.uppercased()}
+    }
+}
+
+var address = Address()
+address.city = "London"
+print(address.city)
+
+
+@propertyWrapper
+struct MiniMaxVal<V: Comparable> {
+    var value:V
+    let min: V
+    let max: V
+    init(wrappedValue: V, min: V, max: V) {
+        value = wrappedValue
+        self.min = min
+        self.max = max
     }
     
-    func buildHelloMsg() {
-        "Hello" + name
+    var wrappedValue: V {
+        get {return value}
+        set {
+            if newValue > max {
+                value = max
+            } else if newValue < min {
+                value = min
+            } else {
+                value = newValue
+            }
+        }
     }
+    
 }
 
-class SampleClass {
-    var name: String
-    init(name: String) {
-        self.name = name
-    }
-    func buildingHelloMsg() {
-        "Hello" + name
-    }
+struct Demo {
+    @MiniMaxVal(min: 10, max: 150) var value: Int = 100
+    @MiniMaxVal(min: "Apple", max: "Orange") var value2: String = ""
 }
 
-let myStruct1 = SampleStruct(name: "Mark")
-var myStruct2 = myStruct1
-myStruct2.name = "David"
+var demo = Demo()
 
-print(myStruct1.name)
-print(myStruct2.name)
-
-let myClass1 = SampleClass(name: "mark")
-var myClass2 = myClass1
-myClass2.name = "David"
-
-print(myClass1.name)
-print(myClass2.name)
-
-enum Temperature {
-    case hot
-    case warm
-    case cold(cetigrade: Int)
-}
-
-func displayTempInfo(temp: Temperature) {
-    switch temp {
-    case .hot:
-        print("It is hot")
-    case .warm:
-        print("It is warm")
-    case .cold(let centigrade) where centigrade <= 0:
-        print("Ice warning: \(centigrade) degrees.")
-    case .cold:
-        print("It is cold")
-    }
-}
-displayTempInfo(temp: .cold(cetigrade: -10))
+demo.value2 = "Banana"
+print(demo.value2)
+demo.value2 = "Pear"
+print(demo.value2)
